@@ -1,0 +1,1317 @@
+#X3D V4.0 utf8
+
+PROFILE Immersive
+
+COMPONENT HAnim:2
+COMPONENT Texturing:3
+
+Group {
+ children [
+  Transform {
+    translation 0 0 0
+    children DEF LeifSiteShape Shape {
+     geometry Box {
+      size 0.02 0.02 0.02
+     }
+     appearance Appearance {
+      material Material {
+       diffuseColor 0 0 1
+      }
+     }
+    }
+  }
+  Transform {
+   translation 0 0 0
+   children DEF LeifJointShape Shape {
+    geometry Sphere {
+     radius 0.02
+    }
+    appearance Appearance {
+     material Material {
+      diffuseColor 0 1 0
+     }
+    }
+   }
+  }
+ ]
+}
+
+NavigationInfo { type [ "EXAMINE" "ANY"] headlight FALSE }
+
+PointLight { location 0 10 0 }
+DirectionalLight { }
+DirectionalLight { direction 0 0 1 }
+
+DEF LeifView Transform { children [
+ Transform { translation 0 0.924 0 children [ ]}
+  DEF ViewLeif Viewpoint { description "Leif Front View"
+   position 0 1.5 2 orientation 0.5 0 0 -0.5 centerOfRotation 0 0.5 0 }
+  DEF SceneCoordSystem Transform { scale 0.175 0.175 0.175 children [
+   Inline { url ["JointCoordinateAxes.x3dv"] } ]}
+
+DEF LeifHumanoid Group { children [
+
+DEF GrampBoxShape Shape { geometry Box { size 0.01 0.01 0.01 } }
+
+DEF Leif HAnimHumanoid {
+  skeleton [
+ DEF Leif_humanoid_root HAnimJoint { name "humanoid_root"  center 0 0.824 0.0277 # test jointcenter 0 0 0 
+ children [
+   DEF Leif_sacrum HAnimSegment { name "sacrum" children [ Transform { translation 0 0.824 0.0277 # test segment translation 0 0.824 0.0277
+ children [ USE LeifJointShape ] }
+   ] }
+   DEF Leif_sacroiliac HAnimJoint { name "sacroiliac"  center 0 0.9149 0.0016 # test jointcenter -0.0031 0.4482 -0.0244 
+ children [
+     DEF Leif_pelvis HAnimSegment { name "pelvis" children [ Transform { translation 0 0.9149 0.0016 # test segment translation 0 0.9149 0.0016
+ children [ USE LeifJointShape ] }
+         DEF Leif_r_iliocristale HAnimSite { name "r_iliocristale" translation -0.1525 1.0628 0.0035 # test site translation -0.1525 1.0628 0.0035
+  children [ TouchSensor { description "r_iliocristale" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_r_trochanterion HAnimSite { name "r_trochanterion" translation -0.1689 0.8419 0.0352 # test site translation -0.1689 0.8419 0.0352
+  children [ TouchSensor { description "r_trochanterion" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_l_iliocristale HAnimSite { name "l_iliocristale" translation 0.1612 1.0537 0.0008 # test site translation 0.1612 1.0537 0.0008
+  children [ TouchSensor { description "l_iliocristale" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_l_trochanterion HAnimSite { name "l_trochanterion" translation 0.1677 0.8336 0.0303 # test site translation 0.1677 0.8336 0.0303
+  children [ TouchSensor { description "l_trochanterion" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_r_asis HAnimSite { name "r_asis" translation -0.0887 1.0021 0.1112 # test site translation -0.0887 1.0021 0.1112
+  children [ TouchSensor { description "r_asis" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_l_asis HAnimSite { name "l_asis" translation 0.0774 1.019 -0.1151 # test site translation 0.0774 1.019 -0.1151
+  children [ TouchSensor { description "l_asis" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_r_psis HAnimSite { name "r_psis" translation -0.0716 1.019 -0.1138 # test site translation -0.0716 1.019 -0.1138
+  children [ TouchSensor { description "r_psis" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_l_psis HAnimSite { name "l_psis" translation 0.0774 1.019 -0.1151 # test site translation 0.0774 1.019 -0.1151
+  children [ TouchSensor { description "l_psis" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_crotch HAnimSite { name "crotch" translation 0.0034 0.8266 0.0257 # test site translation 0.0034 0.8266 0.0257
+  children [ TouchSensor { description "crotch" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_buttocks_standing_wall_contact_point HAnimSite { name "buttocks_standing_wall_contact_point" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "buttocks_standing_wall_contact_point" }
+           USE LeifSiteShape
+         ] }
+     ] }
+     DEF Leif_l_hip HAnimJoint { name "l_hip"  center 0.0961 0.9124 -0.0001 # test jointcenter -0.0509 0.4202 -0.0064 
+ children [
+       DEF Leif_l_thigh HAnimSegment { name "l_thigh" children [ Transform { translation 0.0961 0.9124 -0.0001 # test segment translation 0.0961 0.9124 -0.0001
+ children [ USE LeifJointShape ] }
+           DEF Leif_l_knee_crease HAnimSite { name "l_knee_crease" translation 0.0993 0.4881 -0.0309 # test site translation 0.0993 0.4881 -0.0309
+  children [ TouchSensor { description "l_knee_crease" }
+             USE LeifSiteShape
+           ] }
+           DEF Leif_l_femoral_medial_epicondyles HAnimSite { name "l_femoral_medial_epicondyles" translation 0.0398 0.4946 0.0303 # test site translation 0.0398 0.4946 0.0303
+  children [ TouchSensor { description "l_femoral_medial_epicondyles" }
+             USE LeifSiteShape
+           ] }
+           DEF Leif_l_femoral_lateral_epicondyles HAnimSite { name "l_femoral_lateral_epicondyles" translation 0.1598 0.4967 0.0297 # test site translation 0.1598 0.4967 0.0297
+  children [ TouchSensor { description "l_femoral_lateral_epicondyles" }
+             USE LeifSiteShape
+           ] }
+           DEF Leif_l_suprapatella HAnimSite { name "l_suprapatella" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_suprapatella" }
+             USE LeifSiteShape
+           ] }
+       ] }
+       DEF Leif_l_knee HAnimJoint { name "l_knee"  center 0.104 0.4867 0.0308 # test jointcenter -0.0503 0.2289 -0.0064 
+ children [
+         DEF Leif_l_calf HAnimSegment { name "l_calf" children [ Transform { translation 0.104 0.4867 0.0308 # test segment translation 0.104 0.4867 0.0308
+ children [ USE LeifJointShape ] }
+             DEF Leif_l_tibiale HAnimSite { name "l_tibiale" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_tibiale" }
+               USE LeifSiteShape
+             ] }
+             DEF Leif_l_medial_malleolus HAnimSite { name "l_medial_malleolus" translation 0.089 0.0716 -0.0881 # test site translation 0.089 0.0716 -0.0881
+  children [ TouchSensor { description "l_medial_malleolus" }
+               USE LeifSiteShape
+             ] }
+             DEF Leif_l_lateral_malleolus HAnimSite { name "l_lateral_malleolus" translation 0.1308 0.0597 -0.1032 # test site translation 0.1308 0.0597 -0.1032
+  children [ TouchSensor { description "l_lateral_malleolus" }
+               USE LeifSiteShape
+             ] }
+         ] }
+         DEF Leif_l_talocrural HAnimJoint { name "l_talocrural"  center 0.1101 0.0656 -0.0736 # test jointcenter -0.0505 0.0367 -0.0294 
+ children [
+           DEF Leif_l_talus HAnimSegment { name "l_talus" children [ Transform { translation 0.1101 0.0656 -0.0736 # test segment translation 0.1101 0.0656 -0.0736
+ children [ USE LeifJointShape ] }
+               DEF Leif_l_sphyrion HAnimSite { name "l_sphyrion" translation 0.089 0.0575 -0.0943 # test site translation 0.089 0.0575 -0.0943
+  children [ TouchSensor { description "l_sphyrion" }
+                 USE LeifSiteShape
+               ] }
+           ] }
+           DEF Leif_l_talocalcaneonavicular HAnimJoint { name "l_talocalcaneonavicular"  center 0 0 0 # test jointcenter x y z 
+ children [
+             DEF Leif_l_navicular HAnimSegment { name "l_navicular" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+             ] }
+             DEF Leif_l_cuneonavicular_1 HAnimJoint { name "l_cuneonavicular_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_l_cuneiform_1 HAnimSegment { name "l_cuneiform_1" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_l_tarsometatarsal_1 HAnimJoint { name "l_tarsometatarsal_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_l_metatarsal_1 HAnimSegment { name "l_metatarsal_1" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_l_metatarsophalangeal_1 HAnimJoint { name "l_metatarsophalangeal_1"  center 0.1086 0.0001 0.0368 # test jointcenter 0.1086 0.0001 0.0368 
+ children [
+                   DEF Leif_l_tarsal_proximal_phalanx_1 HAnimSegment { name "l_tarsal_proximal_phalanx_1" children [ Transform { translation 0.1086 0.0001 0.0368 # test segment translation 0.1086 0.0001 0.0368
+ children [ USE LeifJointShape ] }
+                       DEF Leif_l_metatarsal_phalanx_1 HAnimSite { name "l_metatarsal_phalanx_1" translation 0.0816 0.0232 0.0106 # test site translation 0.0816 0.0232 0.0106
+  children [ TouchSensor { description "l_metatarsal_phalanx_1" }
+                         USE LeifSiteShape
+                       ] }
+                   ] }
+                   DEF Leif_l_tarsal_interphalangeal_1 HAnimJoint { name "l_tarsal_interphalangeal_1"  center 0.1086 0 0.0762 # test jointcenter 0.1086 0 0.0762 
+ children [
+                         DEF Leif_l_tarsal_distal_phalanx_1_tip HAnimSite { name "l_tarsal_distal_phalanx_1_tip" translation 0.09 0.012 0.188 # test site translation 0.09 0.012 0.188
+  children [ TouchSensor { description "l_tarsal_distal_phalanx_1_tip" }
+                           USE LeifSiteShape
+                         ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Leif_l_cuneonavicular_2 HAnimJoint { name "l_cuneonavicular_2"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_l_cuneiform_2 HAnimSegment { name "l_cuneiform_2" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_l_tarsometatarsal_2 HAnimJoint { name "l_tarsometatarsal_2"  center 0.1086 0.0001 -0.0368 # test jointcenter 0.1086 0.0001 -0.0368 
+ children [
+                 DEF Leif_l_metatarsal_2 HAnimSegment { name "l_metatarsal_2" children [ Transform { translation 0.1086 0.0001 -0.0368 # test segment translation 0.1086 0.0001 -0.0368
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_l_metatarsophalangeal_2 HAnimJoint { name "l_metatarsophalangeal_2"  center 0.1086 0.0001 0.0368 # test jointcenter -0.0588 0.0153 0.051 
+ children [
+                   DEF Leif_l_tarsal_proximal_phalanx_2 HAnimSegment { name "l_tarsal_proximal_phalanx_2" children [ Transform { translation 0.1086 0.0001 0.0368 # test segment translation 0.1086 0.0001 0.0368
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_l_tarsal_proximal_interphalangeal_2 HAnimJoint { name "l_tarsal_proximal_interphalangeal_2"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_l_tarsal_middle_phalanx_2 HAnimSegment { name "l_tarsal_middle_phalanx_2" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                     ] }
+                     DEF Leif_l_tarsal_distal_interphalangeal_2 HAnimJoint { name "l_tarsal_distal_interphalangeal_2"  center 0.1086 0 0.0762 # test jointcenter 0.1086 0 0.0762 
+ children [
+                           DEF Leif_l_tarsal_distal_phalanx_2_tip HAnimSite { name "l_tarsal_distal_phalanx_2_tip" translation 0.11 0.011 0.19 # test site translation 0.11 0.011 0.19
+  children [ TouchSensor { description "l_tarsal_distal_phalanx_2_tip" }
+                             USE LeifSiteShape
+                           ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Leif_l_cuneonavicular_3 HAnimJoint { name "l_cuneonavicular_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_l_cuneiform_3 HAnimSegment { name "l_cuneiform_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_l_tarsometatarsal_3 HAnimJoint { name "l_tarsometatarsal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_l_metatarsal_3 HAnimSegment { name "l_metatarsal_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_l_metatarsophalangeal_3 HAnimJoint { name "l_metatarsophalangeal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                   DEF Leif_l_tarsal_proximal_phalanx_3 HAnimSegment { name "l_tarsal_proximal_phalanx_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_l_tarsal_proximal_interphalangeal_3 HAnimJoint { name "l_tarsal_proximal_interphalangeal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_l_tarsal_middle_phalanx_3 HAnimSegment { name "l_tarsal_middle_phalanx_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                     ] }
+                     DEF Leif_l_tarsal_distal_interphalangeal_3 HAnimJoint { name "l_tarsal_distal_interphalangeal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                           DEF Leif_l_tarsal_distal_phalanx_3_tip HAnimSite { name "l_tarsal_distal_phalanx_3_tip" translation 0.128 0.011 0.185 # test site translation 0.128 0.011 0.185
+  children [ TouchSensor { description "l_tarsal_distal_phalanx_3_tip" }
+                             USE LeifSiteShape
+                           ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+             DEF Leif_l_calcaneus HAnimSegment { name "l_calcaneus" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+             ] }
+             DEF Leif_l_transversetarsal HAnimJoint { name "l_transversetarsal"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_l_cuboid HAnimSegment { name "l_cuboid" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_l_tarsometatarsal_4 HAnimJoint { name "l_tarsometatarsal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_l_metatarsal_4 HAnimSegment { name "l_metatarsal_4" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_l_metatarsophalangeal_4 HAnimJoint { name "l_metatarsophalangeal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                   DEF Leif_l_tarsal_proximal_phalanx_4 HAnimSegment { name "l_tarsal_proximal_phalanx_4" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_l_tarsal_proximal_interphalangeal_4 HAnimJoint { name "l_tarsal_proximal_interphalangeal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_l_tarsal_middle_phalanx_4 HAnimSegment { name "l_tarsal_middle_phalanx_4" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                     ] }
+                     DEF Leif_l_tarsal_distal_interphalangeal_4 HAnimJoint { name "l_tarsal_distal_interphalangeal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                           DEF Leif_l_tarsal_distal_phalanx_4_tip HAnimSite { name "l_tarsal_distal_phalanx_4_tip" translation 0.142 0.011 0.178 # test site translation 0.142 0.011 0.178
+  children [ TouchSensor { description "l_tarsal_distal_phalanx_4_tip" }
+                             USE LeifSiteShape
+                           ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+               DEF Leif_l_tarsometatarsal_5 HAnimJoint { name "l_tarsometatarsal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_l_metatarsal_5 HAnimSegment { name "l_metatarsal_5" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_l_metatarsophalangeal_5 HAnimJoint { name "l_metatarsophalangeal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                   DEF Leif_l_tarsal_proximal_phalanx_5 HAnimSegment { name "l_tarsal_proximal_phalanx_5" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_l_tarsal_proximal_interphalangeal_5 HAnimJoint { name "l_tarsal_proximal_interphalangeal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_l_tarsal_middle_phalanx_5 HAnimSegment { name "l_tarsal_middle_phalanx_5" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                         DEF Leif_l_metatarsal_phalanx_5 HAnimSite { name "l_metatarsal_phalanx_5" translation 0.1825 0.007 0.0928 # test site translation 0.1825 0.007 0.0928
+  children [ TouchSensor { description "l_metatarsal_phalanx_5" }
+                           USE LeifSiteShape
+                         ] }
+                     ] }
+                     DEF Leif_l_tarsal_distal_interphalangeal_5 HAnimJoint { name "l_tarsal_distal_interphalangeal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                           DEF Leif_l_tarsal_distal_phalanx_5_tip HAnimSite { name "l_tarsal_distal_phalanx_5_tip" translation 0.154 0.01 0.168 # test site translation 0.154 0.01 0.168
+  children [ TouchSensor { description "l_tarsal_distal_phalanx_5_tip" }
+                             USE LeifSiteShape
+                           ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+         ] }
+       ] }
+     ] }
+     DEF Leif_r_hip HAnimJoint { name "r_hip"  center -0.095 0.9171 0.0029 # test jointcenter 0.045 0.42 -0.0064 
+ children [
+       DEF Leif_r_thigh HAnimSegment { name "r_thigh" children [ Transform { translation -0.095 0.9171 0.0029 # test segment translation -0.095 0.9171 0.0029
+ children [ USE LeifJointShape ] }
+           DEF Leif_r_knee_crease HAnimSite { name "r_knee_crease" translation -0.0825 0.4932 -0.0326 # test site translation -0.0825 0.4932 -0.0326
+  children [ TouchSensor { description "r_knee_crease" }
+             USE LeifSiteShape
+           ] }
+           DEF Leif_r_suprapatella HAnimSite { name "r_suprapatella" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_suprapatella" }
+             USE LeifSiteShape
+           ] }
+       ] }
+       DEF Leif_r_knee HAnimJoint { name "r_knee"  center -0.0867 0.4913 0.0318 # test jointcenter 0.0527 0.229 -0.0064 
+ children [
+         DEF Leif_r_calf HAnimSegment { name "r_calf" children [ Transform { translation -0.0867 0.4913 0.0318 # test segment translation -0.0867 0.4913 0.0318
+ children [ USE LeifJointShape ] }
+             DEF Leif_r_tibiale HAnimSite { name "r_tibiale" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_tibiale" }
+               USE LeifSiteShape
+             ] }
+             DEF Leif_r_medial_malleolus HAnimSite { name "r_medial_malleolus" translation -0.0591 0.076 -0.0928 # test site translation -0.0591 0.076 -0.0928
+  children [ TouchSensor { description "r_medial_malleolus" }
+               USE LeifSiteShape
+             ] }
+             DEF Leif_r_lateral_malleolus HAnimSite { name "r_lateral_malleolus" translation -0.1006 0.0658 -0.1075 # test site translation -0.1006 0.0658 -0.1075
+  children [ TouchSensor { description "r_lateral_malleolus" }
+               USE LeifSiteShape
+             ] }
+         ] }
+         DEF Leif_r_talocrural HAnimJoint { name "r_talocrural"  center -0.0801 0.0712 -0.0766 # test jointcenter 0.0642 0.037 -0.0299 
+ children [
+           DEF Leif_r_talus HAnimSegment { name "r_talus" children [ Transform { translation -0.0801 0.0712 -0.0766 # test segment translation -0.0801 0.0712 -0.0766
+ children [ USE LeifJointShape ] }
+               DEF Leif_r_sphyrion HAnimSite { name "r_sphyrion" translation -0.0603 0.061 -0.1002 # test site translation -0.0603 0.061 -0.1002
+  children [ TouchSensor { description "r_sphyrion" }
+                 USE LeifSiteShape
+               ] }
+           ] }
+           DEF Leif_r_talocalcaneonavicular HAnimJoint { name "r_talocalcaneonavicular"  center 0 0 0 # test jointcenter x y z 
+ children [
+             DEF Leif_r_navicular HAnimSegment { name "r_navicular" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+             ] }
+             DEF Leif_r_cuneonavicular_1 HAnimJoint { name "r_cuneonavicular_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_r_cuneiform_1 HAnimSegment { name "r_cuneiform_1" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_r_tarsometatarsal_1 HAnimJoint { name "r_tarsometatarsal_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_r_metatarsal_1 HAnimSegment { name "r_metatarsal_1" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_r_metatarsophalangeal_1 HAnimJoint { name "r_metatarsophalangeal_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+                   DEF Leif_r_tarsal_proximal_phalanx_1 HAnimSegment { name "r_tarsal_proximal_phalanx_1" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_r_tarsal_interphalangeal_1 HAnimJoint { name "r_tarsal_interphalangeal_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+                         DEF Leif_r_metatarsal_phalanx_1 HAnimSite { name "r_metatarsal_phalanx_1" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_metatarsal_phalanx_1" }
+                           USE LeifSiteShape
+                         ] }
+                         DEF Leif_r_tarsal_distal_phalanx_1_tip HAnimSite { name "r_tarsal_distal_phalanx_1_tip" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_tarsal_distal_phalanx_1_tip" }
+                           USE LeifSiteShape
+                         ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Leif_r_cuneonavicular_2 HAnimJoint { name "r_cuneonavicular_2"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_r_cuneiform_2 HAnimSegment { name "r_cuneiform_2" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_r_tarsometatarsal_2 HAnimJoint { name "r_tarsometatarsal_2"  center -0.0801 0 -0.0368 # test jointcenter -0.0801 0 -0.0368 
+ children [
+                 DEF Leif_r_metatarsal_2 HAnimSegment { name "r_metatarsal_2" children [ Transform { translation -0.0801 0 -0.0368 # test segment translation -0.0801 0 -0.0368
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_r_metatarsophalangeal_2 HAnimJoint { name "r_metatarsophalangeal_2"  center -0.0801 0 0.0368 # test jointcenter 0.0672 0.0146 0.0414 
+ children [
+                   DEF Leif_r_tarsal_proximal_phalanx_2 HAnimSegment { name "r_tarsal_proximal_phalanx_2" children [ Transform { translation -0.0801 0 0.0368 # test segment translation -0.0801 0 0.0368
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_r_tarsal_proximal_interphalangeal_2 HAnimJoint { name "r_tarsal_proximal_interphalangeal_2"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_r_tarsal_middle_phalanx_2 HAnimSegment { name "r_tarsal_middle_phalanx_2" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                     ] }
+                     DEF Leif_r_tarsal_distal_interphalangeal_2 HAnimJoint { name "r_tarsal_distal_interphalangeal_2"  center -0.0801 0.0039 0.0732 # test jointcenter -0.0801 0.0039 0.0732 
+ children [
+                           DEF Leif_r_tarsal_distal_phalanx_2_tip HAnimSite { name "r_tarsal_distal_phalanx_2_tip" translation -0.11 0.011 0.19 # test site translation -0.11 0.011 0.19
+  children [ TouchSensor { description "r_tarsal_distal_phalanx_2_tip" }
+                             USE LeifSiteShape
+                           ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Leif_r_cuneonavicular_3 HAnimJoint { name "r_cuneonavicular_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_r_cuneiform_3 HAnimSegment { name "r_cuneiform_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_r_tarsometatarsal_3 HAnimJoint { name "r_tarsometatarsal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_r_metatarsal_3 HAnimSegment { name "r_metatarsal_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_r_metatarsophalangeal_3 HAnimJoint { name "r_metatarsophalangeal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                   DEF Leif_r_tarsal_proximal_phalanx_3 HAnimSegment { name "r_tarsal_proximal_phalanx_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_r_tarsal_proximal_interphalangeal_3 HAnimJoint { name "r_tarsal_proximal_interphalangeal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_r_tarsal_middle_phalanx_3 HAnimSegment { name "r_tarsal_middle_phalanx_3" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                     ] }
+                     DEF Leif_r_tarsal_distal_interphalangeal_3 HAnimJoint { name "r_tarsal_distal_interphalangeal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                         DEF Leif_r_tarsal_distal_phalanx_3_tip HAnimSite { name "r_tarsal_distal_phalanx_3_tip" translation -0.128 0.011 0.185 # test site translation -0.128 0.011 0.185
+  children [ TouchSensor { description "r_tarsal_distal_phalanx_3_tip" }
+                           USE LeifSiteShape
+                         ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+             DEF Leif_r_calcaneus HAnimSegment { name "r_calcaneus" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+             ] }
+             DEF Leif_r_transversetarsal HAnimJoint { name "r_transversetarsal"  center 0 0 0 # test jointcenter x y z 
+ children [
+               DEF Leif_r_cuboid HAnimSegment { name "r_cuboid" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_r_tarsometatarsal_4 HAnimJoint { name "r_tarsometatarsal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_r_metatarsal_4 HAnimSegment { name "r_metatarsal_4" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_r_metatarsophalangeal_4 HAnimJoint { name "r_metatarsophalangeal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                   DEF Leif_r_tarsal_proximal_phalanx_4 HAnimSegment { name "r_tarsal_proximal_phalanx_4" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_r_tarsal_proximal_interphalangeal_4 HAnimJoint { name "r_tarsal_proximal_interphalangeal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_r_tarsal_middle_phalanx_4 HAnimSegment { name "r_tarsal_middle_phalanx_4" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                     ] }
+                     DEF Leif_r_tarsal_distal_interphalangeal_4 HAnimJoint { name "r_tarsal_distal_interphalangeal_4"  center 0 0 0 # test jointcenter x y z 
+ children [
+                           DEF Leif_r_tarsal_distal_phalanx_4_tip HAnimSite { name "r_tarsal_distal_phalanx_4_tip" translation -0.142 0.011 0.178 # test site translation -0.142 0.011 0.178
+  children [ TouchSensor { description "r_tarsal_distal_phalanx_4_tip" }
+                             USE LeifSiteShape
+                           ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+               DEF Leif_r_tarsometatarsal_5 HAnimJoint { name "r_tarsometatarsal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                 DEF Leif_r_metatarsal_5 HAnimSegment { name "r_metatarsal_5" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_r_metatarsophalangeal_5 HAnimJoint { name "r_metatarsophalangeal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                   DEF Leif_r_tarsal_proximal_phalanx_5 HAnimSegment { name "r_tarsal_proximal_phalanx_5" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                   ] }
+                   DEF Leif_r_tarsal_proximal_interphalangeal_5 HAnimJoint { name "r_tarsal_proximal_interphalangeal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                     DEF Leif_r_tarsal_middle_phalanx_5 HAnimSegment { name "r_tarsal_middle_phalanx_5" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                         DEF Leif_r_metatarsal_phalanx_5 HAnimSite { name "r_metatarsal_phalanx_5" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_metatarsal_phalanx_5" }
+                           USE LeifSiteShape
+                         ] }
+                     ] }
+                     DEF Leif_r_tarsal_distal_interphalangeal_5 HAnimJoint { name "r_tarsal_distal_interphalangeal_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                           DEF Leif_r_tarsal_distal_phalanx_5_tip HAnimSite { name "r_tarsal_distal_phalanx_5_tip" translation -0.154 0.01 0.168 # test site translation -0.154 0.01 0.168
+  children [ TouchSensor { description "r_tarsal_distal_phalanx_5_tip" }
+                             USE LeifSiteShape
+                           ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+         ] }
+       ] }
+     ] }
+   ] }
+   DEF Leif_vl5 HAnimJoint { name "vl5"  center 0.0028 1.0568 -0.0776 # test jointcenter 0 0.0475 0.0044 
+ children [
+     DEF Leif_l5 HAnimSegment { name "l5" children [ Transform { translation 0.0028 1.0568 -0.0776 # test segment translation 0.0028 1.0568 -0.0776
+ children [ USE LeifJointShape ] }
+         DEF Leif_waist_preferred_anterior HAnimSite { name "waist_preferred_anterior" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "waist_preferred_anterior" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_waist_preferred_posterior HAnimSite { name "waist_preferred_posterior" translation 0.29 1.0915 -0.1091 # test site translation 0.29 1.0915 -0.1091
+  children [ TouchSensor { description "waist_preferred_posterior" }
+           USE LeifSiteShape
+         ] }
+         DEF Leif_navel HAnimSite { name "navel" translation 0.0069 1.0966 0.1017 # test site translation 0.0069 1.0966 0.1017
+  children [ TouchSensor { description "navel" }
+           USE LeifSiteShape
+         ] }
+     ] }
+     DEF Leif_vl4 HAnimJoint { name "vl4"  center 0.0035 1.0925 -0.0787 # test jointcenter 0.0035 1.0925 -0.0787 
+ children [
+       DEF Leif_l4 HAnimSegment { name "l4" children [ Transform { translation 0.0035 1.0925 -0.0787 # test segment translation 0.0035 1.0925 -0.0787
+ children [ USE LeifJointShape ] }
+       ] }
+       DEF Leif_vl3 HAnimJoint { name "vl3"  center 0.0041 1.1276 -0.0796 # test jointcenter 0.0041 1.1276 -0.0796 
+ children [
+         DEF Leif_l3 HAnimSegment { name "l3" children [ Transform { translation 0.0041 1.1276 -0.0796 # test segment translation 0.0041 1.1276 -0.0796
+ children [ USE LeifJointShape ] }
+         ] }
+         DEF Leif_vl2 HAnimJoint { name "vl2"  center 0.0045 1.1546 -0.08 # test jointcenter 0 0.5022 0.0055 
+ children [
+           DEF Leif_l2 HAnimSegment { name "l2" children [ Transform { translation 0.0045 1.1546 -0.08 # test segment translation 0.0045 1.1546 -0.08
+ children [ USE LeifJointShape ] }
+           ] }
+           DEF Leif_vl1 HAnimJoint { name "vl1"  center 0.0048 1.1912 -0.0805 # test jointcenter 0.0048 1.1912 -0.0805 
+ children [
+             DEF Leif_l1 HAnimSegment { name "l1" children [ Transform { translation 0.0048 1.1912 -0.0805 # test segment translation 0.0048 1.1912 -0.0805
+ children [ USE LeifJointShape ] }
+             ] }
+             DEF Leif_vt12 HAnimJoint { name "vt12"  center 0.0051 1.2278 -0.0808 # test jointcenter 0.0051 1.2278 -0.0808 
+ children [
+               DEF Leif_t12 HAnimSegment { name "t12" children [ Transform { translation 0.0051 1.2278 -0.0808 # test segment translation 0.0051 1.2278 -0.0808
+ children [ USE LeifJointShape ] }
+               ] }
+               DEF Leif_vt11 HAnimJoint { name "vt11"  center 0.0053 1.2679 -0.081 # test jointcenter 0 0.5584 0.0053 
+ children [
+                 DEF Leif_t11 HAnimSegment { name "t11" children [ Transform { translation 0.0053 1.2679 -0.081 # test segment translation 0.0053 1.2679 -0.081
+ children [ USE LeifJointShape ] }
+                 ] }
+                 DEF Leif_vt10 HAnimJoint { name "vt10"  center 0.0056 1.2848 -0.0822 # test jointcenter 0.0056 1.2848 -0.0822 
+ children [
+                   DEF Leif_t10 HAnimSegment { name "t10" children [ Transform { translation 0.0056 1.2848 -0.0822 # test segment translation 0.0056 1.2848 -0.0822
+ children [ USE LeifJointShape ] }
+                       DEF Leif_substernale HAnimSite { name "substernale" translation 0.0085 1.2995 0.1147 # test site translation 0.0085 1.2995 0.1147
+  children [ TouchSensor { description "substernale" }
+                         USE LeifSiteShape
+                       ] }
+                       DEF Leif_mesosternale HAnimSite { name "mesosternale" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "mesosternale" }
+                         USE LeifSiteShape
+                       ] }
+                   ] }
+                   DEF Leif_vt9 HAnimJoint { name "vt9"  center 0.0057 1.3126 -0.0838 # test jointcenter 0.0057 1.3126 -0.0838 
+ children [
+                     DEF Leif_t9 HAnimSegment { name "t9" children [ Transform { translation 0.0057 1.3126 -0.0838 # test segment translation 0.0057 1.3126 -0.0838
+ children [ USE LeifJointShape ] }
+                         DEF Leif_l_thelion HAnimSite { name "l_thelion" translation 0.0918 1.3382 0.1192 # test site translation 0.0918 1.3382 0.1192
+  children [ TouchSensor { description "l_thelion" }
+                           USE LeifSiteShape
+                         ] }
+                         DEF Leif_r_thelion HAnimSite { name "r_thelion" translation -0.0736 1.3385 0.1217 # test site translation -0.0736 1.3385 0.1217
+  children [ TouchSensor { description "r_thelion" }
+                           USE LeifSiteShape
+                         ] }
+                         DEF Leif_rear_center_midsagittal_plane HAnimSite { name "rear_center_midsagittal_plane" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "rear_center_midsagittal_plane" }
+                           USE LeifSiteShape
+                         ] }
+                         DEF Leif_l_chest_midsagittal_plane HAnimSite { name "l_chest_midsagittal_plane" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_chest_midsagittal_plane" }
+                           USE LeifSiteShape
+                         ] }
+                         DEF Leif_r_chest_midsagittal_plane HAnimSite { name "r_chest_midsagittal_plane" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_chest_midsagittal_plane" }
+                           USE LeifSiteShape
+                         ] }
+                     ] }
+                     DEF Leif_vt8 HAnimJoint { name "vt8"  center 0.0057 1.3382 -0.0845 # test jointcenter 0.0057 1.3382 -0.0845 
+ children [
+                       DEF Leif_t8 HAnimSegment { name "t8" children [ Transform { translation 0.0057 1.3382 -0.0845 # test segment translation 0.0057 1.3382 -0.0845
+ children [ USE LeifJointShape ] }
+                       ] }
+                       DEF Leif_vt7 HAnimJoint { name "vt7"  center 0.0058 1.3625 -0.0833 # test jointcenter 0.0058 1.3625 -0.0833 
+ children [
+                         DEF Leif_t7 HAnimSegment { name "t7" children [ Transform { translation 0.0058 1.3625 -0.0833 # test segment translation 0.0058 1.3625 -0.0833
+ children [ USE LeifJointShape ] }
+                         ] }
+                         DEF Leif_vt6 HAnimJoint { name "vt6"  center 0.0059 1.3866 -0.08 # test jointcenter 0.0059 1.3866 -0.08 
+ children [
+                           DEF Leif_t6 HAnimSegment { name "t6" children [ Transform { translation 0.0059 1.3866 -0.08 # test segment translation 0.0059 1.3866 -0.08
+ children [ USE LeifJointShape ] }
+                           ] }
+                           DEF Leif_vt5 HAnimJoint { name "vt5"  center 0.006 1.4102 -0.0745 # test jointcenter 0 0.6263 0.001 
+ children [
+                             DEF Leif_t5 HAnimSegment { name "t5" children [ Transform { translation 0.006 1.4102 -0.0745 # test segment translation 0.006 1.4102 -0.0745
+ children [ USE LeifJointShape ] }
+                                 DEF Leif_spine_1_middle_back HAnimSite { name "spine_1_middle_back" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "spine_1_middle_back" }
+                                   USE LeifSiteShape
+                                 ] }
+                             ] }
+                             DEF Leif_vt4 HAnimJoint { name "vt4"  center 0.0061 1.432 -0.0675 # test jointcenter 0.0061 1.432 -0.0675 
+ children [
+                               DEF Leif_t4 HAnimSegment { name "t4" children [ Transform { translation 0.0061 1.432 -0.0675 # test segment translation 0.0061 1.432 -0.0675
+ children [ USE LeifJointShape ] }
+                               ] }
+                               DEF Leif_vt3 HAnimJoint { name "vt3"  center 0.0062 1.4583 -0.057 # test jointcenter 0.0062 1.4583 -0.057 
+ children [
+                                 DEF Leif_t3 HAnimSegment { name "t3" children [ Transform { translation 0.0062 1.4583 -0.057 # test segment translation 0.0062 1.4583 -0.057
+ children [ USE LeifJointShape ] }
+                                 ] }
+                                 DEF Leif_vt2 HAnimJoint { name "vt2"  center 0.0063 1.4761 -0.0484 # test jointcenter 0.0063 1.4761 -0.0484 
+ children [
+                                   DEF Leif_t2 HAnimSegment { name "t2" children [ Transform { translation 0.0063 1.4761 -0.0484 # test segment translation 0.0063 1.4761 -0.0484
+ children [ USE LeifJointShape ] }
+                                   ] }
+                                   DEF Leif_vt1 HAnimJoint { name "vt1"  center 0.0065 1.4951 -0.0387 # test jointcenter 0.0065 1.4951 -0.0387 
+ children [
+                                     DEF Leif_t1 HAnimSegment { name "t1" children [ Transform { translation 0.0065 1.4951 -0.0387 # test segment translation 0.0065 1.4951 -0.0387
+ children [ USE LeifJointShape ] }
+                                         DEF Leif_suprasternale HAnimSite { name "suprasternale" translation 0.0084 1.4714 0.0551 # test site translation 0.0084 1.4714 0.0551
+  children [ TouchSensor { description "suprasternale" }
+                                           USE LeifSiteShape
+                                         ] }
+                                         DEF Leif_cervicale HAnimSite { name "cervicale" translation 0.0064 1.52 -0.0815 # test site translation 0.0064 1.52 -0.0815
+  children [ TouchSensor { description "cervicale" }
+                                           USE LeifSiteShape
+                                         ] }
+                                     ] }
+                                     DEF Leif_vc7 HAnimJoint { name "vc7"  center 0.0066 1.5132 -0.0301 # test jointcenter 0.0066 1.5132 -0.0301 
+ children [
+                                       DEF Leif_c7 HAnimSegment { name "c7" children [ Transform { translation 0.0066 1.5132 -0.0301 # test segment translation 0.0066 1.5132 -0.0301
+ children [ USE LeifJointShape ] }
+                                           DEF Leif_l_neck_base HAnimSite { name "l_neck_base" translation 0.0646 1.5141 -0.038 # test site translation 0.0646 1.5141 -0.038
+  children [ TouchSensor { description "l_neck_base" }
+                                             USE LeifSiteShape
+                                           ] }
+                                           DEF Leif_r_neck_base HAnimSite { name "r_neck_base" translation -0.0419 1.5149 -0.022 # test site translation -0.0419 1.5149 -0.022
+  children [ TouchSensor { description "r_neck_base" }
+                                             USE LeifSiteShape
+                                           ] }
+                                       ] }
+                                       DEF Leif_vc6 HAnimJoint { name "vc6"  center 0.0066 1.5357 -0.0143 # test jointcenter 0.0066 1.5357 -0.0143 
+ children [
+                                         DEF Leif_c6 HAnimSegment { name "c6" children [ Transform { translation 0.0066 1.5357 -0.0143 # test segment translation 0.0066 1.5357 -0.0143
+ children [ USE LeifJointShape ] }
+                                         ] }
+                                         DEF Leif_vc5 HAnimJoint { name "vc5"  center 0.0066 1.552 -0.0082 # test jointcenter 0.0066 1.552 -0.0082 
+ children [
+                                           DEF Leif_c5 HAnimSegment { name "c5" children [ Transform { translation 0.0066 1.552 -0.0082 # test segment translation 0.0066 1.552 -0.0082
+ children [ USE LeifJointShape ] }
+                                           ] }
+                                           DEF Leif_vc4 HAnimJoint { name "vc4"  center 0.0066 1.5662 -0.0084 # test jointcenter 0 0.719 -0.0074 
+ children [
+                                             DEF Leif_c4 HAnimSegment { name "c4" children [ Transform { translation 0.0066 1.5662 -0.0084 # test segment translation 0.0066 1.5662 -0.0084
+ children [ USE LeifJointShape ] }
+                                               DEF Leif_vc3 HAnimJoint { name "vc3"  center 0.0066 1.58 -0.0103 # test jointcenter 0.0066 1.58 -0.0103 
+ children [
+                                                 DEF Leif_c3 HAnimSegment { name "c3" children [ Transform { translation 0.0066 1.58 -0.0103 # test segment translation 0.0066 1.58 -0.0103
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_vc2 HAnimJoint { name "vc2"  center 0.0066 1.5928 -0.0103 # test jointcenter 0.0066 1.5928 -0.0103 
+ children [
+                                                   DEF Leif_c2 HAnimSegment { name "c2" children [ Transform { translation 0.0066 1.5928 -0.0103 # test segment translation 0.0066 1.5928 -0.0103
+ children [ USE LeifJointShape ] }
+                                                       DEF Leif_adams_apple HAnimSite { name "adams_apple" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "adams_apple" }
+                                                         USE LeifSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Leif_vc1 HAnimJoint { name "vc1"  center 0.0066 1.6144 -0.0034 # test jointcenter 0.0066 1.6144 -0.0034 
+ children [
+                                                     DEF Leif_c1 HAnimSegment { name "c1" children [ Transform { translation 0.0066 1.6144 -0.0034 # test segment translation 0.0066 1.6144 -0.0034
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_skullbase HAnimJoint { name "skullbase"  center 0.0044 1.6209 0.0236 # test jointcenter 0 0.7609 -0.0074 
+ children [
+                                                       DEF Leif_skull HAnimSegment { name "skull" children [ Transform { translation 0.0044 1.6209 0.0236 # test segment translation 0.0044 1.6209 0.0236
+ children [ USE LeifJointShape ] }
+                                                           DEF Leif_skull_vertex HAnimSite { name "skull_vertex" translation 0.005 1.7504 0.0055 # test site translation 0.005 1.7504 0.0055
+  children [ TouchSensor { description "skull_vertex" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_sellion HAnimSite { name "sellion" translation 0.0058 1.6316 0.0852 # test site translation 0.0058 1.6316 0.0852
+  children [ TouchSensor { description "sellion" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_r_infraorbitale HAnimSite { name "r_infraorbitale" translation -0.0237 1.6171 0.0752 # test site translation -0.0237 1.6171 0.0752
+  children [ TouchSensor { description "r_infraorbitale" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_l_infraorbitale HAnimSite { name "l_infraorbitale" translation 0.0341 1.6171 0.0752 # test site translation 0.0341 1.6171 0.0752
+  children [ TouchSensor { description "l_infraorbitale" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_r_tragion HAnimSite { name "r_tragion" translation -0.0646 1.6347 0.0302 # test site translation -0.0646 1.6347 0.0302
+  children [ TouchSensor { description "r_tragion" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_l_tragion HAnimSite { name "l_tragion" translation 0.0739 1.6348 0.0282 # test site translation 0.0739 1.6348 0.0282
+  children [ TouchSensor { description "l_tragion" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_nuchale HAnimSite { name "nuchale" translation 0.0039 1.5972 -0.0796 # test site translation 0.0039 1.5972 -0.0796
+  children [ TouchSensor { description "nuchale" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_opisthocranion HAnimSite { name "opisthocranion" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "opisthocranion" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_glabella HAnimSite { name "glabella" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "glabella" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_l_ectocanthus HAnimSite { name "l_ectocanthus" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_ectocanthus" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_r_ectocanthus HAnimSite { name "r_ectocanthus" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_ectocanthus" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                       ] }
+                                                       DEF Leif_l_eyelid_joint HAnimJoint { name "l_eyelid_joint"  center 0.0336 1.6332 0.0502 # test jointcenter 0.0336 1.6332 0.0502 
+ children [
+                                                       ] }
+                                                       DEF Leif_r_eyelid_joint HAnimJoint { name "r_eyelid_joint"  center -0.0236 1.6331 0.051 # test jointcenter -0.0236 1.6331 0.051 
+ children [
+                                                       ] }
+                                                       DEF Leif_l_eyeball_joint HAnimJoint { name "l_eyeball_joint"  center 0.0336 1.6332 0.0502 # test jointcenter 0.0336 1.6332 0.0502 
+ children [
+                                                       ] }
+                                                       DEF Leif_r_eyeball_joint HAnimJoint { name "r_eyeball_joint"  center -0.0236 1.6331 0.051 # test jointcenter -0.0236 1.6331 0.051 
+ children [
+                                                       ] }
+                                                       DEF Leif_l_eyebrow_joint HAnimJoint { name "l_eyebrow_joint"  center 0.0336 1.6332 0.0502 # test jointcenter 0.0336 1.6332 0.0502 
+ children [
+                                                       ] }
+                                                       DEF Leif_r_eyebrow_joint HAnimJoint { name "r_eyebrow_joint"  center -0.0236 1.6331 0.051 # test jointcenter -0.0236 1.6331 0.051 
+ children [
+                                                       ] }
+                                                       DEF Leif_temporomandibular HAnimJoint { name "temporomandibular"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                           DEF Leif_r_gonion HAnimSite { name "r_gonion" translation -0.052 1.5529 0.0347 # test site translation -0.052 1.5529 0.0347
+  children [ TouchSensor { description "r_gonion" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_l_gonion HAnimSite { name "l_gonion" translation 0.0631 1.553 0.033 # test site translation 0.0631 1.553 0.033
+  children [ TouchSensor { description "l_gonion" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_supramenton HAnimSite { name "supramenton" translation 0.0061 1.541 0.0805 # test site translation 0.0061 1.541 0.0805
+  children [ TouchSensor { description "supramenton" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                           DEF Leif_menton HAnimSite { name "menton" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "menton" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                             ] }
+                                           ] }
+                                         ] }
+                                       ] }
+                                     ] }
+                                     DEF Leif_l_sternoclavicular HAnimJoint { name "l_sternoclavicular"  center 0.082 1.4488 -0.0353 # test jointcenter -0.0389 0.6914 -0.0129 
+ children [
+                                         DEF Leif_l_clavicle HAnimSegment { name "l_clavicle" children [ Transform { translation 0.082 1.4488 -0.0353 # test segment translation 0.082 1.4488 -0.0353
+ children [ USE LeifJointShape ] }
+                                           DEF Leif_l_clavicale HAnimSite { name "l_clavicale" translation 0.0271 1.4943 0.0394 # test site translation 0.0271 1.4943 0.0394
+  children [ TouchSensor { description "l_clavicale" }
+                                             USE LeifSiteShape
+                                           ] }
+                                         ] }
+                                       DEF Leif_l_acromioclavicular HAnimJoint { name "l_acromioclavicular"  center 0.0962 1.4269 -0.0424 # test jointcenter 0.0962 1.4269 -0.0424 
+ children [
+                                         DEF Leif_l_scapula HAnimSegment { name "l_scapula" children [ Transform { translation 0.0962 1.4269 -0.0424 # test segment translation 0.0962 1.4269 -0.0424
+ children [ USE LeifJointShape ] }
+                                             DEF Leif_l_acromion HAnimSite { name "l_acromion" translation 0.2032 1.476 -0.049 # test site translation 0.2032 1.476 -0.049
+  children [ TouchSensor { description "l_acromion" }
+                                               USE LeifSiteShape
+                                             ] }
+                                             DEF Leif_l_axilla_proximal HAnimSite { name "l_axilla_proximal" translation 0.1777 1.4065 -0.0075 # test site translation 0.1777 1.4065 -0.0075
+  children [ TouchSensor { description "l_axilla_proximal" }
+                                               USE LeifSiteShape
+                                             ] }
+                                             DEF Leif_l_axilla_posterior_folds HAnimSite { name "l_axilla_posterior_folds" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_axilla_posterior_folds" }
+                                               USE LeifSiteShape
+                                             ] }
+                                         ] }
+                                         DEF Leif_l_shoulder HAnimJoint { name "l_shoulder"  center 0.2029 1.4376 -0.0387 # test jointcenter -0.1142 0.6804 -0.0069 
+ children [
+                                           DEF Leif_l_upperarm HAnimSegment { name "l_upperarm" children [ Transform { translation 0.2029 1.4376 -0.0387 # test segment translation 0.2029 1.4376 -0.0387
+ children [ USE LeifJointShape ] }
+                                               DEF Leif_l_humeral_lateral_epicondyles HAnimSite { name "l_humeral_lateral_epicondyles" translation 0.228 1.1482 -0.11 # test site translation 0.228 1.1482 -0.11
+  children [ TouchSensor { description "l_humeral_lateral_epicondyles" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                               DEF Leif_l_humeral_medial_epicondyles HAnimSite { name "l_humeral_medial_epicondyles" translation 0.1735 1.1272 -0.1113 # test site translation 0.1735 1.1272 -0.1113
+  children [ TouchSensor { description "l_humeral_medial_epicondyles" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                               DEF Leif_l_radiale HAnimSite { name "l_radiale" translation 0.2182 1.1212 -0.1167 # test site translation 0.2182 1.1212 -0.1167
+  children [ TouchSensor { description "l_radiale" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                               DEF Leif_l_bideltoid HAnimSite { name "l_bideltoid" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_bideltoid" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                           ] }
+                                           DEF Leif_l_elbow HAnimJoint { name "l_elbow"  center 0.2014 1.1357 -0.0682 # test jointcenter -0.1248 0.5042 -0.0096 
+ children [
+                                             DEF Leif_l_forearm HAnimSegment { name "l_forearm" children [ Transform { translation 0.2014 1.1357 -0.0682 # test segment translation 0.2014 1.1357 -0.0682
+ children [ USE LeifJointShape ] }
+                                                 DEF Leif_l_radial_styloid HAnimSite { name "l_radial_styloid" translation 0.1901 0.8645 -0.0415 # test site translation 0.1901 0.8645 -0.0415
+  children [ TouchSensor { description "l_radial_styloid" }
+                                                   USE LeifSiteShape
+                                                 ] }
+                                                 DEF Leif_l_olecranon HAnimSite { name "l_olecranon" translation -0.1962 1.1375 -0.1123 # test site translation -0.1962 1.1375 -0.1123
+  children [ TouchSensor { description "l_olecranon" }
+                                                   USE LeifSiteShape
+                                                 ] }
+                                             ] }
+                                             DEF Leif_l_radiocarpal HAnimJoint { name "l_radiocarpal"  center 0.1984 0.8663 -0.0583 # test jointcenter -0.1399 0.3579 0.0083 
+ children [
+                                               DEF Leif_l_carpal HAnimSegment { name "l_carpal" children [ Transform { translation 0.1984 0.8663 -0.0583 # test segment translation 0.1984 0.8663 -0.0583
+ children [ USE LeifJointShape ] }
+                                                   DEF Leif_l_ulnar_styloid HAnimSite { name "l_ulnar_styloid" translation -0.2142 0.8529 -0.0648 # test site translation -0.2142 0.8529 -0.0648
+  children [ TouchSensor { description "l_ulnar_styloid" }
+                                                     USE LeifSiteShape
+                                                   ] }
+                                               ] }
+                                               DEF Leif_l_midcarpal_1 HAnimJoint { name "l_midcarpal_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_l_trapezium HAnimSegment { name "l_trapezium" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_l_carpometacarpal_1 HAnimJoint { name "l_carpometacarpal_1"  center 0.1924 0.8472 -0.0534 # test jointcenter -0.1314 0.3477 0.0205 
+ children [
+                                                   DEF Leif_l_metacarpal_1 HAnimSegment { name "l_metacarpal_1" children [ Transform { translation 0.1924 0.8472 -0.0534 # test segment translation 0.1924 0.8472 -0.0534
+ children [ USE LeifJointShape ] }
+                                                       DEF Leif_l_metacarpal_phalanx_2 HAnimSite { name "l_metacarpal_phalanx_2" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_metacarpal_phalanx_2" }
+                                                         USE LeifSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Leif_l_metacarpophalangeal_1 HAnimJoint { name "l_metacarpophalangeal_1"  center 0.1951 0.8226 0.0246 # test jointcenter -0.1312 0.3363 0.0264 
+ children [
+                                                     DEF Leif_l_carpal_proximal_phalanx_1 HAnimSegment { name "l_carpal_proximal_phalanx_1" children [ Transform { translation 0.1951 0.8226 0.0246 # test segment translation 0.1951 0.8226 0.0246
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_l_carpal_interphalangeal_1 HAnimJoint { name "l_carpal_interphalangeal_1"  center 0.1955 0.8159 0.0464 # test jointcenter -0.1315 0.3211 0.0337 
+ children [
+                                                           DEF Leif_l_carpal_distal_phalanx_1_tip HAnimSite { name "l_carpal_distal_phalanx_1_tip" translation 0.1982 0.8061 0.0759 # test site translation 0.1982 0.8061 0.0759
+  children [ TouchSensor { description "l_carpal_distal_phalanx_1_tip" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Leif_l_midcarpal_2 HAnimJoint { name "l_midcarpal_2"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_l_trapezoid HAnimSegment { name "l_trapezoid" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_l_carpometacarpal_2 HAnimJoint { name "l_carpometacarpal_2"  center 0.1983 0.8024 -0.028 # test jointcenter 0.1983 0.8024 -0.028 
+ children [
+                                                   DEF Leif_l_metacarpal_2 HAnimSegment { name "l_metacarpal_2" children [ Transform { translation 0.1983 0.8024 -0.028 # test segment translation 0.1983 0.8024 -0.028
+ children [ USE LeifJointShape ] }
+                                                   ] }
+                                                   DEF Leif_l_metacarpophalangeal_2 HAnimJoint { name "l_metacarpophalangeal_2"  center 0.1983 0.7815 -0.028 # test jointcenter -0.1448 0.3084 0.0176 
+ children [
+                                                     DEF Leif_l_carpal_proximal_phalanx_2 HAnimSegment { name "l_carpal_proximal_phalanx_2" children [ Transform { translation 0.1983 0.7815 -0.028 # test segment translation 0.1983 0.7815 -0.028
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_l_carpal_proximal_interphalangeal_2 HAnimJoint { name "l_carpal_proximal_interphalangeal_2"  center 0.2017 0.7363 -0.0248 # test jointcenter -0.1477 0.2899 0.0166 
+ children [
+                                                       DEF Leif_l_carpal_middle_phalanx_2 HAnimSegment { name "l_carpal_middle_phalanx_2" children [ Transform { translation 0.2017 0.7363 -0.0248 # test segment translation 0.2017 0.7363 -0.0248
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_l_carpal_distal_interphalangeal_2 HAnimJoint { name "l_carpal_distal_interphalangeal_2"  center 0.2028 0.7139 -0.0236 # test jointcenter -0.1498 0.278 0.0156 
+ children [
+                                                             DEF Leif_l_carpal_distal_phalanx_2_tip HAnimSite { name "l_carpal_distal_phalanx_2_tip" translation 0.2089 0.6858 -0.0245 # test site translation 0.2089 0.6858 -0.0245
+  children [ TouchSensor { description "l_carpal_distal_phalanx_2_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Leif_l_midcarpal_3 HAnimJoint { name "l_midcarpal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_l_capitate HAnimSegment { name "l_capitate" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_l_carpometacarpal_3 HAnimJoint { name "l_carpometacarpal_3"  center 0.1987 0.8029 -0.053 # test jointcenter 0.1987 0.8029 -0.053 
+ children [
+                                                   DEF Leif_l_metacarpal_3 HAnimSegment { name "l_metacarpal_3" children [ Transform { translation 0.1987 0.8029 -0.053 # test segment translation 0.1987 0.8029 -0.053
+ children [ USE LeifJointShape ] }
+                                                       DEF Leif_l_metacarpal_phalanx_3 HAnimSite { name "l_metacarpal_phalanx_3" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "l_metacarpal_phalanx_3" }
+                                                         USE LeifSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Leif_l_metacarpophalangeal_3 HAnimJoint { name "l_metacarpophalangeal_3"  center 0.1987 0.7818 -0.053 # test jointcenter -0.1459 0.3098 0.0032 
+ children [
+                                                     DEF Leif_l_carpal_proximal_phalanx_3 HAnimSegment { name "l_carpal_proximal_phalanx_3" children [ Transform { translation 0.1987 0.7818 -0.053 # test segment translation 0.1987 0.7818 -0.053
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_l_carpal_proximal_interphalangeal_3 HAnimJoint { name "l_carpal_proximal_interphalangeal_3"  center 0.2013 0.7273 -0.0503 # test jointcenter -0.1483 0.2903 0.0019 
+ children [
+                                                       DEF Leif_l_carpal_middle_phalanx_3 HAnimSegment { name "l_carpal_middle_phalanx_3" children [ Transform { translation 0.2013 0.7273 -0.0503 # test segment translation 0.2013 0.7273 -0.0503
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_l_carpal_distal_interphalangeal_3 HAnimJoint { name "l_carpal_distal_interphalangeal_3"  center 0.2026 0.7011 -0.0494 # test jointcenter -0.1506 0.2739 0 
+ children [
+                                                             DEF Leif_l_dactylion HAnimSite { name "l_dactylion" translation 0.2056 0.6743 -0.0482 # test site translation 0.2056 0.6743 -0.0482
+  children [ TouchSensor { description "l_dactylion" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                             DEF Leif_l_carpal_distal_phalanx_3_tip HAnimSite { name "l_carpal_distal_phalanx_3_tip" translation 0.208 0.6731 -0.0491 # test site translation 0.208 0.6731 -0.0491
+  children [ TouchSensor { description "l_carpal_distal_phalanx_3_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Leif_l_midcarpal_4_5 HAnimJoint { name "l_midcarpal_4_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_l_hamate HAnimSegment { name "l_hamate" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_l_carpometacarpal_4 HAnimJoint { name "l_carpometacarpal_4"  center 0.1956 0.8019 -0.0794 # test jointcenter 0.1956 0.8019 -0.0794 
+ children [
+                                                   DEF Leif_l_metacarpal_4 HAnimSegment { name "l_metacarpal_4" children [ Transform { translation 0.1956 0.8019 -0.0794 # test segment translation 0.1956 0.8019 -0.0794
+ children [ USE LeifJointShape ] }
+                                                   ] }
+                                                   DEF Leif_l_metacarpophalangeal_4 HAnimJoint { name "l_metacarpophalangeal_4"  center 0.1956 0.7815 -0.0794 # test jointcenter -0.144 0.3145 -0.0073 
+ children [
+                                                     DEF Leif_l_carpal_proximal_phalanx_4 HAnimSegment { name "l_carpal_proximal_phalanx_4" children [ Transform { translation 0.1956 0.7815 -0.0794 # test segment translation 0.1956 0.7815 -0.0794
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_l_carpal_proximal_interphalangeal_4 HAnimJoint { name "l_carpal_proximal_interphalangeal_4"  center 0.1973 0.7287 -0.0777 # test jointcenter -0.1464 0.2938 -0.011 
+ children [
+                                                       DEF Leif_l_carpal_middle_phalanx_4 HAnimSegment { name "l_carpal_middle_phalanx_4" children [ Transform { translation 0.1973 0.7287 -0.0777 # test segment translation 0.1973 0.7287 -0.0777
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_l_carpal_distal_interphalangeal_4 HAnimJoint { name "l_carpal_distal_interphalangeal_4"  center 0 0 0 # test jointcenter -0.1469 0.2836 -0.0126 
+ children [
+                                                             DEF Leif_l_carpal_distal_phalanx_4_tip HAnimSite { name "l_carpal_distal_phalanx_4_tip" translation 0.2035 0.675 -0.0756 # test site translation 0.2035 0.675 -0.0756
+  children [ TouchSensor { description "l_carpal_distal_phalanx_4_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                                 DEF Leif_l_carpometacarpal_5 HAnimJoint { name "l_carpometacarpal_5"  center 0.1925 0.8066 -0.1036 # test jointcenter 0.1925 0.8066 -0.1036 
+ children [
+                                                   DEF Leif_l_metacarpal_5 HAnimSegment { name "l_metacarpal_5" children [ Transform { translation 0.1925 0.8066 -0.1036 # test segment translation 0.1925 0.8066 -0.1036
+ children [ USE LeifJointShape ] }
+                                                       DEF Leif_l_metacarpal_phalanx_5 HAnimSite { name "l_metacarpal_phalanx_5" translation 0.1929 0.786 -0.1122 # test site translation 0.1929 0.786 -0.1122
+  children [ TouchSensor { description "l_metacarpal_phalanx_5" }
+                                                         USE LeifSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Leif_l_metacarpophalangeal_5 HAnimJoint { name "l_metacarpophalangeal_5"  center 0.1925 0.7866 -0.1036 # test jointcenter -0.1398 0.3196 -0.0162 
+ children [
+                                                     DEF Leif_l_carpal_proximal_phalanx_5 HAnimSegment { name "l_carpal_proximal_phalanx_5" children [ Transform { translation 0.1925 0.7866 -0.1036 # test segment translation 0.1925 0.7866 -0.1036
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_l_carpal_proximal_interphalangeal_5 HAnimJoint { name "l_carpal_proximal_interphalangeal_5"  center 0.1938 0.7452 -0.1024 # test jointcenter -0.1409 0.3065 -0.0204 
+ children [
+                                                       DEF Leif_l_carpal_middle_phalanx_5 HAnimSegment { name "l_carpal_middle_phalanx_5" children [ Transform { translation 0.1938 0.7452 -0.1024 # test segment translation 0.1938 0.7452 -0.1024
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_l_carpal_distal_interphalangeal_5 HAnimJoint { name "l_carpal_distal_interphalangeal_5"  center 0.1948 0.7277 -0.1017 # test jointcenter -0.1412 0.2973 -0.023 
+ children [
+                                                             DEF Leif_l_carpal_distal_phalanx_5_tip HAnimSite { name "l_carpal_distal_phalanx_5_tip" translation 0.2014 0.7009 -0.1012 # test site translation 0.2014 0.7009 -0.1012
+  children [ TouchSensor { description "l_carpal_distal_phalanx_5_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                             ] }
+                                           ] }
+                                         ] }
+                                       ] }
+                                     ] }
+                                     DEF Leif_r_sternoclavicular HAnimJoint { name "r_sternoclavicular"  center -0.0694 1.46 -0.033 # test jointcenter 0.029 0.6889 -0.0093 
+ children [
+                                       DEF Leif_r_clavicle HAnimSegment { name "r_clavicle" children [ Transform { translation -0.0694 1.46 -0.033 # test segment translation -0.0694 1.46 -0.033
+ children [ USE LeifJointShape ] }
+                                           DEF Leif_r_clavicale HAnimSite { name "r_clavicale" translation -0.0115 1.4943 0.04 # test site translation -0.0115 1.4943 0.04
+  children [ TouchSensor { description "r_clavicale" }
+                                             USE LeifSiteShape
+                                           ] }
+                                       ] }
+                                       DEF Leif_r_acromioclavicular HAnimJoint { name "r_acromioclavicular"  center -0.0836 1.4281 -0.0401 # test jointcenter -0.0836 1.4281 -0.0401 
+ children [
+                                         DEF Leif_r_scapula HAnimSegment { name "r_scapula" children [ Transform { translation -0.0836 1.4281 -0.0401 # test segment translation -0.0836 1.4281 -0.0401
+ children [ USE LeifJointShape ] }
+                                             DEF Leif_r_acromion HAnimSite { name "r_acromion" translation -0.1905 1.4791 -0.0431 # test site translation -0.1905 1.4791 -0.0431
+  children [ TouchSensor { description "r_acromion" }
+                                               USE LeifSiteShape
+                                             ] }
+                                             DEF Leif_r_axilla_proximal HAnimSite { name "r_axilla_proximal" translation -0.1626 1.4072 -0.0031 # test site translation -0.1626 1.4072 -0.0031
+  children [ TouchSensor { description "r_axilla_proximal" }
+                                               USE LeifSiteShape
+                                             ] }
+                                             DEF Leif_r_axilla_posterior_folds HAnimSite { name "r_axilla_posterior_folds" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_axilla_posterior_folds" }
+                                               USE LeifSiteShape
+                                             ] }
+                                         ] }
+                                         DEF Leif_r_shoulder HAnimJoint { name "r_shoulder"  center -0.1907 1.4407 -0.0325 # test jointcenter 0.1011 0.6804 -0.0096 
+ children [
+                                           DEF Leif_r_upperarm HAnimSegment { name "r_upperarm" children [ Transform { translation -0.1907 1.4407 -0.0325 # test segment translation -0.1907 1.4407 -0.0325
+ children [ USE LeifJointShape ] }
+                                               DEF Leif_r_humeral_lateral_epicondyles HAnimSite { name "r_humeral_lateral_epicondyles" translation -0.2224 1.1517 -0.1033 # test site translation -0.2224 1.1517 -0.1033
+  children [ TouchSensor { description "r_humeral_lateral_epicondyles" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                               DEF Leif_r_humeral_medial_epicondyles HAnimSite { name "r_humeral_medial_epicondyles" translation -0.168 1.1298 -0.1062 # test site translation -0.168 1.1298 -0.1062
+  children [ TouchSensor { description "r_humeral_medial_epicondyles" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                               DEF Leif_r_radiale HAnimSite { name "r_radiale" translation -0.213 1.1305 -0.1091 # test site translation -0.213 1.1305 -0.1091
+  children [ TouchSensor { description "r_radiale" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                               DEF Leif_r_bideltoid HAnimSite { name "r_bideltoid" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_bideltoid" }
+                                                 USE LeifSiteShape
+                                               ] }
+                                           ] }
+                                           DEF Leif_r_elbow HAnimJoint { name "r_elbow"  center -0.1949 1.1388 -0.062 # test jointcenter 0.1248 0.5042 -0.0133 
+ children [
+                                             DEF Leif_r_forearm HAnimSegment { name "r_forearm" children [ Transform { translation -0.1949 1.1388 -0.062 # test segment translation -0.1949 1.1388 -0.062
+ children [ USE LeifJointShape ] }
+                                                 DEF Leif_r_radial_styloid HAnimSite { name "r_radial_styloid" translation -0.1884 0.8676 -0.036 # test site translation -0.1884 0.8676 -0.036
+  children [ TouchSensor { description "r_radial_styloid" }
+                                                   USE LeifSiteShape
+                                                 ] }
+                                                 DEF Leif_r_olecranon HAnimSite { name "r_olecranon" translation -0.1907 1.1405 -0.1065 # test site translation -0.1907 1.1405 -0.1065
+  children [ TouchSensor { description "r_olecranon" }
+                                                   USE LeifSiteShape
+                                                 ] }
+                                             ] }
+                                             DEF Leif_r_radiocarpal HAnimJoint { name "r_radiocarpal"  center -0.1959 0.8694 -0.0521 # test jointcenter 0.1368 0.3676 -0.0022 
+ children [
+                                               DEF Leif_r_carpal HAnimSegment { name "r_carpal" children [ Transform { translation -0.1959 0.8694 -0.0521 # test segment translation -0.1959 0.8694 -0.0521
+ children [ USE LeifJointShape ] }
+                                                   DEF Leif_r_ulnar_styloid HAnimSite { name "r_ulnar_styloid" translation -0.2117 0.8562 -0.0584 # test site translation -0.2117 0.8562 -0.0584
+  children [ TouchSensor { description "r_ulnar_styloid" }
+                                                     USE LeifSiteShape
+                                                   ] }
+                                               ] }
+                                               DEF Leif_r_midcarpal_1 HAnimJoint { name "r_midcarpal_1"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_r_trapezium HAnimSegment { name "r_trapezium" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_r_carpometacarpal_1 HAnimJoint { name "r_carpometacarpal_1"  center -0.1899 0.8502 -0.0473 # test jointcenter 0.1333 0.3491 0.0159 
+ children [
+                                                   DEF Leif_r_metacarpal_1 HAnimSegment { name "r_metacarpal_1" children [ Transform { translation -0.1899 0.8502 -0.0473 # test segment translation -0.1899 0.8502 -0.0473
+ children [ USE LeifJointShape ] }
+                                                       DEF Leif_r_metacarpal_phalanx_2 HAnimSite { name "r_metacarpal_phalanx_2" translation -0.1977 0.8169 -0.0177 # test site translation -0.1977 0.8169 -0.0177
+  children [ TouchSensor { description "r_metacarpal_phalanx_2" }
+                                                         USE LeifSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Leif_r_metacarpophalangeal_1 HAnimJoint { name "r_metacarpophalangeal_1"  center -0.1874 0.8256 0.0306 # test jointcenter -0.002 -0.0148 0.0099 
+ children [
+                                                     DEF Leif_r_carpal_proximal_phalanx_1 HAnimSegment { name "r_carpal_proximal_phalanx_1" children [ Transform { translation -0.1874 0.8256 0.0306 # test segment translation -0.1874 0.8256 0.0306
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_r_carpal_interphalangeal_1 HAnimJoint { name "r_carpal_interphalangeal_1"  center -0.1864 0.819 0.0506 # test jointcenter 0.1287 0.3172 0.0369 
+ children [
+                                                           DEF Leif_r_carpal_distal_phalanx_1_tip HAnimSite { name "r_carpal_distal_phalanx_1_tip" translation -0.1869 0.809 0.082 # test site translation -0.1869 0.809 0.082
+  children [ TouchSensor { description "r_carpal_distal_phalanx_1_tip" }
+                                                             USE LeifSiteShape
+                                                           ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Leif_r_midcarpal_2 HAnimJoint { name "r_midcarpal_2"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_r_trapezoid HAnimSegment { name "r_trapezoid" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_r_carpometacarpal_2 HAnimJoint { name "r_carpometacarpal_2"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                   DEF Leif_r_metacarpal_2 HAnimSegment { name "r_metacarpal_2" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                   ] }
+                                                   DEF Leif_r_metacarpophalangeal_2 HAnimJoint { name "r_metacarpophalangeal_2"  center -0.1961 0.8055 -0.0218 # test jointcenter 0.1441 0.3125 0.0206 
+ children [
+                                                     DEF Leif_r_carpal_proximal_phalanx_2 HAnimSegment { name "r_carpal_proximal_phalanx_2" children [ Transform { translation -0.1961 0.8055 -0.0218 # test segment translation -0.1961 0.8055 -0.0218
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_r_carpal_proximal_interphalangeal_2 HAnimJoint { name "r_carpal_proximal_interphalangeal_2"  center -0.1954 0.7393 -0.0185 # test jointcenter 0.1455 0.2898 0.0235 
+ children [
+                                                       DEF Leif_r_carpal_middle_phalanx_2 HAnimSegment { name "r_carpal_middle_phalanx_2" children [ Transform { translation -0.1954 0.7393 -0.0185 # test segment translation -0.1954 0.7393 -0.0185
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_r_carpal_distal_interphalangeal_2 HAnimJoint { name "r_carpal_distal_interphalangeal_2"  center -0.1945 0.7169 -0.0173 # test jointcenter 0.146 0.2798 0.0245 
+ children [
+                                                             DEF Leif_r_carpal_distal_phalanx_2_tip HAnimSite { name "r_carpal_distal_phalanx_2_tip" translation -0.198 0.6883 -0.018 # test site translation -0.198 0.6883 -0.018
+  children [ TouchSensor { description "r_carpal_distal_phalanx_2_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Leif_r_midcarpal_3 HAnimJoint { name "r_midcarpal_3"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_r_capitate HAnimSegment { name "r_capitate" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_r_carpometacarpal_3 HAnimJoint { name "r_carpometacarpal_3"  center -0.1972 0.806 -0.0468 # test jointcenter -0.1972 0.806 -0.0468 
+ children [
+                                                   DEF Leif_r_metacarpal_3 HAnimSegment { name "r_metacarpal_3" children [ Transform { translation -0.1972 0.806 -0.0468 # test segment translation -0.1972 0.806 -0.0468
+ children [ USE LeifJointShape ] }
+                                                       DEF Leif_r_metacarpal_phalanx_3 HAnimSite { name "r_metacarpal_phalanx_3" translation 0 0 0 # test site translation x y z
+  children [ TouchSensor { description "r_metacarpal_phalanx_3" }
+                                                         USE LeifSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Leif_r_metacarpophalangeal_3 HAnimJoint { name "r_metacarpophalangeal_3"  center -0.1972 0.7849 -0.0468 # test jointcenter 0.1444 0.3113 0.0081 
+ children [
+                                                     DEF Leif_r_carpal_proximal_phalanx_3 HAnimSegment { name "r_carpal_proximal_phalanx_3" children [ Transform { translation -0.1972 0.7849 -0.0468 # test segment translation -0.1972 0.7849 -0.0468
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_r_carpal_proximal_interphalangeal_3 HAnimJoint { name "r_carpal_proximal_interphalangeal_3"  center -0.195 0.7304 -0.0441 # test jointcenter 0.1469 0.2859 0.0086 
+ children [
+                                                       DEF Leif_r_carpal_middle_phalanx_3 HAnimSegment { name "r_carpal_middle_phalanx_3" children [ Transform { translation -0.195 0.7304 -0.0441 # test segment translation -0.195 0.7304 -0.0441
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_r_carpal_distal_interphalangeal_3 HAnimJoint { name "r_carpal_distal_interphalangeal_3"  center -0.1939 0.7042 -0.0432 # test jointcenter 0.1476 0.2736 0.0092 
+ children [
+                                                             DEF Leif_r_carpal_distal_phalanx_3_tip HAnimSite { name "r_carpal_distal_phalanx_3_tip" translation -0.1969 0.6758 -0.0427 # test site translation -0.1969 0.6758 -0.0427
+  children [ TouchSensor { description "r_carpal_distal_phalanx_3_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                             DEF Leif_r_dactylion HAnimSite { name "r_dactylion" translation -0.1941 0.6772 -0.0423 # test site translation -0.1941 0.6772 -0.0423
+  children [ TouchSensor { description "r_dactylion" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Leif_r_midcarpal_4_5 HAnimJoint { name "r_midcarpal_4_5"  center 0 0 0 # test jointcenter x y z 
+ children [
+                                                 DEF Leif_r_hamate HAnimSegment { name "r_hamate" children [ Transform { translation 0 0 0 # test segment translation x y z
+ children [ USE LeifJointShape ] }
+                                                 ] }
+                                                 DEF Leif_r_carpometacarpal_4 HAnimJoint { name "r_carpometacarpal_4"  center -0.1951 0.8049 -0.0732 # test jointcenter -0.1951 0.8049 -0.0732 
+ children [
+                                                   DEF Leif_r_metacarpal_4 HAnimSegment { name "r_metacarpal_4" children [ Transform { translation -0.1951 0.8049 -0.0732 # test segment translation -0.1951 0.8049 -0.0732
+ children [ USE LeifJointShape ] }
+                                                   ] }
+                                                   DEF Leif_r_metacarpophalangeal_4 HAnimJoint { name "r_metacarpophalangeal_4"  center -0.1951 0.7845 -0.0732 # test jointcenter 0.1431 0.3096 -0.0038 
+ children [
+                                                     DEF Leif_r_carpal_proximal_phalanx_4 HAnimSegment { name "r_carpal_proximal_phalanx_4" children [ Transform { translation -0.1951 0.7845 -0.0732 # test segment translation -0.1951 0.7845 -0.0732
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_r_carpal_proximal_interphalangeal_4 HAnimJoint { name "r_carpal_proximal_interphalangeal_4"  center -0.192 0.7318 -0.0716 # test jointcenter 0.1441 0.2886 -0.0036 
+ children [
+                                                       DEF Leif_r_carpal_middle_phalanx_4 HAnimSegment { name "r_carpal_middle_phalanx_4" children [ Transform { translation -0.192 0.7318 -0.0716 # test segment translation -0.192 0.7318 -0.0716
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_r_carpal_distal_interphalangeal_4 HAnimJoint { name "r_carpal_distal_interphalangeal_4"  center -0.1908 0.7077 -0.0706 # test jointcenter 0.1447 0.2779 -0.0039 
+ children [
+                                                             DEF Leif_r_carpal_distal_phalanx_4_tip HAnimSite { name "r_carpal_distal_phalanx_4_tip" translation -0.1934 0.6778 -0.0693 # test site translation -0.1934 0.6778 -0.0693
+  children [ TouchSensor { description "r_carpal_distal_phalanx_4_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                                 DEF Leif_r_carpometacarpal_5 HAnimJoint { name "r_carpometacarpal_5"  center -0.1926 0.8096 -0.0975 # test jointcenter -0.1926 0.8096 -0.0975 
+ children [
+                                                   DEF Leif_r_metacarpal_5 HAnimSegment { name "r_metacarpal_5" children [ Transform { translation -0.1926 0.8096 -0.0975 # test segment translation -0.1926 0.8096 -0.0975
+ children [ USE LeifJointShape ] }
+                                                       DEF Leif_r_metacarpal_phalanx_5 HAnimSite { name "r_metacarpal_phalanx_5" translation -0.1929 0.789 -0.1064 # test site translation -0.1929 0.789 -0.1064
+  children [ TouchSensor { description "r_metacarpal_phalanx_5" }
+                                                         USE LeifSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Leif_r_metacarpophalangeal_5 HAnimJoint { name "r_metacarpophalangeal_5"  center -0.1926 0.7896 -0.0975 # test jointcenter 0.1399 0.3131 -0.0142 
+ children [
+                                                     DEF Leif_r_carpal_proximal_phalanx_5 HAnimSegment { name "r_carpal_proximal_phalanx_5" children [ Transform { translation -0.1926 0.7896 -0.0975 # test segment translation -0.1926 0.7896 -0.0975
+ children [ USE LeifJointShape ] }
+                                                     ] }
+                                                     DEF Leif_r_carpal_proximal_interphalangeal_5 HAnimJoint { name "r_carpal_proximal_interphalangeal_5"  center -0.1902 0.7483 -0.0963 # test jointcenter 0.1409 0.2999 -0.0154 
+ children [
+                                                       DEF Leif_r_carpal_middle_phalanx_5 HAnimSegment { name "r_carpal_middle_phalanx_5" children [ Transform { translation -0.1902 0.7483 -0.0963 # test segment translation -0.1902 0.7483 -0.0963
+ children [ USE LeifJointShape ] }
+                                                       ] }
+                                                       DEF Leif_r_carpal_distal_interphalangeal_5 HAnimJoint { name "r_carpal_distal_interphalangeal_5"  center -0.1908 0.754 -0.096 # test jointcenter 0.1407 0.2915 -0.0162 
+ children [
+                                                             DEF Leif_r_carpal_distal_phalanx_5_tip HAnimSite { name "r_carpal_distal_phalanx_5_tip" translation -0.1938 0.7035 -0.0949 # test site translation -0.1938 0.7035 -0.0949
+  children [ TouchSensor { description "r_carpal_distal_phalanx_5_tip" }
+                                                               USE LeifSiteShape
+                                                             ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                             ] }
+                                           ] }
+                                         ] }
+                                       ] }
+                                     ] }
+                                   ] }
+                                 ] }
+                               ] }
+                             ] }
+                           ] }
+                         ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+         ] }
+       ] }
+     ] }
+   ] }
+ ] }
+]
+skin [ 
+DEF babyskin Shape { # 
+ appearance Appearance {
+   texture ImageTexture { url [ "Leif.png" ] }
+
+   material Material {
+emissiveColor 0 0 0 
+specularColor 0 0 0
+shininess 0.5
+transparency 0 
+		}
+	} # appearance
+	geometry DEF LeifSkin IndexedFaceSet { # triangle mesh
+                creaseAngle 0 
+		ccw    TRUE
+		convex TRUE
+		solid  TRUE
+		coord DEF LeifSkinCoord Coordinate {
+		    point [ ]
+		}
+		coordIndex [
+		]
+		texCoordIndex [
+		]
+                texCoord TextureCoordinate {
+                    point [ ]
+                }
+	} # geometry
+   } # Shape 
+ ]  # skin 
+ skinCoord USE LeifSkinCoord
+}
+]}   # Added by John
+]}   # LeifView

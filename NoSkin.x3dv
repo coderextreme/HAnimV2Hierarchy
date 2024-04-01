@@ -1,0 +1,126 @@
+#VRML V2.0 utf8
+
+NavigationInfo { type [ "EXAMINE" "ANY"] headlight FALSE } 
+
+PointLight { location 0 10 0 }
+DirectionalLight { }
+DirectionalLight { direction 0 0 1 }
+
+DEF LeifView Transform { children [ 
+ Transform { translation 0 0.924 0 children [ Shape { geometry Box { size 0.02 0.01 0.01 }} ]}
+  DEF LiefView Viewpoint { description "Leif Front View" 
+   position 0 1.5 2 orientation 0.5 0 0 -0.5 centerOfRotation 0 0.5 0 } 
+  DEF SceneCoordSystem Transform { scale 0.175 0.175 0.175 children [ 
+   Inline { url ["JointCoordinateAxes.x3dv"] } ]}
+
+DEF LeifHumanoid Group { children [ 
+
+DEF Leif HAnimHumanoid { 
+  skeleton [ 
+DEF Leif_HumanoidRoot HAnimJoint { name "HumanoidRoot" center 0.0000 0.0000 0.0000 skinCoordIndex [  ]  skinCoordWeight [  ] children [ Transform { translation 0.0000 0.0000 0.0004 children [ Shape { geometry Box { size 0.02 0.02 0.02 } } ] }
+ DEF LeifRootView Viewpoint { description " Root View " position 0 0.5 1.5 orientation 0 0 1 0 } 
+ DEF Leif_sacroiliac HAnimJoint { name "sacroiliac" center 0.0001 0.448 -0.0007 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0001 0.448 -0.0007 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+  DEF Leif_l_hip HAnimJoint { name "l_hip" center 0.048 0.42 -0.0002 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.048 0.42 -0.0002 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+   DEF Leif_l_knee HAnimJoint { name "l_knee" center 0.0547 0.233 -0.0059 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0547 0.233 -0.0059 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+    DEF Leif_l_talocrural HAnimJoint { name "l_talocrural" center 0.0676 0.04 0.001 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0676 0.04 0.001 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+     DEF Leif_l_metatarsophalangeal_2 HAnimJoint { name "l_metatarsophalangeal_2" center 0.0884 0.0109 0.0439 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.085 0.012 0.07 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } ]}]}]}]}
+  DEF Leif_r_hip HAnimJoint { name "r_hip" center -0.048 0.42 -0.0002 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.048 0.42 -0.0002 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+   DEF Leif_r_knee HAnimJoint { name "r_knee" center -0.0547 0.233 -0.0059 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.0547 0.233 -0.0059 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+    DEF Leif_r_talocrural HAnimJoint { name "r_talocrural" center -0.0676 0.037 -0.0333 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.0676 0.04 -0.01 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+     DEF Leif_r_metatarsophalangeal_2 HAnimJoint { name "r_metatarsophalangeal_2" center -0.0945 0.0107 0.0537 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.085 0.012 0.07 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } ]}]}]}]} 
+ DEF Leif_vl5 HAnimJoint { name "vl5" center 0.0001 0.475 -0.0007 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0001 0.475 -0.0007 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+  DEF Leif_vl2 HAnimJoint { name "vl2" center 0.0001 0.502 -0.0007 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0001 0.502 -0.0007 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+   DEF Leif_vt11 HAnimJoint { name "vt11" center 0.0001 0.558 -0.0099 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0001 0.558 -0.0099 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } 
+    DEF Leif_vt5 HAnimJoint { name "vt5"  center 0.0001 0.626 -0.0155 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0001 0.626 -0.0155 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } 
+     DEF Leif_vc4 HAnimJoint { name "vc4" center 0.0001 0.704 -0.0253 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0001 0.704 -0.02532 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+      DEF Leif_skullbase HAnimJoint { name "skullbase" center 0.0009 0.753 -0.0055 skinCoordIndex [ 100 101 102 ] skinCoordWeight [ 1 1 1 ] children [ Transform { translation 0.0009 0.753 -0.0055 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } ]}]}
+     DEF Leif_l_sternoclavicular HAnimJoint { name "l_sternoclavicular" center 0.0297 0.691 -0.0238 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0297 0.691 -0.0238 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }
+      DEF Leif_l_shoulder HAnimJoint { name "l_shoulder" center 0.0895 0.669 -0.0317 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.0895 0.669 -0.0317 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }  
+       DEF Leif_l_elbow HAnimJoint { name "l_elbow" center 0.194 0.547 -0.0285 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.194 0.547 -0.0285 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } 
+        DEF Leif_l_radiocarpal HAnimJoint { name "l_radiocarpal" center 0.293 0.453 0.016 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.293 0.453 0.016 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } 
+         DEF Leif_l_carpometacarpal_1 HAnimJoint { name "l_carpometacarpal_1" center 0.305 0.44 0.035 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.305 0.44 0.035 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+          DEF Leif_l_metacarpophalangeal_1 HAnimJoint { name "l_metacarpophalangeal_1" center 0.3072 0.425 0.045 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.3072 0.425 0.045 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_l_carpal_interphalangeal_1 HAnimJoint { name "l_carpal_interphalangeal_1" center 0.311 0.414 0.049 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.311 0.414 0.049 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]}
+         DEF Leif_l_carpal_proximal_interphalangeal_2 HAnimJoint { name "l_carpal_proximal_interphalangeal_2" center 0.32 0.414 0.033 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.32 0.414 0.033 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] }
+          DEF Leif_l_metacarpophalangeal_2 HAnimJoint { name "l_metacarpophalangeal_2" center 0.341 0.403 0.035 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.341 0.403 0.035 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_l_carpal_distal_interphalangeal_2 HAnimJoint { name "l_carpal_distal_interphalangeal_2" center 0.350 0.395 0.037 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.350 0.395 0.037 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]} 
+         DEF Leif_l_carpal_proximal_interphalangeal_3 HAnimJoint { name "l_carpal_proximal_interphalangeal_3" center 0.331 0.413 0.0 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.331 0.413 0.02 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_l_metacarpophalangeal_3 HAnimJoint { name "l_metacarpophalangeal_3" center 0.343 0.4 0.022 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.343 0.4 0.022 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] }
+          DEF Leif_l_carpal_distal_interphalangeal_3 HAnimJoint { name "l_carpal_distal_interphalangeal_3" center 0.355 0.388 0.024 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.355 0.388 0.024 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]} 
+         DEF Leif_l_carpal_proximal_interphalangeal_4 HAnimJoint { name "l_carpal_proximal_interphalangeal_4" center 0.33 0.415 0.01 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.33 0.415 0.01 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] }  
+          DEF Leif_l_metacarpophalangeal_4 HAnimJoint { name "l_metacarpophalangeal_4" center 0.346 0.405 0.01 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.346 0.405 0.01 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_l_carpal_distal_interphalangeal_4 HAnimJoint { name "l_carpal_distal_interphalangeal_4" center 0.352 0.391 0.0017 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.348 0.391 0.008 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]}
+         DEF Leif_l_carpal_proximal_interphalangeal_5 HAnimJoint { name "l_carpal_proximal_interphalangeal_5" center 0.329 0.414 -0.008 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.329 0.414 0.002 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] }
+          DEF Leif_l_metacarpophalangeal_5 HAnimJoint { name "l_metacarpophalangeal_5" center 0.336 0.405 -0.010 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.336 0.405 0.0 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_l_carpal_distal_interphalangeal_5 HAnimJoint { name "l_carpal_distal_interphalangeal_5" center 0.342 0.399 -0.0116 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation 0.342 0.399 0.0 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]} ]} ]} ]} ]}
+     DEF Leif_r_sternoclavicular HAnimJoint { name "r_sternoclavicular" center -0.0297 0.691 -0.0227 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.0297 0.691 -0.0227 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] }  
+      DEF Leif_r_shoulder HAnimJoint { name "r_shoulder" center -0.0895 0.669 -0.0314 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.0895 0.669 -0.0314 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } 
+       DEF Leif_r_elbow HAnimJoint { name "r_elbow" center -0.1940 0.547 -0.0328 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.1940 0.547 -0.0328 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } 
+        DEF Leif_r_radiocarpal HAnimJoint { name "r_radiocarpal" center -0.302 0.448 0.015 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.302 0.448 0.015 children [ Shape { geometry Box { size 0.01 0.01 0.01 } } ] } 
+         DEF Leif_r_carpometacarpal_1 HAnimJoint { name "r_carpometacarpal_1" center -0.301 0.44 0.0208 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.301 0.44 0.03 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+          DEF Leif_r_metacarpophalangeal_1 HAnimJoint { name "r_metacarpophalangeal_1" center -0.308 0.43 0.0404 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.308 0.43 0.0404 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] }
+           DEF Leif_r_carpal_interphalangeal_1 HAnimJoint { name "r_carpal_interphalangeal_1" center -0.315 0.418 0.05 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.315 0.418 0.05 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]}
+         DEF Leif_r_carpal_proximal_interphalangeal_2 HAnimJoint { name "r_carpal_proximal_interphalangeal_2" center -0.33 0.423 0.033 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.33 0.423 0.033 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+          DEF Leif_r_metacarpophalangeal_2 HAnimJoint { name "r_metacarpophalangeal_2" center -0.346 0.406 0.036 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.346 0.406 0.036 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_r_carpal_distal_interphalangeal_2 HAnimJoint { name "r_carpal_distal_interphalangeal_2" center -0.352 0.397 0.036 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.352 0.397 0.036 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]}
+         DEF Leif_r_carpal_proximal_interphalangeal_3 HAnimJoint { name "r_carpal_proximal_interphalangeal_3" center -0.335 0.42 0.02 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.335 0.42 0.02 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+          DEF Leif_r_metacarpophalangeal_3 HAnimJoint { name "r_metacarpophalangeal_3" center -0.348 0.405 0.0233 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.348 0.405 0.023 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_r_carpal_distal_interphalangeal_3 HAnimJoint { name "r_carpal_distal_interphalangeal_3" center -0.354 0.394 0.023 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.355 0.396 0.023 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]}
+         DEF Leif_r_carpal_proximal_interphalangeal_4 HAnimJoint { name "r_carpal_proximal_interphalangeal_4" center -0.335 0.419 0.009 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.335 0.419 0.009 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+          DEF Leif_r_metacarpophalangeal_4 HAnimJoint { name "r_metacarpophalangeal_4" center -0.344 0.405 0.008 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.344 0.405 0.008 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_r_carpal_distal_interphalangeal_4 HAnimJoint { name "r_carpal_distal_interphalangeal_4" center -0.353 0.393 0.008 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.353 0.393 0.008 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]}
+         DEF Leif_r_carpal_proximal_interphalangeal_5 HAnimJoint { name "r_carpal_proximal_interphalangeal_5" center -0.331 0.416 -0.0101 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.331 0.416 -0.002 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+          DEF Leif_r_metacarpophalangeal_5 HAnimJoint { name "r_metacarpophalangeal_5" center -0.337 0.405 -0.0108 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.337 0.408 -0.0033 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } 
+           DEF Leif_r_carpal_distal_interphalangeal_5 HAnimJoint { name "r_carpal_distal_interphalangeal_5" center -0.343 0.398 -0.0111 skinCoordIndex [  ] skinCoordWeight [  ] children [ Transform { translation -0.342 0.4 -0.0045 children [ Shape { geometry Box { size 0.003 0.003 0.003 } } ] } ]}]}]} ]} ]} ]} ]}
+  ]}]}]}
+ ]}]}
+]}
+]
+  skin [ 
+DEF babyskin Shape { # 
+	appearance Appearance {
+        texture ImageTexture { url [ "LeifAvatarBasecolor.png" ] }
+
+		material 	Material {
+ambientIntensity 0.2
+diffuseColor 0.8 0.8 0.8
+emissiveColor    1 1 1 
+shininess        0.2
+specularColor 1 1 1
+transparency 0.5 
+		}
+	} # appearance
+	geometry DEF LeifSkin IndexedFaceSet { # triangle mesh
+                creaseAngle 0 
+		ccw    TRUE
+		convex TRUE
+		solid  TRUE
+		coordIndex [
+			
+			
+		
+			
+		] # 41772 triangles
+		texCoordIndex [
+			
+			
+			
+			
+	
+
+		
+		] # 41772 triangles
+		coord DEF LeifSkinCoord Coordinate { point [
+			
+			
+		
+
+	
+		] } # 20889
+	} # geometry
+   } # Shape 
+ ]  # skin 
+ skinCoord USE LeifSkinCoord
+}
+]}   # Added by John
+]}   # LeifView

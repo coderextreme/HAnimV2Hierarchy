@@ -87,4 +87,31 @@ exit_on_failure $?	"node JoeJsonToJointSegment.js < NewHAnim4.json > JointsSegme
 exit_on_failure $?	"node JoeJsonSeg2SegJoint.js < NewHAnim4.json > Seg2SegJoint4.py"
 
 
+
+###############################################################################################################################
+			 node correctJoeHier.js < HAnimV2JointSegmentSiteHierarchy\[20240329\].txt > NewHAnim5.txt
+exit_on_failure $?	"node correctJoeHier.js < HAnimV2JointSegmentSiteHierarchy\[20240329\].txt > NewHAnim5.txt"
+
+			 node joeHierFillInJoints.js < NewHAnim5.txt > NewHAnim5.json
+exit_on_failure $?	"node joeHierFillInJoints.js < NewHAnim5.txt > NewHAnim5.json"
+
+			 node JoeJsonToVRML.js < NewHAnim5.json > NewHAnim5.x3dv
+exit_on_failure $?	"node JoeJsonToVRML.js < NewHAnim5.json > NewHAnim5.x3dv"
+
+			 perl haveSkeletonAddCenters.pl UnboxedTemplate.x3dv NewHAnim5.x3dv > GoodCenters5.x3dv
+exit_on_failure $?	"perl haveSkeletonAddCenters.pl UnboxedTemplate.x3dv NewHAnim5.x3dv > GoodCenters5.x3dv"
+
+			 node JoeJsonToVRML.js < NewHAnim5.json 1> NewLilyApproved5.x3dv
+exit_on_failure $?	"node JoeJsonToVRML.js  < NewHAnim5.json 1> NewLilyApproved5.x3dv"
+
+			 perl haveSkeletonAddCenters.pl Lily73Final0823Test5.x3dv NewLilyApproved5.x3dv > NewLilyApprovedCenters5.x3dv
+exit_on_failure $?	"perl haveSkeletonAddCenters.pl Lily73Final0823Test5.x3dv NewLilyApproved5.x3dv > NewLilyApprovedCenters5.x3dv"
+
+			 node JoeJsonToJointSegment.js < NewHAnim5.json > JointsSegments5.py
+exit_on_failure $?	"node JoeJsonToJointSegment.js < NewHAnim5.json > JointsSegments5.py"
+
+			 node JoeJsonSeg2SegJoint.js < NewHAnim5.json > Seg2SegJoint5.py
+exit_on_failure $?	"node JoeJsonSeg2SegJoint.js < NewHAnim5.json > Seg2SegJoint5.py"
+
+
 ###############################################################################################################################

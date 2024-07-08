@@ -1,0 +1,1056 @@
+#X3D V4.0 utf8
+
+PROFILE Immersive
+
+COMPONENT HAnim:2
+COMPONENT Texturing:3
+
+Group {
+ children [
+  Transform {
+    translation 0 0 0
+    children DEF GrampsSiteShape Shape {
+     geometry Box {
+      size 0.02 0.02 0.02
+     }
+     appearance Appearance {
+      material Material {
+       diffuseColor 0 0 1
+      }
+     }
+    }
+  }
+  Transform {
+   translation 0 0 0
+   children DEF GrampsJointShape Shape {
+    geometry Sphere {
+     radius 0.02
+    }
+    appearance Appearance {
+     material Material {
+      diffuseColor 0 1 0
+     }
+    }
+   }
+  }
+ ]
+}
+
+NavigationInfo { type [ "EXAMINE" "ANY"] headlight FALSE }
+
+PointLight { location 0 10 0 }
+DirectionalLight { }
+DirectionalLight { direction 0 0 1 }
+
+DEF GrampsView Transform { children [
+ Transform { translation 0 0.924 0 children [ ]}
+  DEF ViewGramps Viewpoint { description "Gramps Front View"
+   position 0 1.5 2 orientation 0.5 0 0 -0.5 centerOfRotation 0 0.5 0 }
+  DEF SceneCoordSystem Transform { scale 0.175 0.175 0.175 children [
+   Inline { url ["JointCoordinateAxes.x3dv"] } ]}
+
+DEF Gramps HAnimHumanoid {
+  scale 1 1 -1 
+  skeleton [ 
+
+ DEF Gramps_humanoid_root HAnimJoint { name "humanoid_root" center 0 0.824 0.0277 children [
+DEF rootBox Transform { translation 0 0 0 children [ Shape { geometry Box { size 0.015 0.015 0.015 } } ] }
+DEF GrampsRootView Viewpoint { description " Root View " position 0 0.5 -1.5 orientation 0 1 0 3.14 } # yaw pi rads to compensate for humanoid scale 1 1 -1
+   DEF Gramps_sacrum HAnimSegment { name "sacrum" children [ Transform { translation 0 0.824 0.0277 children [ USE GrampsJointShape ] }
+   ] }
+   DEF Gramps_sacroiliac HAnimJoint { name "sacroiliac" center 0 0.9149 0.0016 children [
+     DEF Gramps_pelvis HAnimSegment { name "pelvis" children [ Transform { translation 0 0.9149 0.0016 children [ USE GrampsJointShape ] }
+         DEF Gramps_r_iliocristale HAnimSite { name "r_iliocristale" translation -0.1525 1.0628 0.0035 children [ TouchSensor { description "r_iliocristale" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_r_trochanterion HAnimSite { name "r_trochanterion" translation -0.1689 0.8419 0.0352 children [ TouchSensor { description "r_trochanterion" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_l_iliocristale HAnimSite { name "l_iliocristale" translation 0.1612 1.0537 0.0008 children [ TouchSensor { description "l_iliocristale" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_l_trochanterion HAnimSite { name "l_trochanterion" translation 0.1677 0.8336 0.0303 children [ TouchSensor { description "l_trochanterion" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_r_asis HAnimSite { name "r_asis" translation -0.0887 1.0021 0.1112 children [ TouchSensor { description "r_asis" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_l_asis HAnimSite { name "l_asis" translation 0.0774 1.019 -0.1151 children [ TouchSensor { description "l_asis" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_r_psis HAnimSite { name "r_psis" translation -0.0716 1.019 -0.1138 children [ TouchSensor { description "r_psis" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_l_psis HAnimSite { name "l_psis" translation 0.0774 1.019 -0.1151 children [ TouchSensor { description "l_psis" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_crotch HAnimSite { name "crotch" translation 0.0034 0.8266 0.0257 children [ TouchSensor { description "crotch" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_buttocks_standing_wall_contact HAnimSite { name "buttocks_standing_wall_contact" translation 0 0 0 children [ TouchSensor { description "buttocks_standing_wall_contact" }
+           USE GrampsSiteShape
+         ] }
+     ] }
+     DEF Gramps_l_hip HAnimJoint { name "l_hip" center 0.0961 0.9124 -0.0001 children [
+       DEF Gramps_l_thigh HAnimSegment { name "l_thigh" children [ Transform { translation 0.0961 0.9124 -0.0001 children [ USE GrampsJointShape ] }
+           DEF Gramps_l_knee_crease HAnimSite { name "l_knee_crease" translation 0.0993 0.4881 -0.0309 children [ TouchSensor { description "l_knee_crease" }
+             USE GrampsSiteShape
+           ] }
+           DEF Gramps_l_femoral_medial_epicondyles HAnimSite { name "l_femoral_medial_epicondyles" translation 0.0398 0.4946 0.0303 children [ TouchSensor { description "l_femoral_medial_epicondyles" }
+             USE GrampsSiteShape
+           ] }
+           DEF Gramps_l_femoral_lateral_epicondyles HAnimSite { name "l_femoral_lateral_epicondyles" translation 0.1598 0.4967 0.0297 children [ TouchSensor { description "l_femoral_lateral_epicondyles" }
+             USE GrampsSiteShape
+           ] }
+           DEF Gramps_l_suprapatella HAnimSite { name "l_suprapatella" translation 0 0 0 children [ TouchSensor { description "l_suprapatella" }
+             USE GrampsSiteShape
+           ] }
+       ] }
+       DEF Gramps_l_knee HAnimJoint { name "l_knee" center 0.104 0.4867 0.0308 children [
+         DEF Gramps_l_calf HAnimSegment { name "l_calf" children [ Transform { translation 0.104 0.4867 0.0308 children [ USE GrampsJointShape ] }
+             DEF Gramps_l_tibiale HAnimSite { name "l_tibiale" translation 0 0 0 children [ TouchSensor { description "l_tibiale" }
+               USE GrampsSiteShape
+             ] }
+             DEF Gramps_l_medial_malleolus HAnimSite { name "l_medial_malleolus" translation 0.089 0.0716 -0.0881 children [ TouchSensor { description "l_medial_malleolus" }
+               USE GrampsSiteShape
+             ] }
+             DEF Gramps_l_lateral_malleolus HAnimSite { name "l_lateral_malleolus" translation 0.1308 0.0597 -0.1032 children [ TouchSensor { description "l_lateral_malleolus" }
+               USE GrampsSiteShape
+             ] }
+         ] }
+         DEF Gramps_l_talocrural HAnimJoint { name "l_talocrural" center 0.1101 0.0656 -0.0736 children [
+           DEF Gramps_l_talus HAnimSegment { name "l_talus" children [ Transform { translation 0.1101 0.0656 -0.0736 children [ USE GrampsJointShape ] }
+               DEF Gramps_l_sphyrion HAnimSite { name "l_sphyrion" translation 0.089 0.0575 -0.0943 children [ TouchSensor { description "l_sphyrion" }
+                 USE GrampsSiteShape
+               ] }
+               DEF Gramps_l_calcaneous_posterior HAnimSite { name "l_calcaneous_posterior" translation 0.0974 0.0259 -0.1171 children [ TouchSensor { description "l_calcaneous_posterior" }
+                 USE GrampsSiteShape
+               ] }
+           ] }
+           DEF Gramps_l_talocalcaneonavicular HAnimJoint { name "l_talocalcaneonavicular" center 0 0 0 children [
+             DEF Gramps_l_navicular HAnimSegment { name "l_navicular" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+             ] }
+             DEF Gramps_l_cuneonavicular_1 HAnimJoint { name "l_cuneonavicular_1" center 0 0 0 children [
+               DEF Gramps_l_cuneiform_1 HAnimSegment { name "l_cuneiform_1" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_l_tarsometatarsal_1 HAnimJoint { name "l_tarsometatarsal_1" center 0 0 0 children [
+                 DEF Gramps_l_metatarsal_1 HAnimSegment { name "l_metatarsal_1" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_l_metatarsophalangeal_1 HAnimJoint { name "l_metatarsophalangeal_1" center 0.1086 0.0001 0.0368 children [
+                   DEF Gramps_l_tarsal_proximal_phalanx_1 HAnimSegment { name "l_tarsal_proximal_phalanx_1" children [ Transform { translation 0.1086 0.0001 0.0368 children [ USE GrampsJointShape ] }
+                       DEF Gramps_l_metatarsal_phalanx_1 HAnimSite { name "l_metatarsal_phalanx_1" translation 0.0816 0.0232 0.0106 children [ TouchSensor { description "l_metatarsal_phalanx_1" }
+                         USE GrampsSiteShape
+                       ] }
+                   ] }
+                   DEF Gramps_l_tarsal_interphalangeal_1 HAnimJoint { name "l_tarsal_interphalangeal_1" center 0.1086 0 0.0762 children [
+                     DEF Gramps_l_tarsal_distal_phalanx_1 HAnimSegment { name "l_tarsal_distal_phalanx_1" children [ Transform { translation 0.1086 0 0.0762 children [ USE GrampsJointShape ] }
+                         DEF Gramps_l_tarsal_distal_phalanx_1_tip HAnimSite { name "l_tarsal_distal_phalanx_1_tip" translation 0.09 0.012 0.188 children [ TouchSensor { description "l_tarsal_distal_phalanx_1_tip" }
+                           USE GrampsSiteShape
+                         ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Gramps_l_cuneonavicular_2 HAnimJoint { name "l_cuneonavicular_2" center 0 0 0 children [
+               DEF Gramps_l_cuneiform_2 HAnimSegment { name "l_cuneiform_2" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_l_tarsometatarsal_2 HAnimJoint { name "l_tarsometatarsal_2" center 0.1086 0.0001 -0.0368 children [
+                 DEF Gramps_l_metatarsal_2 HAnimSegment { name "l_metatarsal_2" children [ Transform { translation 0.1086 0.0001 -0.0368 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_l_metatarsophalangeal_2 HAnimJoint { name "l_metatarsophalangeal_2" center 0.1086 0.0001 0.0368 children [
+                   DEF Gramps_l_tarsal_proximal_phalanx_2 HAnimSegment { name "l_tarsal_proximal_phalanx_2" children [ Transform { translation 0.1086 0.0001 0.0368 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_l_tarsal_proximal_interphalangeal_2 HAnimJoint { name "l_tarsal_proximal_interphalangeal_2" center 0 0 0 children [
+                     DEF Gramps_l_tarsal_middle_phalanx_2 HAnimSegment { name "l_tarsal_middle_phalanx_2" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                     ] }
+                     DEF Gramps_l_tarsal_distal_interphalangeal_2 HAnimJoint { name "l_tarsal_distal_interphalangeal_2" center 0.1086 0 0.0762 children [
+                       DEF Gramps_l_tarsal_distal_phalanx_2 HAnimSegment { name "l_tarsal_distal_phalanx_2" children [ Transform { translation 0.1086 0 0.0762 children [ USE GrampsJointShape ] }
+                           DEF Gramps_l_tarsal_distal_phalanx_2_tip HAnimSite { name "l_tarsal_distal_phalanx_2_tip" translation 0.11 0.011 0.19 children [ TouchSensor { description "l_tarsal_distal_phalanx_2_tip" }
+                             USE GrampsSiteShape
+                           ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Gramps_l_cuneonavicular_3 HAnimJoint { name "l_cuneonavicular_3" center 0 0 0 children [
+               DEF Gramps_l_cuneiform_3 HAnimSegment { name "l_cuneiform_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_l_tarsometatarsal_3 HAnimJoint { name "l_tarsometatarsal_3" center 0 0 0 children [
+                 DEF Gramps_l_metatarsal_3 HAnimSegment { name "l_metatarsal_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_l_metatarsophalangeal_3 HAnimJoint { name "l_metatarsophalangeal_3" center 0 0 0 children [
+                   DEF Gramps_l_tarsal_proximal_phalanx_3 HAnimSegment { name "l_tarsal_proximal_phalanx_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_l_tarsal_proximal_interphalangeal_3 HAnimJoint { name "l_tarsal_proximal_interphalangeal_3" center 0 0 0 children [
+                     DEF Gramps_l_tarsal_middle_phalanx_3 HAnimSegment { name "l_tarsal_middle_phalanx_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                     ] }
+                     DEF Gramps_l_tarsal_distal_interphalangeal_3 HAnimJoint { name "l_tarsal_distal_interphalangeal_3" center 0 0 0 children [
+                       DEF Gramps_l_tarsal_distal_phalanx_3 HAnimSegment { name "l_tarsal_distal_phalanx_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                           DEF Gramps_l_tarsal_distal_phalanx_3_tip HAnimSite { name "l_tarsal_distal_phalanx_3_tip" translation 0.128 0.011 0.185 children [ TouchSensor { description "l_tarsal_distal_phalanx_3_tip" }
+                             USE GrampsSiteShape
+                           ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+           DEF Gramps_l_calcaneuscuboid HAnimJoint { name "l_calcaneuscuboid" center 0 0 0 children [
+             DEF Gramps_l_calcaneus HAnimSegment { name "l_calcaneus" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+             ] }
+             DEF Gramps_l_transversetarsal HAnimJoint { name "l_transversetarsal" center 0 0 0 children [
+               DEF Gramps_l_cuboid HAnimSegment { name "l_cuboid" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_l_tarsometatarsal_4 HAnimJoint { name "l_tarsometatarsal_4" center 0 0 0 children [
+                 DEF Gramps_l_metatarsal_4 HAnimSegment { name "l_metatarsal_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_l_metatarsophalangeal_4 HAnimJoint { name "l_metatarsophalangeal_4" center 0 0 0 children [
+                   DEF Gramps_l_tarsal_proximal_phalanx_4 HAnimSegment { name "l_tarsal_proximal_phalanx_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_l_tarsal_proximal_interphalangeal_4 HAnimJoint { name "l_tarsal_proximal_interphalangeal_4" center 0 0 0 children [
+                     DEF Gramps_l_tarsal_middle_phalanx_4 HAnimSegment { name "l_tarsal_middle_phalanx_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                     ] }
+                     DEF Gramps_l_tarsal_distal_interphalangeal_4 HAnimJoint { name "l_tarsal_distal_interphalangeal_4" center 0 0 0 children [
+                       DEF Gramps_l_tarsal_distal_phalanx_4 HAnimSegment { name "l_tarsal_distal_phalanx_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                           DEF Gramps_l_tarsal_distal_phalanx_4_tip HAnimSite { name "l_tarsal_distal_phalanx_4_tip" translation 0.142 0.011 0.178 children [ TouchSensor { description "l_tarsal_distal_phalanx_4_tip" }
+                             USE GrampsSiteShape
+                           ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+               DEF Gramps_l_tarsometatarsal_5 HAnimJoint { name "l_tarsometatarsal_5" center 0 0 0 children [
+                 DEF Gramps_l_metatarsal_5 HAnimSegment { name "l_metatarsal_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_l_metatarsophalangeal_5 HAnimJoint { name "l_metatarsophalangeal_5" center 0 0 0 children [
+                   DEF Gramps_l_tarsal_proximal_phalanx_5 HAnimSegment { name "l_tarsal_proximal_phalanx_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_l_tarsal_proximal_interphalangeal_5 HAnimJoint { name "l_tarsal_proximal_interphalangeal_5" center 0 0 0 children [
+                     DEF Gramps_l_tarsal_middle_phalanx_5 HAnimSegment { name "l_tarsal_middle_phalanx_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                         DEF Gramps_l_metatarsal_phalanx_5 HAnimSite { name "l_metatarsal_phalanx_5" translation 0.1825 0.007 0.0928 children [ TouchSensor { description "l_metatarsal_phalanx_5" }
+                           USE GrampsSiteShape
+                         ] }
+                     ] }
+                     DEF Gramps_l_tarsal_distal_interphalangeal_5 HAnimJoint { name "l_tarsal_distal_interphalangeal_5" center 0 0 0 children [
+                       DEF Gramps_l_tarsal_distal_phalanx_5 HAnimSegment { name "l_tarsal_distal_phalanx_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                           DEF Gramps_l_tarsal_distal_phalanx_5_tip HAnimSite { name "l_tarsal_distal_phalanx_5_tip" translation 0.154 0.01 0.168 children [ TouchSensor { description "l_tarsal_distal_phalanx_5_tip" }
+                             USE GrampsSiteShape
+                           ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+         ] }
+       ] }
+     ] }
+     DEF Gramps_r_hip HAnimJoint { name "r_hip" center -0.095 0.9171 0.0029 children [
+       DEF Gramps_r_thigh HAnimSegment { name "r_thigh" children [ Transform { translation -0.095 0.9171 0.0029 children [ USE GrampsJointShape ] }
+           DEF Gramps_r_knee_crease HAnimSite { name "r_knee_crease" translation -0.0825 0.4932 -0.0326 children [ TouchSensor { description "r_knee_crease" }
+             USE GrampsSiteShape
+           ] }
+           DEF Gramps_r_femoral_lateral_epicondyles HAnimSite { name "r_femoral_lateral_epicondyles" translation -0.1421 0.4992 0.031 children [ TouchSensor { description "r_femoral_lateral_epicondyles" }
+             USE GrampsSiteShape
+           ] }
+           DEF Gramps_r_femoral_medial_epicondyles HAnimSite { name "r_femoral_medial_epicondyles" translation -0.0221 0.5014 0.0289 children [ TouchSensor { description "r_femoral_medial_epicondyles" }
+             USE GrampsSiteShape
+           ] }
+           DEF Gramps_r_suprapatella HAnimSite { name "r_suprapatella" translation 0 0 0 children [ TouchSensor { description "r_suprapatella" }
+             USE GrampsSiteShape
+           ] }
+       ] }
+       DEF Gramps_r_knee HAnimJoint { name "r_knee" center -0.0867 0.4913 0.0318 children [
+         DEF Gramps_r_calf HAnimSegment { name "r_calf" children [ Transform { translation -0.0867 0.4913 0.0318 children [ USE GrampsJointShape ] }
+             DEF Gramps_r_tibiale HAnimSite { name "r_tibiale" translation 0 0 0 children [ TouchSensor { description "r_tibiale" }
+               USE GrampsSiteShape
+             ] }
+             DEF Gramps_r_medial_malleolus HAnimSite { name "r_medial_malleolus" translation -0.0591 0.076 -0.0928 children [ TouchSensor { description "r_medial_malleolus" }
+               USE GrampsSiteShape
+             ] }
+             DEF Gramps_r_lateral_malleolus HAnimSite { name "r_lateral_malleolus" translation -0.1006 0.0658 -0.1075 children [ TouchSensor { description "r_lateral_malleolus" }
+               USE GrampsSiteShape
+             ] }
+         ] }
+         DEF Gramps_r_talocrural HAnimJoint { name "r_talocrural" center -0.0801 0.0712 -0.0766 children [
+           DEF Gramps_r_talus HAnimSegment { name "r_talus" children [ Transform { translation -0.0801 0.0712 -0.0766 children [ USE GrampsJointShape ] }
+               DEF Gramps_r_sphyrion HAnimSite { name "r_sphyrion" translation -0.0603 0.061 -0.1002 children [ TouchSensor { description "r_sphyrion" }
+                 USE GrampsSiteShape
+               ] }
+               DEF Gramps_r_calcaneous_posterior HAnimSite { name "r_calcaneous_posterior" translation -0.0692 0.0297 -0.1221 children [ TouchSensor { description "r_calcaneous_posterior" }
+                 USE GrampsSiteShape
+               ] }
+           ] }
+           DEF Gramps_r_talocalcaneonavicular HAnimJoint { name "r_talocalcaneonavicular" center 0 0 0 children [
+             DEF Gramps_r_navicular HAnimSegment { name "r_navicular" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+             ] }
+             DEF Gramps_r_cuneonavicular_1 HAnimJoint { name "r_cuneonavicular_1" center 0 0 0 children [
+               DEF Gramps_r_cuneiform_1 HAnimSegment { name "r_cuneiform_1" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_r_tarsometatarsal_1 HAnimJoint { name "r_tarsometatarsal_1" center 0 0 0 children [
+                 DEF Gramps_r_metatarsal_1 HAnimSegment { name "r_metatarsal_1" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_r_metatarsophalangeal_1 HAnimJoint { name "r_metatarsophalangeal_1" center 0 0 0 children [
+                   DEF Gramps_r_tarsal_proximal_phalanx_1 HAnimSegment { name "r_tarsal_proximal_phalanx_1" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_r_tarsal_interphalangeal_1 HAnimJoint { name "r_tarsal_interphalangeal_1" center 0 0 0 children [
+                     DEF Gramps_r_tarsal_distal_phalanx_1 HAnimSegment { name "r_tarsal_distal_phalanx_1" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                         DEF Gramps_r_metatarsal_phalanx_1 HAnimSite { name "r_metatarsal_phalanx_1" translation 0 0 0 children [ TouchSensor { description "r_metatarsal_phalanx_1" }
+                           USE GrampsSiteShape
+                         ] }
+                         DEF Gramps_r_tarsal_distal_phalanx_1_tip HAnimSite { name "r_tarsal_distal_phalanx_1_tip" translation -0.1043 -0.0227 0.145 children [ TouchSensor { description "r_tarsal_distal_phalanx_1_tip" }
+                           USE GrampsSiteShape
+                         ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Gramps_r_cuneonavicular_2 HAnimJoint { name "r_cuneonavicular_2" center 0 0 0 children [
+               DEF Gramps_r_cuneiform_2 HAnimSegment { name "r_cuneiform_2" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_r_tarsometatarsal_2 HAnimJoint { name "r_tarsometatarsal_2" center -0.0801 0 -0.0368 children [
+                 DEF Gramps_r_metatarsal_2 HAnimSegment { name "r_metatarsal_2" children [ Transform { translation -0.0801 0 -0.0368 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_r_metatarsophalangeal_2 HAnimJoint { name "r_metatarsophalangeal_2" center -0.0801 0 0.0368 children [
+                   DEF Gramps_r_tarsal_proximal_phalanx_2 HAnimSegment { name "r_tarsal_proximal_phalanx_2" children [ Transform { translation -0.0801 0 0.0368 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_r_tarsal_proximal_interphalangeal_2 HAnimJoint { name "r_tarsal_proximal_interphalangeal_2" center 0 0 0 children [
+                     DEF Gramps_r_tarsal_middle_phalanx_2 HAnimSegment { name "r_tarsal_middle_phalanx_2" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                     ] }
+                     DEF Gramps_r_tarsal_distal_interphalangeal_2 HAnimJoint { name "r_tarsal_distal_interphalangeal_2" center -0.0801 0.0039 0.0732 children [
+                       DEF Gramps_r_tarsal_distal_phalanx_2 HAnimSegment { name "r_tarsal_distal_phalanx_2" children [ Transform { translation -0.0801 0.0039 0.0732 children [ USE GrampsJointShape ] }
+                           DEF Gramps_r_tarsal_distal_phalanx_2_tip HAnimSite { name "r_tarsal_distal_phalanx_2_tip" translation -0.11 0.011 0.19 children [ TouchSensor { description "r_tarsal_distal_phalanx_2_tip" }
+                             USE GrampsSiteShape
+                           ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+             DEF Gramps_r_cuneonavicular_3 HAnimJoint { name "r_cuneonavicular_3" center 0 0 0 children [
+               DEF Gramps_r_cuneiform_3 HAnimSegment { name "r_cuneiform_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_r_tarsometatarsal_3 HAnimJoint { name "r_tarsometatarsal_3" center 0 0 0 children [
+                 DEF Gramps_r_metatarsal_3 HAnimSegment { name "r_metatarsal_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_r_metatarsophalangeal_3 HAnimJoint { name "r_metatarsophalangeal_3" center 0 0 0 children [
+                   DEF Gramps_r_tarsal_proximal_phalanx_3 HAnimSegment { name "r_tarsal_proximal_phalanx_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_r_tarsal_proximal_interphalangeal_3 HAnimJoint { name "r_tarsal_proximal_interphalangeal_3" center 0 0 0 children [
+                     DEF Gramps_r_tarsal_middle_phalanx_3 HAnimSegment { name "r_tarsal_middle_phalanx_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                     ] }
+                     DEF Gramps_r_tarsal_distal_interphalangeal_3 HAnimJoint { name "r_tarsal_distal_interphalangeal_3" center 0 0 0 children [
+                       DEF Gramps_r_tarsal_distal_phalanx_3 HAnimSegment { name "r_tarsal_distal_phalanx_3" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                          DEF Gramps_r_tarsal_distal_phalanx_3_tip HAnimSite { name "r_tarsal_distal_phalanx_3_tip" translation -0.128 0.011 0.185 children [ TouchSensor { description "r_tarsal_distal_phalanx_3_tip" }
+                            USE GrampsSiteShape
+                          ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+           DEF Gramps_r_calcaneocuboid HAnimJoint { name "r_calcaneocuboid" center 0 0 0 children [
+             DEF Gramps_r_calcaneus HAnimSegment { name "r_calcaneus" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+             ] }
+             DEF Gramps_r_transversetarsal HAnimJoint { name "r_transversetarsal" center 0 0 0 children [
+               DEF Gramps_r_cuboid HAnimSegment { name "r_cuboid" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_r_tarsometatarsal_4 HAnimJoint { name "r_tarsometatarsal_4" center 0 0 0 children [
+                 DEF Gramps_r_metatarsal_4 HAnimSegment { name "r_metatarsal_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_r_metatarsophalangeal_4 HAnimJoint { name "r_metatarsophalangeal_4" center 0 0 0 children [
+                   DEF Gramps_r_tarsal_proximal_phalanx_4 HAnimSegment { name "r_tarsal_proximal_phalanx_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_r_tarsal_proximal_interphalangeal_4 HAnimJoint { name "r_tarsal_proximal_interphalangeal_4" center 0 0 0 children [
+                     DEF Gramps_r_tarsal_middle_phalanx_4 HAnimSegment { name "r_tarsal_middle_phalanx_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                     ] }
+                     DEF Gramps_r_tarsal_distal_interphalangeal_4 HAnimJoint { name "r_tarsal_distal_interphalangeal_4" center 0 0 0 children [
+                       DEF Gramps_r_tarsal_distal_phalanx_4 HAnimSegment { name "r_tarsal_distal_phalanx_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                           DEF Gramps_r_tarsal_distal_phalanx_4_tip HAnimSite { name "r_tarsal_distal_phalanx_4_tip" translation -0.142 0.011 0.178 children [ TouchSensor { description "r_tarsal_distal_phalanx_4_tip" }
+                             USE GrampsSiteShape
+                           ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+               DEF Gramps_r_tarsometatarsal_5 HAnimJoint { name "r_tarsometatarsal_5" center 0 0 0 children [
+                 DEF Gramps_r_metatarsal_5 HAnimSegment { name "r_metatarsal_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_r_metatarsophalangeal_5 HAnimJoint { name "r_metatarsophalangeal_5" center 0 0 0 children [
+                   DEF Gramps_r_tarsal_proximal_phalanx_5 HAnimSegment { name "r_tarsal_proximal_phalanx_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                   ] }
+                   DEF Gramps_r_tarsal_proximal_interphalangeal_5 HAnimJoint { name "r_tarsal_proximal_interphalangeal_5" center 0 0 0 children [
+                     DEF Gramps_r_tarsal_middle_phalanx_5 HAnimSegment { name "r_tarsal_middle_phalanx_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                         DEF Gramps_r_metatarsal_phalanx_5 HAnimSite { name "r_metatarsal_phalanx_5" translation 0 0 0 children [ TouchSensor { description "r_metatarsal_phalanx_5" }
+                           USE GrampsSiteShape
+                         ] }
+                     ] }
+                     DEF Gramps_r_tarsal_distal_interphalangeal_5 HAnimJoint { name "r_tarsal_distal_interphalangeal_5" center 0 0 0 children [
+                       DEF Gramps_r_tarsal_distal_phalanx_5 HAnimSegment { name "r_tarsal_distal_phalanx_5" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                           DEF Gramps_r_tarsal_distal_phalanx_5_tip HAnimSite { name "r_tarsal_distal_phalanx_5_tip" translation -0.154 0.01 0.168 children [ TouchSensor { description "r_tarsal_distal_phalanx_5_tip" }
+                             USE GrampsSiteShape
+                           ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+         ] }
+       ] }
+     ] }
+   ] }
+   DEF Gramps_vl5 HAnimJoint { name "vl5" center 0.0028 1.0568 -0.0776 children [
+     DEF Gramps_l5 HAnimSegment { name "l5" children [ Transform { translation 0.0028 1.0568 -0.0776 children [ USE GrampsJointShape ] }
+         DEF Gramps_spine_1_middle_back HAnimSite { name "spine_1_middle_back" translation 0 0 0 children [ TouchSensor { description "spine_1_middle_back" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_spine_2_lower_back HAnimSite { name "spine_2_lower_back" translation 0.0049 1.1908 -0.1113 children [ TouchSensor { description "spine_2_lower_back" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_waist_preferred_anterior HAnimSite { name "waist_preferred_anterior" translation 0 0 0 children [ TouchSensor { description "waist_preferred_anterior" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_waist_preferred_posterior HAnimSite { name "waist_preferred_posterior" translation 0.29 1.0915 -0.1091 children [ TouchSensor { description "waist_preferred_posterior" }
+           USE GrampsSiteShape
+         ] }
+         DEF Gramps_navel HAnimSite { name "navel" translation 0.0069 1.0966 0.1017 children [ TouchSensor { description "navel" }
+           USE GrampsSiteShape
+         ] }
+     ] }
+     DEF Gramps_vl4 HAnimJoint { name "vl4" center 0.0035 1.0925 -0.0787 children [
+       DEF Gramps_l4 HAnimSegment { name "l4" children [ Transform { translation 0.0035 1.0925 -0.0787 children [ USE GrampsJointShape ] }
+       ] }
+       DEF Gramps_vl3 HAnimJoint { name "vl3" center 0.0041 1.1276 -0.0796 children [
+         DEF Gramps_l3 HAnimSegment { name "l3" children [ Transform { translation 0.0041 1.1276 -0.0796 children [ USE GrampsJointShape ] }
+         ] }
+         DEF Gramps_vl2 HAnimJoint { name "vl2" center 0.0045 1.1546 -0.08 children [
+           DEF Gramps_l2 HAnimSegment { name "l2" children [ Transform { translation 0.0045 1.1546 -0.08 children [ USE GrampsJointShape ] }
+               DEF Gramps_l_rib_10 HAnimSite { name "l_rib_10" translation 0.0871 1.1925 0.0992 children [ TouchSensor { description "l_rib_10" }
+                 USE GrampsSiteShape
+               ] }
+               DEF Gramps_r_rib_10 HAnimSite { name "r_rib_10" translation -0.0711 1.1941 0.1016 children [ TouchSensor { description "r_rib_10" }
+                 USE GrampsSiteShape
+               ] }
+           ] }
+           DEF Gramps_vl1 HAnimJoint { name "vl1" center 0.0048 1.1912 -0.0805 children [
+             DEF Gramps_l1 HAnimSegment { name "l1" children [ Transform { translation 0.0048 1.1912 -0.0805 children [ USE GrampsJointShape ] }
+             ] }
+             DEF Gramps_vt12 HAnimJoint { name "vt12" center 0.0051 1.2278 -0.0808 children [
+               DEF Gramps_t12 HAnimSegment { name "t12" children [ Transform { translation 0.0051 1.2278 -0.0808 children [ USE GrampsJointShape ] }
+               ] }
+               DEF Gramps_vt11 HAnimJoint { name "vt11" center 0.0053 1.2679 -0.081 children [
+                 DEF Gramps_t11 HAnimSegment { name "t11" children [ Transform { translation 0.0053 1.2679 -0.081 children [ USE GrampsJointShape ] }
+                 ] }
+                 DEF Gramps_vt10 HAnimJoint { name "vt10" center 0.0056 1.2848 -0.0822 children [
+                   DEF Gramps_t10 HAnimSegment { name "t10" children [ Transform { translation 0.0056 1.2848 -0.0822 children [ USE GrampsJointShape ] }
+                       DEF Gramps_substernale HAnimSite { name "substernale" translation 0.0085 1.2995 0.1147 children [ TouchSensor { description "substernale" }
+                         USE GrampsSiteShape
+                       ] }
+                       DEF Gramps_mesosternale HAnimSite { name "mesosternale" translation 0 0 0 children [ TouchSensor { description "mesosternale" }
+                         USE GrampsSiteShape
+                       ] }
+                   ] }
+                   DEF Gramps_vt9 HAnimJoint { name "vt9" center 0.0057 1.3126 -0.0838 children [
+                     DEF Gramps_t9 HAnimSegment { name "t9" children [ Transform { translation 0.0057 1.3126 -0.0838 children [ USE GrampsJointShape ] }
+                         DEF Gramps_l_thelion HAnimSite { name "l_thelion" translation 0.0918 1.3382 0.1192 children [ TouchSensor { description "l_thelion" }
+                           USE GrampsSiteShape
+                         ] }
+                         DEF Gramps_r_thelion HAnimSite { name "r_thelion" translation -0.0736 1.3385 0.1217 children [ TouchSensor { description "r_thelion" }
+                           USE GrampsSiteShape
+                         ] }
+                         DEF Gramps_rear_center_midsagittal_plane HAnimSite { name "rear_center_midsagittal_plane" translation 0 0 0 children [ TouchSensor { description "rear_center_midsagittal_plane" }
+                           USE GrampsSiteShape
+                         ] }
+                         DEF Gramps_l_chest_midsagittal_plane HAnimSite { name "l_chest_midsagittal_plane" translation 0 0 0 children [ TouchSensor { description "l_chest_midsagittal_plane" }
+                           USE GrampsSiteShape
+                         ] }
+                         DEF Gramps_r_chest_midsagittal_plane HAnimSite { name "r_chest_midsagittal_plane" translation 0 0 0 children [ TouchSensor { description "r_chest_midsagittal_plane" }
+                           USE GrampsSiteShape
+                         ] }
+                     ] }
+                     DEF Gramps_vt8 HAnimJoint { name "vt8" center 0.0057 1.3382 -0.0845 children [
+                       DEF Gramps_t8 HAnimSegment { name "t8" children [ Transform { translation 0.0057 1.3382 -0.0845 children [ USE GrampsJointShape ] }
+                       ] }
+                       DEF Gramps_vt7 HAnimJoint { name "vt7" center 0.0058 1.3625 -0.0833 children [
+                         DEF Gramps_t7 HAnimSegment { name "t7" children [ Transform { translation 0.0058 1.3625 -0.0833 children [ USE GrampsJointShape ] }
+                         ] }
+                         DEF Gramps_vt6 HAnimJoint { name "vt6" center 0.0059 1.3866 -0.08 children [
+                           DEF Gramps_t6 HAnimSegment { name "t6" children [ Transform { translation 0.0059 1.3866 -0.08 children [ USE GrampsJointShape ] }
+                           ] }
+                           DEF Gramps_vt5 HAnimJoint { name "vt5" center 0.006 1.4102 -0.0745 children [
+                             DEF Gramps_t5 HAnimSegment { name "t5" children [ Transform { translation 0.006 1.4102 -0.0745 children [ USE GrampsJointShape ] }
+                                 DEF Gramps_spine_1_middle_back HAnimSite { name "spine_1_middle_back" translation 0 0 0 children [ TouchSensor { description "spine_1_middle_back" }
+                                   USE GrampsSiteShape
+                                 ] }
+                             ] }
+                             DEF Gramps_vt4 HAnimJoint { name "vt4" center 0.0061 1.432 -0.0675 children [
+                               DEF Gramps_t4 HAnimSegment { name "t4" children [ Transform { translation 0.0061 1.432 -0.0675 children [ USE GrampsJointShape ] }
+                               ] }
+                               DEF Gramps_vt3 HAnimJoint { name "vt3" center 0.0062 1.4583 -0.057 children [
+                                 DEF Gramps_t3 HAnimSegment { name "t3" children [ Transform { translation 0.0062 1.4583 -0.057 children [ USE GrampsJointShape ] }
+                                 ] }
+                                 DEF Gramps_vt2 HAnimJoint { name "vt2" center 0.0063 1.4761 -0.0484 children [
+                                   DEF Gramps_t2 HAnimSegment { name "t2" children [ Transform { translation 0.0063 1.4761 -0.0484 children [ USE GrampsJointShape ] }
+                                   ] }
+                                   DEF Gramps_vt1 HAnimJoint { name "vt1" center 0.0065 1.4951 -0.0387 children [
+                                     DEF Gramps_t1 HAnimSegment { name "t1" children [ Transform { translation 0.0065 1.4951 -0.0387 children [ USE GrampsJointShape ] }
+                                         DEF Gramps_suprasternale HAnimSite { name "suprasternale" translation 0.0084 1.4714 0.0551 children [ TouchSensor { description "suprasternale" }
+                                           USE GrampsSiteShape
+                                         ] }
+                                         DEF Gramps_cervicale HAnimSite { name "cervicale" translation 0.0064 1.52 -0.0815 children [ TouchSensor { description "cervicale" }
+                                           USE GrampsSiteShape
+                                         ] }
+                                     ] }
+                                     DEF Gramps_vc7 HAnimJoint { name "vc7" center 0.0066 1.5132 -0.0301 children [
+                                       DEF Gramps_c7 HAnimSegment { name "c7" children [ Transform { translation 0.0066 1.5132 -0.0301 children [ USE GrampsJointShape ] }
+                                           DEF Gramps_l_neck_base HAnimSite { name "l_neck_base" translation 0.0646 1.5141 -0.038 children [ TouchSensor { description "l_neck_base" }
+                                             USE GrampsSiteShape
+                                           ] }
+                                           DEF Gramps_r_neck_base HAnimSite { name "r_neck_base" translation -0.0419 1.5149 -0.022 children [ TouchSensor { description "r_neck_base" }
+                                             USE GrampsSiteShape
+                                           ] }
+                                       ] }
+                                       DEF Gramps_vc6 HAnimJoint { name "vc6" center 0.0066 1.5357 -0.0143 children [
+                                         DEF Gramps_c6 HAnimSegment { name "c6" children [ Transform { translation 0.0066 1.5357 -0.0143 children [ USE GrampsJointShape ] }
+                                         ] }
+                                         DEF Gramps_vc5 HAnimJoint { name "vc5" center 0.0066 1.552 -0.0082 children [
+                                           DEF Gramps_c5 HAnimSegment { name "c5" children [ Transform { translation 0.0066 1.552 -0.0082 children [ USE GrampsJointShape ] }
+                                           ] }
+                                           DEF Gramps_vc4 HAnimJoint { name "vc4" center 0.0066 1.5662 -0.0084 children [
+                                             DEF Gramps_c4 HAnimSegment { name "c4" children [ Transform { translation 0.0066 1.5662 -0.0084 children [ USE GrampsJointShape ] }
+                                               DEF Gramps_vc3 HAnimJoint { name "vc3" center 0.0066 1.58 -0.0103 children [
+                                                 DEF Gramps_c3 HAnimSegment { name "c3" children [ Transform { translation 0.0066 1.58 -0.0103 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_vc2 HAnimJoint { name "vc2" center 0.0066 1.5928 -0.0103 children [
+                                                   DEF Gramps_c2 HAnimSegment { name "c2" children [ Transform { translation 0.0066 1.5928 -0.0103 children [ USE GrampsJointShape ] }
+                                                       DEF Gramps_adams_apple HAnimSite { name "adams_apple" translation 0 0 0 children [ TouchSensor { description "adams_apple" }
+                                                         USE GrampsSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Gramps_vc1 HAnimJoint { name "vc1" center 0.0066 1.6144 -0.0034 children [
+                                                     DEF Gramps_c1 HAnimSegment { name "c1" children [ Transform { translation 0.0066 1.6144 -0.0034 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_skullbase HAnimJoint { name "skullbase" center 0.0044 1.6209 0.0236 children [
+                                                       DEF Gramps_skull HAnimSegment { name "skull" children [ Transform { translation 0.0044 1.6209 0.0236 children [ USE GrampsJointShape ] }
+                                                           DEF Gramps_skull_vertex HAnimSite { name "skull_vertex" translation 0.005 1.7504 0.0055 children [ TouchSensor { description "skull_vertex" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_sellion HAnimSite { name "sellion" translation 0.0058 1.6316 0.0852 children [ TouchSensor { description "sellion" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_l_infraorbitale HAnimSite { name "l_infraorbitale" translation 0.0341 1.6171 0.0752 children [ TouchSensor { description "l_infraorbitale" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_r_infraorbitale HAnimSite { name "r_infraorbitale" translation -0.0237 1.6171 0.0752 children [ TouchSensor { description "r_infraorbitale" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_l_tragion HAnimSite { name "l_tragion" translation 0.0739 1.6348 0.0282 children [ TouchSensor { description "l_tragion" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_r_tragion HAnimSite { name "r_tragion" translation -0.0646 1.6347 0.0302 children [ TouchSensor { description "r_tragion" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_nuchale HAnimSite { name "nuchale" translation 0.0039 1.5972 -0.0796 children [ TouchSensor { description "nuchale" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_opisthocranion HAnimSite { name "opisthocranion" translation 0 0 0 children [ TouchSensor { description "opisthocranion" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_glabella HAnimSite { name "glabella" translation 0 0 0 children [ TouchSensor { description "glabella" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_l_ectocanthus HAnimSite { name "l_ectocanthus" translation 0 0 0 children [ TouchSensor { description "l_ectocanthus" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                           DEF Gramps_r_ectocanthus HAnimSite { name "r_ectocanthus" translation 0 0 0 children [ TouchSensor { description "r_ectocanthus" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                       ] }
+                                                       DEF Gramps_l_eyeball_joint HAnimJoint { name "l_eyeball_joint" center 0.0336 1.6332 0.0502 children [
+                                                         DEF Gramps_l_eyeball HAnimSegment { name "l_eyeball" children [ Transform { translation 0.0336 1.6332 0.0502 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_eyeball_tip HAnimSite { name "l_eyeball_tip" translation 0 0 0 children [ TouchSensor { description "l_eyeball_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                       DEF Gramps_l_eyelid_joint HAnimJoint { name "l_eyelid_joint" center 0.0336 1.6332 0.0502 children [
+                                                         DEF Gramps_l_eyelid HAnimSegment { name "l_eyelid" children [ Transform { translation 0.0336 1.6332 0.0502 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_eyelid_tip HAnimSite { name "l_eyelid_tip" translation 0 0 0 children [ TouchSensor { description "l_eyelid_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                       DEF Gramps_l_eyebrow_joint HAnimJoint { name "l_eyebrow_joint" center 0.0336 1.6332 0.0502 children [
+                                                         DEF Gramps_l_eyebrow HAnimSegment { name "l_eyebrow" children [ Transform { translation 0.0336 1.6332 0.0502 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_eyebrow_tip HAnimSite { name "l_eyebrow_tip" translation 0 0 0 children [ TouchSensor { description "l_eyebrow_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                      DEF Gramps_r_eyeball_joint HAnimJoint { name "r_eyeball_joint" center -0.0236 1.6331 0.051 children [
+                                                         DEF Gramps_r_eyeball HAnimSegment { name "r_eyeball" children [ Transform { translation -0.0236 1.6331 0.051 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_r_eyeball_tip HAnimSite { name "r_eyeball_tip" translation 0 0 0 children [ TouchSensor { description "r_eyeball_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       DEF Gramps_r_eyebrow_joint HAnimJoint { name "r_eyebrow_joint" center -0.0236 1.6331 0.051 children [
+                                                         DEF Gramps_r_eyebrow HAnimSegment { name "r_eyebrow" children [ Transform { translation -0.0236 1.6331 0.051 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_r_eyebrow_tip HAnimSite { name "r_eyebrow_tip" translation 0 0 0 children [ TouchSensor { description "r_eyebrow_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                       DEF Gramps_r_eyelid_joint HAnimJoint { name "r_eyelid_joint" center -0.0236 1.6331 0.051 children [
+                                                         DEF Gramps_r_eyelid HAnimSegment { name "r_eyelid" children [ Transform { translation -0.0236 1.6331 0.051 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_r_eyelid_tip HAnimSite { name "r_eyelid_tip" translation 0 0 0 children [ TouchSensor { description "r_eyelid_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                       DEF Gramps_temporomandibular HAnimJoint { name "temporomandibular" center 0 0 0 children [
+                                                         DEF Gramps_jaw HAnimSegment { name "jaw" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_gonion HAnimSite { name "l_gonion" translation 0.0631 1.553 0.033 children [ TouchSensor { description "l_gonion" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                             DEF Gramps_r_gonion HAnimSite { name "r_gonion" translation -0.052 1.5529 0.0347 children [ TouchSensor { description "r_gonion" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                             DEF Gramps_supramenton HAnimSite { name "supramenton" translation 0.0061 1.541 0.0805 children [ TouchSensor { description "supramenton" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                             DEF Gramps_menton HAnimSite { name "menton" translation 0 0 0 children [ TouchSensor { description "menton" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                       DEF Gramps_tongue_joint HAnimJoint { name "tongue_joint" center 0 0 0 children [
+                                                         DEF Gramps_tongue HAnimSegment { name "tongue" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_tongue_tip HAnimSite { name "tongue_tip" translation 0 0 0 children [ TouchSensor { description "tongue_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                      ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                             ] }
+                                           ] }
+                                         ] }
+                                       ] }
+                                     ] }
+                                     DEF Gramps_l_sternoclavicular HAnimJoint { name "l_sternoclavicular" center 0.082 1.4488 -0.0353 children [
+                                       DEF Gramps_l_clavicle HAnimSegment { name "l_clavicle" children [ Transform { translation 0.082 1.4488 -0.0353 children [ USE GrampsJointShape ] }
+                                           DEF Gramps_l_clavicale HAnimSite { name "l_clavicale" translation 0.0271 1.4943 0.0394 children [ TouchSensor { description "l_clavicale" }
+                                             USE GrampsSiteShape
+                                           ] }
+                                       ] }
+                                       DEF Gramps_l_acromioclavicular HAnimJoint { name "l_acromioclavicular" center 0.0962 1.4269 -0.0424 children [
+                                         DEF Gramps_l_scapula HAnimSegment { name "l_scapula" children [ Transform { translation 0.0962 1.4269 -0.0424 children [ USE GrampsJointShape ] }
+                                             DEF Gramps_l_acromion HAnimSite { name "l_acromion" translation 0.2032 1.476 -0.049 children [ TouchSensor { description "l_acromion" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                             DEF Gramps_l_axilla_proximal HAnimSite { name "l_axilla_proximal" translation 0.1777 1.4065 -0.0075 children [ TouchSensor { description "l_axilla_proximal" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                             DEF Gramps_l_axilla_distal HAnimSite { name "l_axilla_distal" translation 0.1706 1.4072 -0.0875 children [ TouchSensor { description "l_axilla_distal" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                             DEF Gramps_l_axilla_posterior_folds HAnimSite { name "l_axilla_posterior_folds" translation 0 0 0 children [ TouchSensor { description "l_axilla_posterior_folds" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                         ] }
+                                         DEF Gramps_l_shoulder HAnimJoint { name "l_shoulder" center 0.2029 1.4376 -0.0387 children [
+                                           DEF Gramps_l_upperarm HAnimSegment { name "l_upperarm" children [ Transform { translation 0.2029 1.4376 -0.0387 children [ USE GrampsJointShape ] }
+                                               DEF Gramps_l_humeral_lateral_epicondyles HAnimSite { name "l_humeral_lateral_epicondyles" translation 0.228 1.1482 -0.11 children [ TouchSensor { description "l_humeral_lateral_epicondyles" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                               DEF Gramps_l_humeral_medial_epicondyles HAnimSite { name "l_humeral_medial_epicondyles" translation 0.1735 1.1272 -0.1113 children [ TouchSensor { description "l_humeral_medial_epicondyles" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                               DEF Gramps_l_radiale HAnimSite { name "l_radiale" translation 0.2182 1.1212 -0.1167 children [ TouchSensor { description "l_radiale" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                               DEF Gramps_l_bideltoid HAnimSite { name "l_bideltoid" translation 0 0 0 children [ TouchSensor { description "l_bideltoid" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                           ] }
+                                           DEF Gramps_l_elbow HAnimJoint { name "l_elbow" center 0.2014 1.1357 -0.0682 children [
+                                             DEF Gramps_l_forearm HAnimSegment { name "l_forearm" children [ Transform { translation 0.2014 1.1357 -0.0682 children [ USE GrampsJointShape ] }
+                                                 DEF Gramps_l_radial_styloid HAnimSite { name "l_radial_styloid" translation 0.1901 0.8645 -0.0415 children [ TouchSensor { description "l_radial_styloid" }
+                                                   USE GrampsSiteShape
+                                                 ] }
+                                                 DEF Gramps_l_olecranon HAnimSite { name "l_olecranon" translation -0.1962 1.1375 -0.1123 children [ TouchSensor { description "l_olecranon" }
+                                                   USE GrampsSiteShape
+                                                 ] }
+                                             ] }
+                                             DEF Gramps_l_radiocarpal HAnimJoint { name "l_radiocarpal" center 0.1984 0.8663 -0.0583 children [
+                                               DEF Gramps_l_carpal HAnimSegment { name "l_carpal" children [ Transform { translation 0.1984 0.8663 -0.0583 children [ USE GrampsJointShape ] }
+                                                   DEF Gramps_l_ulnar_styloid HAnimSite { name "l_ulnar_styloid" translation -0.2142 0.8529 -0.0648 children [ TouchSensor { description "l_ulnar_styloid" }
+                                                     USE GrampsSiteShape
+                                                   ] }
+                                               ] }
+                                               DEF Gramps_l_midcarpal_1 HAnimJoint { name "l_midcarpal_1" center 0 0 0 children [
+                                                 DEF Gramps_l_trapezium HAnimSegment { name "l_trapezium" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_l_carpometacarpal_1 HAnimJoint { name "l_carpometacarpal_1" center 0.1924 0.8472 -0.0534 children [
+                                                   DEF Gramps_l_metacarpal_1 HAnimSegment { name "l_metacarpal_1" children [ Transform { translation 0.1924 0.8472 -0.0534 children [ USE GrampsJointShape ] }
+                                                       DEF Gramps_l_metacarpal_phalanx_2 HAnimSite { name "l_metacarpal_phalanx_2" translation 0.2009 0.8139 -0.0237 children [ TouchSensor { description "l_metacarpal_phalanx_2" }
+                                                         USE GrampsSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Gramps_l_metacarpophalangeal_1 HAnimJoint { name "l_metacarpophalangeal_1" center 0.1951 0.8226 0.0246 children [
+                                                     DEF Gramps_l_carpal_proximal_phalanx_1 HAnimSegment { name "l_carpal_proximal_phalanx_1" children [ Transform { translation 0.1951 0.8226 0.0246 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_l_carpal_interphalangeal_1 HAnimJoint { name "l_carpal_interphalangeal_1" center 0.1955 0.8159 0.0464 children [
+                                                       DEF Gramps_l_carpal_distal_phalanx_1 HAnimSegment { name "l_carpal_distal_phalanx_1" children [ Transform { translation 0.1955 0.8159 0.0464 children [ USE GrampsJointShape ] }
+                                                           DEF Gramps_l_carpal_distal_phalanx_1_tip HAnimSite { name "l_carpal_distal_phalanx_1_tip" translation 0.1982 0.8061 0.0759 children [ TouchSensor { description "l_carpal_distal_phalanx_1_tip" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Gramps_l_midcarpal_2 HAnimJoint { name "l_midcarpal_2" center 0 0 0 children [
+                                                 DEF Gramps_l_trapezoid HAnimSegment { name "l_trapezoid" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_l_carpometacarpal_2 HAnimJoint { name "l_carpometacarpal_2" center 0.1983 0.8024 -0.028 children [
+                                                   DEF Gramps_l_metacarpal_2 HAnimSegment { name "l_metacarpal_2" children [ Transform { translation 0.1983 0.8024 -0.028 children [ USE GrampsJointShape ] }
+                                                   ] }
+                                                   DEF Gramps_l_metacarpophalangeal_2 HAnimJoint { name "l_metacarpophalangeal_2" center 0.1983 0.7815 -0.028 children [
+                                                     DEF Gramps_l_carpal_proximal_phalanx_2 HAnimSegment { name "l_carpal_proximal_phalanx_2" children [ Transform { translation 0.1983 0.7815 -0.028 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_l_carpal_proximal_interphalangeal_2 HAnimJoint { name "l_carpal_proximal_interphalangeal_2" center 0.2017 0.7363 -0.0248 children [
+                                                       DEF Gramps_l_carpal_middle_phalanx_2 HAnimSegment { name "l_carpal_middle_phalanx_2" children [ Transform { translation 0.2017 0.7363 -0.0248 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_l_carpal_distal_interphalangeal_2 HAnimJoint { name "l_carpal_distal_interphalangeal_2" center 0.2028 0.7139 -0.0236 children [
+                                                         DEF Gramps_l_carpal_distal_phalanx_2 HAnimSegment { name "l_carpal_distal_phalanx_2" children [ Transform { translation 0.2028 0.7139 -0.0236 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_dactylion HAnimSite { name "l_dactylion" translation 0.2056 0.6743 -0.0482 children [ TouchSensor { description "l_dactylion" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                             DEF Gramps_l_carpal_distal_phalanx_2_tip HAnimSite { name "l_carpal_distal_phalanx_2_tip" translation 0.2089 0.6858 -0.0245 children [ TouchSensor { description "l_carpal_distal_phalanx_2_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Gramps_l_midcarpal_3 HAnimJoint { name "l_midcarpal_3" center 0 0 0 children [
+                                                 DEF Gramps_l_capitate HAnimSegment { name "l_capitate" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_l_carpometacarpal_3 HAnimJoint { name "l_carpometacarpal_3" center 0.1987 0.8029 -0.053 children [
+                                                   DEF Gramps_l_metacarpal_3 HAnimSegment { name "l_metacarpal_3" children [ Transform { translation 0.1987 0.8029 -0.053 children [ USE GrampsJointShape ] }
+                                                       DEF Gramps_l_metacarpal_phalanx_3 HAnimSite { name "l_metacarpal_phalanx_3" translation 0 0 0 children [ TouchSensor { description "l_metacarpal_phalanx_3" }
+                                                         USE GrampsSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Gramps_l_metacarpophalangeal_3 HAnimJoint { name "l_metacarpophalangeal_3" center 0.1987 0.7818 -0.053 children [
+                                                     DEF Gramps_l_carpal_proximal_phalanx_3 HAnimSegment { name "l_carpal_proximal_phalanx_3" children [ Transform { translation 0.1987 0.7818 -0.053 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_l_carpal_proximal_interphalangeal_3 HAnimJoint { name "l_carpal_proximal_interphalangeal_3" center 0.2013 0.7273 -0.0503 children [
+                                                       DEF Gramps_l_carpal_middle_phalanx_3 HAnimSegment { name "l_carpal_middle_phalanx_3" children [ Transform { translation 0.2013 0.7273 -0.0503 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_l_carpal_distal_interphalangeal_3 HAnimJoint { name "l_carpal_distal_interphalangeal_3" center 0.2026 0.7011 -0.0494 children [
+                                                         DEF Gramps_l_carpal_distal_phalanx_3 HAnimSegment { name "l_carpal_distal_phalanx_3" children [ Transform { translation 0.2026 0.7011 -0.0494 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_carpal_distal_phalanx_3_tip HAnimSite { name "l_carpal_distal_phalanx_3_tip" translation 0.208 0.6731 -0.0491 children [ TouchSensor { description "l_carpal_distal_phalanx_3_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Gramps_l_midcarpal_4_5 HAnimJoint { name "l_midcarpal_4_5" center 0 0 0 children [
+                                                 DEF Gramps_l_hamate HAnimSegment { name "l_hamate" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_l_carpometacarpal_4 HAnimJoint { name "l_carpometacarpal_4" center 0.1956 0.8019 -0.0794 children [
+                                                   DEF Gramps_l_metacarpal_4 HAnimSegment { name "l_metacarpal_4" children [ Transform { translation 0.1956 0.8019 -0.0794 children [ USE GrampsJointShape ] }
+                                                   ] }
+                                                   DEF Gramps_l_metacarpophalangeal_4 HAnimJoint { name "l_metacarpophalangeal_4" center 0.1956 0.7815 -0.0794 children [
+                                                     DEF Gramps_l_carpal_proximal_phalanx_4 HAnimSegment { name "l_carpal_proximal_phalanx_4" children [ Transform { translation 0.1956 0.7815 -0.0794 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_l_carpal_proximal_interphalangeal_4 HAnimJoint { name "l_carpal_proximal_interphalangeal_4" center 0.1973 0.7287 -0.0777 children [
+                                                       DEF Gramps_l_carpal_middle_phalanx_4 HAnimSegment { name "l_carpal_middle_phalanx_4" children [ Transform { translation 0.1973 0.7287 -0.0777 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_l_carpal_distal_interphalangeal_4 HAnimJoint { name "l_carpal_distal_interphalangeal_4" center 0 0 0 children [
+                                                         DEF Gramps_l_carpal_distal_phalanx_4 HAnimSegment { name "l_carpal_distal_phalanx_4" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_carpal_distal_phalanx_4_tip HAnimSite { name "l_carpal_distal_phalanx_4_tip" translation 0.2035 0.675 -0.0756 children [ TouchSensor { description "l_carpal_distal_phalanx_4_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                                 DEF Gramps_l_carpometacarpal_5 HAnimJoint { name "l_carpometacarpal_5" center 0.1925 0.8066 -0.1036 children [
+                                                   DEF Gramps_l_metacarpal_5 HAnimSegment { name "l_metacarpal_5" children [ Transform { translation 0.1925 0.8066 -0.1036 children [ USE GrampsJointShape ] }
+                                                       DEF Gramps_l_metacarpal_phalanx_5 HAnimSite { name "l_metacarpal_phalanx_5" translation 0.1929 0.786 -0.1122 children [ TouchSensor { description "l_metacarpal_phalanx_5" }
+                                                         USE GrampsSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Gramps_l_metacarpophalangeal_5 HAnimJoint { name "l_metacarpophalangeal_5" center 0.1925 0.7866 -0.1036 children [
+                                                     DEF Gramps_l_carpal_proximal_phalanx_5 HAnimSegment { name "l_carpal_proximal_phalanx_5" children [ Transform { translation 0.1925 0.7866 -0.1036 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_l_carpal_proximal_interphalangeal_5 HAnimJoint { name "l_carpal_proximal_interphalangeal_5" center 0.1938 0.7452 -0.1024 children [
+                                                       DEF Gramps_l_carpal_middle_phalanx_5 HAnimSegment { name "l_carpal_middle_phalanx_5" children [ Transform { translation 0.1938 0.7452 -0.1024 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_l_carpal_distal_interphalangeal_5 HAnimJoint { name "l_carpal_distal_interphalangeal_5" center 0.1948 0.7277 -0.1017 children [
+                                                         DEF Gramps_l_carpal_distal_phalanx_5 HAnimSegment { name "l_carpal_distal_phalanx_5" children [ Transform { translation 0.1948 0.7277 -0.1017 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_l_carpal_distal_phalanx_5_tip HAnimSite { name "l_carpal_distal_phalanx_5_tip" translation 0.2014 0.7009 -0.1012 children [ TouchSensor { description "l_carpal_distal_phalanx_5_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                             ] }
+                                           ] }
+                                         ] }
+                                       ] }
+                                     ] }
+                                     DEF Gramps_r_sternoclavicular HAnimJoint { name "r_sternoclavicular" center -0.0694 1.46 -0.033 children [
+                                       DEF Gramps_r_clavicle HAnimSegment { name "r_clavicle" children [ Transform { translation -0.0694 1.46 -0.033 children [ USE GrampsJointShape ] }
+                                           DEF Gramps_r_clavicale HAnimSite { name "r_clavicale" translation -0.0115 1.4943 0.04 children [ TouchSensor { description "r_clavicale" }
+                                             USE GrampsSiteShape
+                                           ] }
+                                       ] }
+                                       DEF Gramps_r_acromioclavicular HAnimJoint { name "r_acromioclavicular" center -0.0836 1.4281 -0.0401 children [
+                                         DEF Gramps_r_scapula HAnimSegment { name "r_scapula" children [ Transform { translation -0.0836 1.4281 -0.0401 children [ USE GrampsJointShape ] }
+                                             DEF Gramps_r_acromion HAnimSite { name "r_acromion" translation -0.1905 1.4791 -0.0431 children [ TouchSensor { description "r_acromion" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                             DEF Gramps_r_axilla_proximal HAnimSite { name "r_axilla_proximal" translation -0.1626 1.4072 -0.0031 children [ TouchSensor { description "r_axilla_proximal" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                             DEF Gramps_r_axilla_distal HAnimSite { name "r_axilla_distal" translation -0.1603 1.4098 -0.0826 children [ TouchSensor { description "r_axilla_distal" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                             DEF Gramps_r_axilla_posterior_folds HAnimSite { name "r_axilla_posterior_folds" translation 0 0 0 children [ TouchSensor { description "r_axilla_posterior_folds" }
+                                               USE GrampsSiteShape
+                                             ] }
+                                         ] }
+                                         DEF Gramps_r_shoulder HAnimJoint { name "r_shoulder" center -0.1907 1.4407 -0.0325 children [
+                                           DEF Gramps_r_upperarm HAnimSegment { name "r_upperarm" children [ Transform { translation -0.1907 1.4407 -0.0325 children [ USE GrampsJointShape ] }
+                                               DEF Gramps_r_humeral_lateral_epicondyles HAnimSite { name "r_humeral_lateral_epicondyles" translation -0.2224 1.1517 -0.1033 children [ TouchSensor { description "r_humeral_lateral_epicondyles" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                               DEF Gramps_r_humeral_medial_epicondyles HAnimSite { name "r_humeral_medial_epicondyles" translation -0.168 1.1298 -0.1062 children [ TouchSensor { description "r_humeral_medial_epicondyles" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                               DEF Gramps_r_radiale HAnimSite { name "r_radiale" translation -0.213 1.1305 -0.1091 children [ TouchSensor { description "r_radiale" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                               DEF Gramps_r_bideltoid HAnimSite { name "r_bideltoid" translation 0 0 0 children [ TouchSensor { description "r_bideltoid" }
+                                                 USE GrampsSiteShape
+                                               ] }
+                                           ] }
+                                           DEF Gramps_r_elbow HAnimJoint { name "r_elbow" center -0.1949 1.1388 -0.062 children [
+                                             DEF Gramps_r_forearm HAnimSegment { name "r_forearm" children [ Transform { translation -0.1949 1.1388 -0.062 children [ USE GrampsJointShape ] }
+                                                 DEF Gramps_r_radial_styloid HAnimSite { name "r_radial_styloid" translation -0.1884 0.8676 -0.036 children [ TouchSensor { description "r_radial_styloid" }
+                                                   USE GrampsSiteShape
+                                                 ] }
+                                                 DEF Gramps_r_olecranon HAnimSite { name "r_olecranon" translation -0.1907 1.1405 -0.1065 children [ TouchSensor { description "r_olecranon" }
+                                                   USE GrampsSiteShape
+                                                 ] }
+                                             ] }
+                                             DEF Gramps_r_radiocarpal HAnimJoint { name "r_radiocarpal" center -0.1959 0.8694 -0.0521 children [
+                                               DEF Gramps_r_carpal HAnimSegment { name "r_carpal" children [ Transform { translation -0.1959 0.8694 -0.0521 children [ USE GrampsJointShape ] }
+                                                   DEF Gramps_r_ulnar_styloid HAnimSite { name "r_ulnar_styloid" translation -0.2117 0.8562 -0.0584 children [ TouchSensor { description "r_ulnar_styloid" }
+                                                     USE GrampsSiteShape
+                                                   ] }
+                                               ] }
+                                               DEF Gramps_r_midcarpal_1 HAnimJoint { name "r_midcarpal_1" center 0 0 0 children [
+                                                 DEF Gramps_r_trapezium HAnimSegment { name "r_trapezium" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_r_carpometacarpal_1 HAnimJoint { name "r_carpometacarpal_1" center -0.1899 0.8502 -0.0473 children [
+                                                   DEF Gramps_r_metacarpal_1 HAnimSegment { name "r_metacarpal_1" children [ Transform { translation -0.1899 0.8502 -0.0473 children [ USE GrampsJointShape ] }
+                                                       DEF Gramps_r_metacarpal_phalanx_2 HAnimSite { name "r_metacarpal_phalanx_2" translation -0.1977 0.8169 -0.0177 children [ TouchSensor { description "r_metacarpal_phalanx_2" }
+                                                         USE GrampsSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Gramps_r_metacarpophalangeal_1 HAnimJoint { name "r_metacarpophalangeal_1" center -0.1874 0.8256 0.0306 children [
+                                                     DEF Gramps_r_carpal_proximal_phalanx_1 HAnimSegment { name "r_carpal_proximal_phalanx_1" children [ Transform { translation -0.1874 0.8256 0.0306 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_r_carpal_interphalangeal_1 HAnimJoint { name "r_carpal_interphalangeal_1" center -0.1864 0.819 0.0506 children [
+                                                       DEF Gramps_r_carpal_distal_phalanx_1 HAnimSegment { name "r_carpal_distal_phalanx_1" children [ Transform { translation -0.1864 0.819 0.0506 children [ USE GrampsJointShape ] }
+                                                           DEF Gramps_r_carpal_distal_phalanx_1_tip HAnimSite { name "r_carpal_distal_phalanx_1_tip" translation -0.1869 0.809 0.082 children [ TouchSensor { description "r_carpal_distal_phalanx_1_tip" }
+                                                             USE GrampsSiteShape
+                                                           ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Gramps_r_midcarpal_2 HAnimJoint { name "r_midcarpal_2" center 0 0 0 children [
+                                                 DEF Gramps_r_trapezoid HAnimSegment { name "r_trapezoid" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_r_carpometacarpal_2 HAnimJoint { name "r_carpometacarpal_2" center 0 0 0 children [
+                                                   DEF Gramps_r_metacarpal_2 HAnimSegment { name "r_metacarpal_2" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                     DEF Gramps_r_metacarpophalangeal_2 HAnimJoint { name "r_metacarpophalangeal_2" center -0.1961 0.8055 -0.0218 children [
+                                                     ] }
+                                                   ] }
+                                                   DEF Gramps_r_carpal_proximal_phalanx_2 HAnimSegment { name "r_carpal_proximal_phalanx_2" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                     DEF Gramps_r_carpal_proximal_interphalangeal_2 HAnimJoint { name "r_carpal_proximal_interphalangeal_2" center -0.1954 0.7393 -0.0185 children [
+                                                       DEF Gramps_r_carpal_middle_phalanx_2 HAnimSegment { name "r_carpal_middle_phalanx_2" children [ Transform { translation -0.1954 0.7393 -0.0185 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_r_carpal_distal_interphalangeal_2 HAnimJoint { name "r_carpal_distal_interphalangeal_2" center -0.1945 0.7169 -0.0173 children [
+                                                         DEF Gramps_r_carpal_distal_phalanx_2 HAnimSegment { name "r_carpal_distal_phalanx_2" children [ Transform { translation -0.1945 0.7169 -0.0173 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_r_dactylion HAnimSite { name "r_dactylion" translation -0.1941 0.6772 -0.0423 children [ TouchSensor { description "r_dactylion" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                             DEF Gramps_r_carpal_distal_phalanx_2_tip HAnimSite { name "r_carpal_distal_phalanx_2_tip" translation 0 0 0 children [ TouchSensor { description "r_carpal_distal_phalanx_2_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Gramps_r_midcarpal_3 HAnimJoint { name "r_midcarpal_3" center 0 0 0 children [
+                                                 DEF Gramps_r_carpometacarpal_3 HAnimJoint { name "r_carpometacarpal_3" center -0.1972 0.806 -0.0468 children [
+                                                   DEF Gramps_r_metacarpal_3 HAnimSegment { name "r_metacarpal_3" children [ Transform { translation -0.1972 0.806 -0.0468 children [ USE GrampsJointShape ] }
+                                                       DEF Gramps_r_metacarpal_phalanx_3 HAnimSite { name "r_metacarpal_phalanx_3" translation 0 0 0 children [ TouchSensor { description "r_metacarpal_phalanx_3" }
+                                                         USE GrampsSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Gramps_r_metacarpophalangeal_3 HAnimJoint { name "r_metacarpophalangeal_3" center -0.1972 0.7849 -0.0468 children [
+                                                     DEF Gramps_r_carpal_proximal_phalanx_3 HAnimSegment { name "r_carpal_proximal_phalanx_3" children [ Transform { translation -0.1972 0.7849 -0.0468 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_r_carpal_proximal_interphalangeal_3 HAnimJoint { name "r_carpal_proximal_interphalangeal_3" center -0.195 0.7304 -0.0441 children [
+                                                       DEF Gramps_r_carpal_middle_phalanx_3 HAnimSegment { name "r_carpal_middle_phalanx_3" children [ Transform { translation -0.195 0.7304 -0.0441 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_r_carpal_distal_interphalangeal_3 HAnimJoint { name "r_carpal_distal_interphalangeal_3" center -0.1939 0.7042 -0.0432 children [
+                                                         DEF Gramps_r_carpal_distal_phalanx_3 HAnimSegment { name "r_carpal_distal_phalanx_3" children [ Transform { translation -0.1939 0.7042 -0.0432 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_r_carpal_distal_phalanx_3_tip HAnimSite { name "r_carpal_distal_phalanx_3_tip" translation -0.1969 0.6758 -0.0427 children [ TouchSensor { description "r_carpal_distal_phalanx_3_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                               DEF Gramps_r_midcarpal_4_5 HAnimJoint { name "r_midcarpal_4_5" center 0 0 0 children [
+                                                 DEF Gramps_r_hamate HAnimSegment { name "r_hamate" children [ Transform { translation 0 0 0 children [ USE GrampsJointShape ] }
+                                                 ] }
+                                                 DEF Gramps_r_carpometacarpal_4 HAnimJoint { name "r_carpometacarpal_4" center -0.1951 0.8049 -0.0732 children [
+                                                   DEF Gramps_r_metacarpal_4 HAnimSegment { name "r_metacarpal_4" children [ Transform { translation -0.1951 0.8049 -0.0732 children [ USE GrampsJointShape ] }
+                                                   ] }
+                                                   DEF Gramps_r_metacarpophalangeal_4 HAnimJoint { name "r_metacarpophalangeal_4" center -0.1951 0.7845 -0.0732 children [
+                                                     DEF Gramps_r_carpal_proximal_phalanx_4 HAnimSegment { name "r_carpal_proximal_phalanx_4" children [ Transform { translation -0.1951 0.7845 -0.0732 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_r_carpal_proximal_interphalangeal_4 HAnimJoint { name "r_carpal_proximal_interphalangeal_4" center -0.192 0.7318 -0.0716 children [
+                                                       DEF Gramps_r_carpal_middle_phalanx_4 HAnimSegment { name "r_carpal_middle_phalanx_4" children [ Transform { translation -0.192 0.7318 -0.0716 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_r_carpal_distal_interphalangeal_4 HAnimJoint { name "r_carpal_distal_interphalangeal_4" center -0.1908 0.7077 -0.0706 children [
+                                                         DEF Gramps_r_carpal_distal_phalanx_4 HAnimSegment { name "r_carpal_distal_phalanx_4" children [ Transform { translation -0.1908 0.7077 -0.0706 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_r_carpal_distal_phalanx_4_tip HAnimSite { name "r_carpal_distal_phalanx_4_tip" translation -0.1934 0.6778 -0.0693 children [ TouchSensor { description "r_carpal_distal_phalanx_4_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                                 DEF Gramps_r_carpometacarpal_5 HAnimJoint { name "r_carpometacarpal_5" center -0.1926 0.8096 -0.0975 children [
+                                                   DEF Gramps_r_metacarpal_5 HAnimSegment { name "r_metacarpal_5" children [ Transform { translation -0.1926 0.8096 -0.0975 children [ USE GrampsJointShape ] }
+                                                       DEF Gramps_r_metacarpal_phalanx_5 HAnimSite { name "r_metacarpal_phalanx_5" translation -0.1929 0.789 -0.1064 children [ TouchSensor { description "r_metacarpal_phalanx_5" }
+                                                         USE GrampsSiteShape
+                                                       ] }
+                                                   ] }
+                                                   DEF Gramps_r_metacarpophalangeal_5 HAnimJoint { name "r_metacarpophalangeal_5" center -0.1926 0.7896 -0.0975 children [
+                                                     DEF Gramps_r_carpal_proximal_phalanx_5 HAnimSegment { name "r_carpal_proximal_phalanx_5" children [ Transform { translation -0.1926 0.7896 -0.0975 children [ USE GrampsJointShape ] }
+                                                     ] }
+                                                     DEF Gramps_r_carpal_proximal_interphalangeal_5 HAnimJoint { name "r_carpal_proximal_interphalangeal_5" center -0.1902 0.7483 -0.0963 children [
+                                                       DEF Gramps_r_carpal_middle_phalanx_5 HAnimSegment { name "r_carpal_middle_phalanx_5" children [ Transform { translation -0.1902 0.7483 -0.0963 children [ USE GrampsJointShape ] }
+                                                       ] }
+                                                       DEF Gramps_r_carpal_distal_interphalangeal_5 HAnimJoint { name "r_carpal_distal_interphalangeal_5" center -0.1908 0.754 -0.096 children [
+                                                         DEF Gramps_r_carpal_distal_phalanx_5 HAnimSegment { name "r_carpal_distal_phalanx_5" children [ Transform { translation -0.1908 0.754 -0.096 children [ USE GrampsJointShape ] }
+                                                             DEF Gramps_r_carpal_distal_phalanx_5_tip HAnimSite { name "r_carpal_distal_phalanx_5_tip" translation -0.1938 0.7035 -0.0949 children [ TouchSensor { description "r_carpal_distal_phalanx_5_tip" }
+                                                               USE GrampsSiteShape
+                                                             ] }
+                                                         ] }
+                                                       ] }
+                                                     ] }
+                                                   ] }
+                                                 ] }
+                                               ] }
+                                             ] }
+                                           ] }
+                                         ] }
+                                       ] }
+                                     ] }
+                                   ] }
+                                 ] }
+                               ] }
+                             ] }
+                           ] }
+                         ] }
+                       ] }
+                     ] }
+                   ] }
+                 ] }
+               ] }
+             ] }
+           ] }
+         ] }
+       ] }
+     ] }
+   ] }
+ ] }
+]
+skin [ 
+DEF babyskin Shape { # 
+ appearance Appearance {
+   texture ImageTexture { url [ "Leif.png" ] }
+
+   material Material {
+emissiveColor 0 0 0 
+specularColor 0 0 0
+shininess 0.5
+transparency 0 
+		}
+	} # appearance
+	geometry DEF GrampsSkin IndexedFaceSet { # triangle mesh
+                creaseAngle 0 
+		ccw    TRUE
+		convex TRUE
+		solid  TRUE
+		coord DEF GrampsSkinCoord Coordinate {
+		    point [ ]
+		}
+		coordIndex [
+		]
+		texCoordIndex [
+		]
+                texCoord TextureCoordinate {
+                    point [ ]
+                }
+	} # geometry
+   } # Shape 
+ ]  # skin 
+ skinCoord USE GrampsSkinCoord
+}
+# ]}   # Added by John
+]}   # GrampsView

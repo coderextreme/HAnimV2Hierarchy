@@ -126,7 +126,7 @@ function printHier (node, indent, approved, parent) {
 						break;
 					case "site":
 						console.error("Accepted", node.type, node[node.type])
-						console.log(" ".repeat(node.indentLength), "DEF", "Gramps_"+node[node.type], "HAnimSite", "{", "name", '"'+node[node.type]+'"', fmtCoord("translation", node), " children [ TouchSensor { description", '"'+node[node.type]+'"',"}");
+						console.log(" ".repeat(node.indentLength), "DEF", "Gramps_"+node[node.type], "HAnimSite", "{", "name", '"'+node[node.type]+'"', fmtCoord("translation", node), "children [ TouchSensor { description", '"'+node[node.type]+'"',"}");
 						console.log(" ".repeat(node.indentLength+2), "USE", "GrampsSiteShape");
 						
 						break;

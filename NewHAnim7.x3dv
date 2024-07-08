@@ -50,12 +50,12 @@ DEF GrampsView Transform { children [
    Inline { url ["JointCoordinateAxes.x3dv"] } ]}
 
 DEF Gramps HAnimHumanoid {
-  scale 1 1 -1 
+  scale 1 1 1 
   skeleton [ 
 
  DEF Gramps_humanoid_root HAnimJoint { name "humanoid_root" center 0 0.824 0.0277 children [
 DEF rootBox Transform { translation 0 0 0 children [ Shape { geometry Box { size 0.015 0.015 0.015 } } ] }
-DEF GrampsRootView Viewpoint { description " Root View " position 0 0.5 -1.5 orientation 0 1 0 3.14 } # yaw pi rads to compensate for humanoid scale 1 1 -1
+DEF GrampsRootView Viewpoint { description " Root View " position 0 0.5 1.5 }
    DEF Gramps_sacrum HAnimSegment { name "sacrum" children [ Transform { translation 0 0.824 0.0277 children [ USE GrampsJointShape ] }
    ] }
    DEF Gramps_sacroiliac HAnimJoint { name "sacroiliac" center 0 0.9149 0.0016 children [

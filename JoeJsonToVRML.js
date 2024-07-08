@@ -117,7 +117,7 @@ function printHier (node, indent, approved, parent) {
 						console.log(" ".repeat(node.indentLength), "DEF", "Gramps_"+node[node.type], "HAnimJoint", "{", "name", '"'+node[node.type]+'"', fmtCoord("center", node), "children", "[");
 						if (node[node.type] === "humanoid_root") {
     							console.log("DEF rootBox Transform { translation 0 0 0 children [ Shape { geometry Box { size 0.015 0.015 0.015 } } ] }");
-    							console.log('DEF GrampsRootView Viewpoint { description " Root View " position 0 0.5 -1.5 orientation 0 1 0 3.14 } # yaw pi rads to compensate for humanoid scale 1 1 -1');
+    							console.log('DEF GrampsRootView Viewpoint { description " Root View " position 0 0.5 1.5 }');
 						}
 						break;
 					case "segment":
@@ -257,7 +257,7 @@ DEF GrampsView Transform { children [
    Inline { url ["JointCoordinateAxes.x3dv"] } ]}
 
 DEF Gramps HAnimHumanoid {
-  scale 1 1 -1 
+  scale 1 1 1 
   skeleton [ 
 `;
 	console.log(heredoc);

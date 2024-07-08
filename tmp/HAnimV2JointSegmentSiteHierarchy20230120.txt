@@ -1,0 +1,671 @@
+﻿hanim v2 LOA4 skeleton Joint, Segment, Site hierarchy 
+with Joint and Site locations
+Based on V1 LOA3 hierarchy extended to V2 LOA4
+20181024 ... 20190314 20190523  20201207 20210305 0316
+0404 sacroiliac and vt1 connections 
+0210313 hand joint locations
+  
+
+HAnim2SpecificationLOA3Invisible.x3d
+needs v2 new joints and sites.
+x_forefoot_tip is x_tarsal_distal_phalanx_2_pt def sb _tip
+====================================================
+
+hierarchy notation:
+ 
+joint_a  x y z                      #Jnn
+  segment_a                          #Bnn
+    [from joint_a to joint_b]
+  joint_b  x y z                    #Jnn 
+    segment_b                        #Bnn
+      [joint_b to segment_b_tip]
+        (segment_b_tip  x y z)        #Snn   
+ 
+#Jnn = Joint reference number from Concepts? and schema
+ x y z = Joint Center Location
+#Snn = Site reference number from hanim v2 Table B.2 — Feature points and schema
+ (name of Site)
+ x y z = Site Location 
+#Bnn = Segment reference number from Concepts? and schema
+ [from ... to ...] shows
+ [from parent Joint to child Joint] or [from parent joint of parent Segment to end-effector Site]
+
+====================================================
+
+
+humanoid_root  0.0000 0.8240 0.0277                                        #Jnn
+  sacrum                                                                    #Bnn
+    [humanoid_root to sacroiliac]
+    [humanoid_root to vl5]
+  sacroiliac  0.0000 0.9149 0.0016                                         #Jnn
+  | pelvis                                                                  #Bnn  
+  |   [sacroiliac to l_hip] 
+  |   [sacroiliac to r_hip] 
+  |     (r_iliocristale  -0.1525 1.0628 0.0035)                              #S36
+  |     (r_trochanterion  -0.1689 0.8419 0.0352)                             #S46
+  |     (l_iliocristale  0.1612 1.0537 0.0008)                               #S33
+  |     (l_trochanterion  0.1677 0.8336 0.0303)                              #S42
+  |     (r_asis  -0.0887 1.0021 0.1112)                                      #S35
+  |     (l_asis  0.0774 1.0190 -0.1151)                                      #S32
+  |     (r_psis  -0.0716 1.0190 -0.1138)                                     #S37
+  |     (l_psis  0.0774 1.0190 -0.1151)                                      #S34
+  |     (crotch  0.0034 0.8266 0.0257)                                       #S38
+  |     (buttocks_standing_wall_contact_point  x y z)                        #S93
+  | l_hip  0.0961 0.9124 -0.0001                                           #Jnn
+  | | l_thigh                                                               #Bnn
+  | |   [l_hip to l_knee]
+  | |     (l_knee_crease  0.0993 0.4881 -0.0309)                             #S90
+  | |     (l_femoral_medial_epicondyles  0.0398 0.4946 0.0303)               #S39
+  | |     (l_femoral_lateral_epicondyles  0.1598 0.4967 0.0297)              #S40
+  | |     (l_suprapatella  x y z)                                            #S41
+  | | l_knee  0.1040 0.4867 0.0308                                         #Jnn
+  | |   l_calf                                                              #Bnn
+  | |     [l_knee to l_talocrural]
+  | |       (l_tibiale  x y z)                                               #S47
+  | |       (l_medial_malleolus  0.0890 0.0716 -0.0881)                      #S48
+  | |       (l_lateral_malleolus  0.1308 0.0597 -0.1032)                     #S49
+  | |   l_talocrural  0.1101 0.0656 -0.0736                                #Jnn
+  | |     l_talus                                                           #Bnn
+  | |       [l_talocrural to l_talocalcaneonavicular]
+  | |       [l_talocrural to l_calcaneocuboid] 
+  | |         (l_sphyrion  0.0890 0.0575 -0.0943)                            #S50
+  | |         (l_calcaneous_posterior  0.0974 0.0259 -0.1171)                #S58
+  | |     l_talocalcaneonavicular  x y z                                   #Jnn
+  | |     | l_navicular                                                     #Bnn
+  | |     |   [l_talocalcaneonavicular to l_cuneonavicular_1] 
+  | |     |   [l_talocalcaneonavicular to l_cuneonavicular_2] 
+  | |     |   [l_talocalcaneonavicular to l_cuneonavicular_3]
+  | |     | l_cuneonavicular_1  x y z                                      #Jnn
+  | |     | | l_cuneiform_1                                                 #Bnn
+  | |     | |   [l_cuneonavicular_1 to l_metatarsal_1]
+  | |     | | l_tarsometatarsal_1  x y z                                   #Jnn
+  | |     | |   l_metatarsal_1                                              #Bnn
+  | |     | |     [l_metatarsal_1 to l_metatarsophalangeal_1]
+  | |     | |   l_metatarsophalangeal_1  0.1086 0.0001 0.0368              #Jnn
+  | |     | |     l_tarsal_proximal_phalanx_1                               #Bnn
+  | |     | |       [l_metatarsophalangeal_1 to l_tarsal_interphalangeal_1]
+  | |     | |         (l_metatarsal_phalanx_1  0.0816 0.0232 0.0106)         #S55
+  | |     | |     l_tarsal_interphalangeal_1  0.1086 0.0000 0.0762         #Jnn
+  | |     | |       l_tarsal_distal_phalanx_1                               #Bnn
+  | |     | |         [l_tarsal_interphalangeal_1 to l_tarsal_distal_phalanx_1_tip]
+  | |     | |           (l_tarsal_distal_phalanx_1_tip  0.090 0.012 0.188)   #S111
+  | |     | l_cuneonavicular_2  x y z                                      #Jnn
+  | |     | | l_cuneiform_2                                                 #Bnn
+  | |     | |   [l_cuneonavicular_2 to l_metatarsal_2]
+  | |     | | l_tarsometatarsal_2  x y z                                   #Jnn
+  | |     | |   l_metatarsal_2                                              #Bnn
+  | |     | |     [l_metatarsal_2 to l_metatarsophalangeal_2]
+  | |     | |   l_metatarsophalangeal_2  x y z                             #Jnn
+  | |     | |     l_tarsal_proximal_phalanx_2                               #Bnn
+  | |     | |       [l_tarsal_proximal_interphalangeal_2 to l_tarsal_proximal_interphalangeal_2]
+  | |     | |     l_tarsal_proximal_interphalangeal_2  x y z               #Jnn
+  | |     | |       l_tarsal_middle_phalanx_2                               #Bnn
+  | |     | |         [l_tarsal_proximal_interphalangeal_2 to l_tarsal_distal_interphalangeal_2]
+  | |     | |       l_tarsal_distal_interphalangeal_2  x y z               #Jnn
+  | |     | |         l_tarsal_distal_phalanx_2                             #Bnn
+  | |     | |           [l_tarsal_distal_interphalangeal_2 to l_tarsal_distal_phalanx_2_tip]
+  | |     | |           [l_tarsal_distal_interphalangeal_2 to l_metatarsal_phalanx_5_pt]
+  | |     | |             (l_metatarsal_phalanx_5_pt '0.1825 0.007 0.0928)   #S56
+  | |     | |             (l_tarsal_distal_phalanx_2_tip  0.110 0.011 0.19)  #S112
+  | |     | l_cuneonavicular_3  x y z                                      #Jnn
+  | |     |   l_cuneiform_3                                                 #Bnn
+  | |     |     [l_cuneonavicular_3 to l_tarsometatarsal_3]
+  | |     |   l_tarsometatarsal_3  x y z                                   #Jnn
+  | |     |     l_metatarsal_3                                              #Bnn
+  | |     |       [l_tarsometatarsal_3 to l_metatarsophalangeal_3]
+  | |     |     l_metatarsophalangeal_3  x y z                             #Jnn
+  | |     |       l_tarsal_proximal_phalanx_3                               #Bnn
+  | |     |         [l_metatarsophalangeal_3 to l_tarsal_proximal_interphalangeal_3]
+  | |     |       l_tarsal_proximal_interphalangeal_3  x y z               #Jnn
+  | |     |         l_tarsal_middle_phalanx_3                               #Bnn
+  | |     |           [l_tarsal_proximal_interphalangeal_3 to l_tarsal_distal_interphalangeal_3]
+  | |     |         l_tarsal_distal_interphalangeal_3  x y z               #Jnn
+  | |     |           l_tarsal_distal_phalanx_3                             #Bnn
+  | |     |             [l_tarsal_distal_interphalangeal_3 to l_tarsal_distal_phalanx_3_tip]
+  | |     |               (l_tarsal_distal_phalanx_3_tip  0.128 0.011 0.185) #S113   
+  | |     l_calcaneocuboid  x y z                                         #Jnn
+  | |       l_calcaneus                                                     #Bnn
+  | |         [l_calcaneocuboid to l_transversetarsal]
+  | |       l_transversetarsal  x y z                                      #Jnn
+  | |         l_cuboid                                                      #Bnn
+  | |           [l_transversetarsal to l_tarsometatarsal_4] 
+  | |           [l_transversetarsal to l_tarsometatarsal_5]
+  | |         l_tarsometatarsal_4  x y z                                   #Jnn
+  | |         | l_metatarsal_4                                              #Bnn
+  | |         |   [l_tarsometatarsal_4 to l_metatarsophalangeal_4]
+  | |         | l_metatarsophalangeal_4  x y z                             #Jnn
+  | |         |   l_tarsal_proximal_phalanx_4                               #Bnn
+  | |         |     [l_metatarsophalangeal_4 to l_tarsal_proximal_interphalangeal_4]
+  | |         |   l_tarsal_proximal_interphalangeal_4  x y z               #Jnn
+  | |         |     l_tarsal_middle_phalanx_4                               #Bnn
+  | |         |       [l_tarsal_proximal_interphalangeal_4 to l_tarsal_distal_interphalangeal_4]
+  | |         |     l_tarsal_distal_interphalangeal_4  x y z               #Jnn
+  | |         |       l_tarsal_distal_phalanx_4                             #Bnn
+  | |         |         [l_tarsal_distal_interphalangeal_4 to l_tarsal_distal_phalanx_4_tip]
+  | |         |           (l_tarsal_distal_phalanx_4_tip  0.142 0.011 0.178)              #S114 
+  | |         l_tarsometatarsal_5  x y z                                   #Jnn
+  | |           l_metatarsal_5                                              #Bnn
+  | |             [l_tarsometatarsal_5 to l_metatarsophalangeal_5]
+  | |           l_metatarsophalangeal_5  x y z                             #Jnn
+  | |             l_tarsal_proximal_phalanx_5                               #Bnn
+  | |               [l_metatarsophalangeal_5 to l_tarsal_proximal_interphalangeal_5]
+  | |             l_tarsal_proximal_interphalangeal_5  x y z               #Jnn
+  | |               l_tarsal_middle_phalanx_5                               #Bnn
+  | |                 [l_tarsal_proximal_interphalangeal_5 to l_tarsal_distal_interphalangeal_5]
+  | |                   (l_metatarsal_phalanx_5  0.1825 0.0070 0.0928)       #S56
+  | |               l_tarsal_distal_interphalangeal_5  x y z               #Jnn
+  | |                 l_tarsal_distal_phalanx_5                             #Bnn
+  | |                   [l_tarsal_distal_interphalangeal_5 to l_tarsal_distal_phalanx_5_tip]
+  | |                     (l_tarsal_distal_phalanx_5_tip  0.154 0.010 0.168) #S115
+  | r_hip  -0.0950 0.9171 0.0029                                           #Jnn
+  |   r_thigh                                                               #Bnn
+  |     [r_hip to r_knee]
+  |       (r_knee_crease  -0.0825 0.4932 -0.0326)                            #S91
+  |       (r_femoral_lateral_epicnondyles  -0.1421 0.4992 0.0310)            #S44 
+  |       (r_femoral_medial_epicnondyles  -0.0221 0.5014 0.0289)             #S43
+  |       (r_suprapatella  x y z)                                            #S45
+  |   r_knee  -0.0867 0.4913 0.0318                                        #Jnn
+  |     r_calf                                                              #Bnn
+  |       [r_knee to r_talocrural]
+  |         (r_tibiale  x y z)                                               #S51      
+  |         (r_medial_malleolus  -0.0591 0.0760 -0.0928)                     #S52
+  |         (r_lateral_malleolus  -0.1006 0.0658 -0.1075)                    #S53
+  |     r_talocrural  -0.0801 0.0712 -0.0766                               #Jnn       52 53 54 59 60 62 116 117 118 119 120
+  |       r_talus                                                           #Bnn
+  |         [r_talocrural to r_talocalcaneonavicular]
+  |         [r_talocrural to r_calcaneuscuboid]
+  |           (r_sphyrion  -0.0603 0.0610 -0.1002)                           #S54
+  |           (r_calcaneous_posterior  -0.0692 0.0297 -0.1221)               #S62
+  |       r_talocalcaneonavicular  x y z                                   #Jnn
+  |       | r_navicular                                                     #Bnn
+  |       |   [r_talocalcaneonavicular to r_cuneonavicular_1] 
+  |       |   [r_talocalcaneonavicular to r_cuneonavicular_2] 
+  |       |   [r_talocalcaneonavicular to r_cuneonavicular_3]
+  |       | r_cuneonavicular_1  x y z                                      #Jnn
+  |       | | r_cuneiform_1                                                 #Bnn
+  |       | |   [r_cuneonavicular_1 to r_tarsometatarsal_1]
+  |       | | r_tarsometatarsal_1  x y z                                   #Jnn
+  |       | |   r_metatarsal_1                                              #Bnn
+  |       | |     [r_tarsometatarsal_1 to r_metatarsophalangeal_1]
+  |       | |   r_metatarsophalangeal_1  x y z                             #Jnn
+  |       | |     r_tarsal_proximal_phalanx_1                               #Bnn
+  |       | |       [r_metatarsophalangeal_1 to r_tarsal_interphalangeal_1]
+  |       | |     r_tarsal_interphalangeal_1  x y z                        #Jnn
+  |       | |       r_tarsal_distal_phalanx_1                               #Bnn
+  |       | |         [r_tarsal_interphalangeal_1 to r_tarsal_distal_phalanx_1_tip]
+  |       | |           (r_metatarsal_phalanx_1  x y z)                      #S59
+  |       | |           (r_tarsal_distal_phalanx_1_tip  x y z)               #S116
+  |       | r_cuneonavicular_2  x y z                                      #Jnn
+  |       | | r_cuneiform_2                                                 #Bnn
+  |       | |   [r_cuneonavicular_2 to r_tarsometatarsal_2]
+  |       | | r_tarsometatarsal_2  x y z                                   #Jnn
+  |       | |   r_metatarsal_2                                              #Bnn
+  |       | |     [r_tarsometatarsal_2 to r_metatarsophalangeal_2]
+  |       | |   r_metatarsophalangeal_2  x y z                             #Jnn
+  |       | |     r_tarsal_proximal_phalanx_2                               #Bnn
+  |       | |       [r_metatarsophalangeal_2 to r_tarsal_proximal_interphalangeal_2]
+  |       | |     r_tarsal_proximal_interphalangeal_2  x y z               #Jnn
+  |       | |       r_tarsal_middle_phalanx_2                               #Bnn
+  |       | |         [r_tarsal_proximal_interphalangeal_2 to r_tarsal_distal_interphalangeal_2]
+  |       | |       r_tarsal_distal_interphalangeal_2  x y z               #Jnn
+  |       | |         r_tarsal_distal_phalanx_2                             #Bnn
+  |       | |           [r_tarsal_distal_interphalangeal_2 to r_tarsal_distal_phalanx_2_tip]
+  |       | |           [r_tarsal_distal_interphalangeal_2 to r_metatarsal_phalanx_5_pt]
+  |       | |             (r_metatarsal_phalanx_5_pt -0.1523 0.0166 0.0895') #S60 
+  |       | |             (r_tarsal_distal_phalanx_2_tip -0.110 0.011 0.19)  #S117
+  |       | r_cuneonavicular_3  x y z                                      #Jnn
+  |       |   r_cuneiform_3                                                 #Bnn
+  |       |     [r_cuneonavicular_3 to r_tarsometatarsal_3]
+  |       |   r_tarsometatarsal_3  x y z                                   #Jnn
+  |       |     r_metatarsal_3                                              #Bnn
+  |       |       [r_tarsometatarsal_3 to r_metatarsophalangeal_3]
+  |       |     r_metatarsophalangeal_3  x y z                             #Jnn
+  |       |       r_tarsal_proximal_phalanx_3                               #Bnn
+  |       |         [r_metatarsophalangeal_3 to r_tarsal_proximal_interphalangeal_3]
+  |       |       r_tarsal_proximal_interphalangeal_3  x y z               #Jnn
+  |       |         r_tarsal_middle_phalanx_3                               #Bnn
+  |       |           [r_tarsal_proximal_interphalangeal_3 to r_tarsal_distal_interphalangeal_3]
+  |       |         r_tarsal_distal_interphalangeal_3  x y z               #Jnn
+  |       |           r_tarsal_distal_phalanx_3                             #Bnn
+  |       |             [r_tarsal_distal_interphalangeal_3 to r_tarsal_distal_phalanx_3_tip]
+  |       |             (r_tarsal_distal_phalanx_3_tip  -0.128 0.011 0.185)  #S118
+  |       r_calcaneocuboid  x y z                                         #Jnn
+  |         r_calcaneus                                                     #Bnn
+  |           [r_calcaneuscuboid to r_transversetarsal]
+  |         r_transversetarsal  x y z                                      #Jnn
+  |           r_cuboid                                                      #Bnn
+  |             [r_transversetarsal to r_tarsometatarsal_4] 
+  |             [r_transversetarsal to r_tarsometatarsal_5]
+  |           r_tarsometatarsal_4  x y z                                   #Jnn
+  |           | r_metatarsal_4                                              #Bnn
+  |           |   [r_tarsometatarsal_4 to r_metatarsophalangeal_4]
+  |           | r_metatarsophalangeal_4  x y z                             #Jnn
+  |           |   r_tarsal_proximal_phalanx_4                               #Bnn
+  |           |     [r_metatarsophalangeal_4 to r_tarsal_proximal_interphalangeal_4]
+  |           |   r_tarsal_proximal_interphalangeal_4  x y z               #Jnn
+  |           |     r_tarsal_middle_phalanx_4                               #Bnn
+  |           |       [r_tarsal_proximal_interphalangeal_4 to r_tarsal_distal_interphalangeal_4]
+  |           |     r_tarsal_distal_interphalangeal_4  x y z               #Jnn
+  |           |       r_tarsal_distal_phalanx_4                             #Bnn
+  |           |         [r_tarsal_distal_interphalangeal_4 to r_tarsal_distal_phalanx_4_tip]
+  |           |           (r_tarsal_distal_phalanx_4_tip  -0.142 0.011 0.178)  #S119
+  |           r_tarsometatarsal_5  x y z                                   #Jnn
+  |             r_metatarsal_5                                              #Bnn
+  |               [r_tarsometatarsal_5 to r_metatarsophalangeal_5]
+  |             r_metatarsophalangeal_5  x y z                             #Jnn
+  |               r_tarsal_proximal_phalanx_5                               #Bnn
+  |                 [r_metatarsophalangeal_5 to r_tarsal_proximal_interphalangeal_5]
+  |               r_tarsal_proximal_interphalangeal_5  x y z               #Jnn
+  |                 r_tarsal_middle_phalanx_5                               #Bnn
+  |                   [r_tarsal_proximal_interphalangeal_5 to r_tarsal_distal_interphalangeal_5]
+  |                     (r_metatarsal_phalanx_5  x y z )                     #S60
+  |                 r_tarsal_distal_interphalangeal_5  x y z               #Jnn
+  |                   r_tarsal_distal_phalanx_5                             #Bnn
+  |                     [r_tarsal_distal_interphalangeal_5 to r_tarsal_distal_phalanx_5_tip]
+  |                       (r_tarsal_distal_phalanx_5_tip  -0.154 0.010 0.168)  #S120
+  vl5  0.0028 1.0568 -0.0776                                             #Jnn
+    l5                                                                    #Bnn
+      [vl5 to vl4]  
+        (spine_2_lower_back  x y z)                                        #S25
+        (waist_preferred_anterior  x y z)                                  #S26   
+        (waist_preferred_posterior  0.2900 1.0915 -0.1091)                 #S27
+        (navel  0.0069 1.0966 0.1017)                                      #S84
+    vl4  0.0035 1.0925 -0.0787                                           #Jnn
+      l4                                                                  #Bnn
+        [vl4 to vl3]                       
+      vl3  0.0041 1.1276 -0.0796                                         #Jnn
+        l3                                                                #Bnn
+          [vl3 to vl2]
+        vl2  0.0045 1.1546 -0.0800                                       #Jnn
+          l2                                                              #Bnn
+            [vl2 to vl1]
+              (l_rib_10  0.0871 1.1925 0.0992)                             #S28 
+              (r_rib_10  -0.0711 1.1941 0.1016)                            #S30 
+              (spine_2_lower_back 0.0049 1.1908 -0.1113)                     #S25
+          vl1  0.0048 1.1912 -0.0805                                     #Jnn
+            l1                                                            #Bnn
+              [vl1 to vt12]
+            vt12  0.0051 1.2278 -0.0808                                  #Jnn
+              t12                                                         #Bnn
+                [vt12 to vt11]
+              vt11  0.0053 1.2679 -0.0810                                #Jnn
+                t11                                                       #Bnn
+                  [vt11 to vt10]
+                vt10  0.0056 1.2848 -0.0822                              #Jnn
+                  t10                                                     #Bnn
+                    [vt10 to vt9]
+                      (substernale  0.0085 1.2995 0.1147)                  #S13
+                      (mesosternale x y z)                                 #S88
+                  vt9  0.0057 1.3126 -0.0838                             #Jnn
+                    t9                                                    #Bnn
+                      [vt9 to vt8]
+                        (l_thelion  0.0918 1.3382 0.1192)                  #S29 
+                        (r_thelion  -0.0736 1.3385 0.1217)                 #S31 
+                        (rear_center_midsagittal_plane  x y z)             #S92 
+                        (l_chest_midsagittal_plane  x y z)                 #S94
+                        (r_chest_midsagittal_plane  x y z)                 #S95
+                    vt8  0.0057 1.3382 -0.0845                           #Jnn
+                      t8                                                  #Bnn
+                        [vt8 to vt7]
+                      vt7  0.0058 1.3625 -0.0833                         #Jnn
+                        t7                                                #Bnn
+                          [vt7 to vt6]
+                        vt6  0.0059 1.3866 -0.0800                       #Jnn
+                          t6                                              #Bnn
+                            [vt6 to vt5]
+                          vt5  0.0060 1.4102 -0.0745                     #Jnn
+                            t5                                            #Bnn
+                              [vt5 to vt4]
+                                (spine_1_middle_back  x y z)               #S24 
+                            vt4  0.0061 1.4320 -0.0675                   #Jnn
+                              t4                                          #Bnn
+                                [vt4 to vt3]
+                              vt3  0.0062 1.4583 -0.0570                 #Jnn
+                                t3                                        #Bnn
+                                  [vt3 to vt2]
+                                vt2  0.0063 1.4761 -0.0484               #Jnn
+                                  t2                                      #Bnn
+                                    [vt2 to vt1]
+                                  vt1  0.0065 1.4951 -0.0387             #Jnn
+                                    t1                                    #Bnn
+                                      [vt1 to vc7]
+                                      [vt1 to l_sternoclavicular]
+                                      [vt1 to r_sternoclavicular]
+                                        (suprasternale  0.0084 1.4714 0.0551)  #S12
+                                        (cervicale  0.0064 1.520 -0.0815)  #S10
+                                    vc7  0.0066 1.5132 -0.0301           #Jnn
+                                    | c7                                  #Bnn
+                                    |   [vc7 to vc6]
+                                    |     (l_neck_base  0.0646 1.5141 -0.0380)  #S82
+                                    |     (r_neck_base  -0.0419 1.5149 -0.0220) #S83
+                                    | vc6  0.0066 1.5357 -0.0143            #Jnn
+                                    |   c6                                   #Bnn
+                                    |     [vc6 to vc5]
+                                    |   vc5  0.0066 1.5520 -0.0082          #Jnn
+                                    |     c5                                 #Bnn
+                                    |       [vc5 to vc4]
+                                    |     vc4  0.0066 1.5662 -0.0084        #Jnn
+                                    |       c4                               #Bnn
+                                    |         [vc4 to vc3]
+                                    |         vc3  0.0066 1.5800 -0.0103    #Jnn
+                                    |           c3                           #Bnn
+                                    |           [vc3 to vc2]
+                                    |           vc2  0.0066 1.5928 -0.0103  #Jnn
+                                    |             c2                         #Bnn
+                                    |               [vc2 to vc1]
+                                    |                 (adams_apple  x y z)    #S11    
+                                    |             vc1  0.0066 1.6144 -0.0034     #Jnn
+                                    |               c1                           #Bnn
+                                    |                 [vc1 to skullbase]
+                                    |               skullbase  0.0044 1.6209 0.0236   #Jnn
+                                    |                 skull                            #Bnn
+                                    |                   [skullbase to l_eyelid_joint] 
+                                    |                   [skullbase to r_eyelid_joint]
+                                    |                   [skullbase to l_eyeball_joint]
+                                    |                   [skullbase to r_eyeball_joint]
+                                    |                   [skullbase to l_eyebrow_joint]
+                                    |                   [skullbase to r_eyebrow_joint]
+                                    |                   [skullbase to temporomandibular]
+                                    |                   [skullbase to tongue_joint]
+                                    |                     (skull_vertex  0.0050 1.7504 0.0055)            #S0  
+                                    |                     (sellion 0.0058  1.6316 0.0852)                 #S2
+                                    |                     (r_infraorbitale  -0.0237 1.6171 0.0752)        #S6
+                                    |                     (l_infraorbitale  0.0341 1.6171 0.0752)         #S3
+                                    |                     (r_tragion  -0.0646 1.6347 0.0302)              #S7
+                                    |                     (l_tragion  0.0739 1.6348 0.0282)               #S4 
+                                    |                     (nuchale  0.0039 1.5972 -0.0796)                #S81
+                                    |                     (opisthocranion  x y z)                         #S89 
+                                    |                     (glabella  x y z)                               #S1
+                                    |                     (l_ectocanthus  x y z)                          #S85
+                                    |                     (r_ectocanthus  x y z)                          #S86
+                                    |                 l_eyelid_joint  0.0336 1.6332 0.0502              #Jnn
+                                    |                   l_eyelid                                         #Bnn
+                                    |                     [l_eyelid_joint to l_eyelid_tip]
+                                    |                       (l_eyelid_tip  x y z)                         #Sxx
+                                    |                 r_eyelid_joint  -0.0236 1.6331 0.0510             #Jnn
+                                    |                   r_eyelid                                         #Bnn
+                                    |                     [r_eyelid_joint to r_eyelid_tip]
+                                    |                       (r_eyelid_tip  x y z)                         #Sxx
+                                    |                 l_eyeball_joint  0.0336 1.6332 0.0502             #Jnn
+                                    |                   l_eyeball                                        #Bnn
+                                    |                     [l_eyeball_joint to l_eyeball_tip]
+                                    |                     (l_eyeball_tip  x y z)                          #Sxx
+                                    |                 r_eyeball_joint -0.0236 1.6331 0.0510             #Jnn
+                                    |                   r_eyeball                                        #Bnn
+                                    |                     [r_eyeball_joint to r_eyeball_tip]
+                                    |                     (r_eyeball_tip  x y z)                          #Sxx
+                                    |                 l_eyebrow_joint  0.0336 1.6332 0.0502             #Jnn
+                                    |                   l_eyebrow                                        #Bnn
+                                    |                     [l_eyebrow_joint to l_eyebrow_tip]
+                                    |                     (l_eyebrow_tip  x y z)                          #Sxx
+                                    |                 r_eyebrow_joint  -0.0236 1.6331 0.0510            #Jnn
+                                    |                   r_eyebrow                                        #Bnn
+                                    |                     [r_eyebrow_joint to r_eyebrow_tip]
+                                    |                     (r_eyebrow_tip  x y z)                          #Sxx
+                                    |                 tongue_joint x y z                                #Jnn
+                                    |                   tongue                                           #Bnn
+                                    |                     [tongue_joint to tongue_tip]
+                                    |                     (tongue_tip  x y z)                             #Sxx
+                                    |                 temporomandibular  x y z                          #Jnn
+                                    |                   jaw                                              #Bnn
+                                    |                     [temporomandibular to menton]
+                                    |                     (r_gonion  -0.0520 1.5529 0.0347)               #S8
+                                    |                     (l_gonion  0.0631 1.5530 0.0330)                #S5 
+                                    |                     (supramenton  0.0061 1.5410 0.0805)             #S9
+                                    |                     (menton  x y z)                                 #S87
+                                    l_sternoclavicular  0.0820 1.4488 -0.0353                         #Jnn
+                                    | l_clavicle                                                       #Bnn
+                                    |   [l_sternoclavicular to l_acromioclavicular] 
+                                    |     (l_clavicale  0.0271 1.4943 0.0394)                           #S14
+                                    | l_acromioclavicular  0.0962 1.4269 -0.0424                      #Jnn
+                                    |   l_scapula                                                      #Bnn
+                                    |     [l_acromioclavicular to l_shoulder]
+                                    |       (l_acromion  0.2032 1.4760 -0.0490)                         #S15
+                                    |       (l_axilla_proximal  0.1777 1.4065 -0.0075)                  #S16
+                                    |       (l_axilla_distal  0.1706 1.4072 -0.0875)                    #S17
+                                    |       (l_axilla_posterior_folds  x y z)                           #S18
+                                    |   l_shoulder  0.2029 1.4376 -0.0387                             #Jnn
+                                    |     l_upperarm                                                   #Bnn
+                                    |       [l_shoulder to l_elbow]
+                                    |         (l_humeral_lateral_epicondyles  0.2280 1.1482 -0.1100)    #S63
+                                    |         (l_humeral_medial_epicondyles  0.1735 1.1272 -0.1113)     #S64
+                                    |         (l_radiale  0.2182 1.1212 -0.1167)                        #S69
+                                    |         (l_bideltoid  x y z)                                      #S96 
+                                    |     l_elbow  0.2014 1.1357 -0.0682                              #Jnn
+                                    |       l_forearm                                                  #Bnn
+                                    |         [l_elbow to l_radiocarpal]
+                                    |           (l_radial_styloid  0.1901 0.8645 -0.0415)               #S71 
+                                    |           (l_olecranon  0.1962 1.1375 -0.1123)                   #S65
+                                    |       l_radiocarpal  0.1984 0.8663 -0.0583                      #Jnn
+                                    |         l_carpal                                                 #Bnn
+                                    |           [l_radiocarpal to l_midcarpal_1]
+                                    |           [l_radiocarpal to l_midcarpal_2] 
+                                    |           [l_radiocarpal to l_midcarpal_3]
+                                    |           [l_radiocarpal to l_midcarpal_4_5]
+                                    |             (l_ulnar_styloid  0.2142 0.8529 -0.0648)             #S70
+                                    |         l_midcarpal_1  x y z                                    #Jnn
+                                    |         | l_trapezium                                            #Bnn
+                                    |         |   [l_midcarpal_1 to l_carpometacarpal_1]
+                                    |         | l_carpometacarpal_1  0.1924 0.8472 -0.0534            #Jnn
+                                    |         |   l_metacarpal_1                                       #Bnn
+                                    |         |     [l_carpometacarpal_1 to l_metacarpophalangeal_1]
+                                    |         |       (l_metacarpal_phalanx_2  x y z)                   #S75
+                                    |         |   l_metacarpophalangeal_1  0.1951 0.8226 0.0246       #Jnn
+                                    |         |     l_carpal_proximal_phalanx_1                        #Bnn
+                                    |         |       [l_metacarpophalangeal_1 to l_carpal_interphalangeal_1]
+                                    |         |     l_carpal_interphalangeal_1  0.1955 0.8159 0.0464  #Jnn
+                                    |         |       l_carpal_distal_phalanx_1                        #Bnn
+                                    |         |         [l_metacarpophalangeal_1 to l_carpal_distal_phalanx_1_tip]
+                                    |         |           (l_carpal_distal_phalanx_1_tip  0.1982 0.8061 0.0759)   #S101
+                                    |         l_midcarpal_2  x y z                                    #Jnn
+                                    |         | l_trapezoid                                            #Bnn
+                                    |         |   [l_midcarpal_2 to l_carpometacarpal_2]
+                                    |         | l_carpometacarpal_2  0.1983 0.8024 -0.0280            #Jnn
+                                    |         |   l_metacarpal_2                                       #Bnn
+                                    |         |     [l_carpometacarpal_2 to l_metacarpophalangeal_2]
+                                    |         |   l_metacarpophalangeal_2  0.1983 0.7815 -0.0280      #Jnn
+                                    |         |     l_carpal_proximal_phalanx_2                        #Bnn
+                                    |         |       [l_metacarpophalangeal_2 to l_carpal_proximal_interphalangeal_2]
+                                    |         |     l_carpal_proximal_interphalangeal_2  0.1983 0.7815 -0.0280  #Jnn
+                                    |         |       l_carpal_middle_phalanx_2                                  #Bnn
+                                    |         |         [l_carpal_proximal_interphalangeal_2 to l_carpal_distal_interphalangeal_2]
+                                    |         |       l_carpal_distal_interphalangeal_2  0.2028 0.7139 -0.0236  #Jnn
+                                    |         |         l_carpal_distal_phalanx_2                                #Bnn
+                                    |         |           [l_carpal_distal_interphalangeal_2 to l_carpal_distal_phalanx_2_tip]
+                                    |         |             (l_carpal_distal_phalanx_2_tip  0.2089 0.6858 -0.0245)  #S102
+                                    |         l_midcarpal_3  x y z                                    #Jnn
+                                    |         | l_capitate                                             #Bnn
+                                    |         |   [l_midcarpal_3 to l_carpometacarpal_3]
+                                    |         | l_carpometacarpal_3  0.1987 0.8029 -0.0530            #Jnn
+                                    |         |   l_metacarpal_3                                       #Bnn
+                                    |         |     [l_carpometacarpal_3 to l_metacarpophalangeal_3]
+                                    |         |       (l_metacarpal_phalanx_3  x y z )                  #S76 
+                                    |         |   l_metacarpophalangeal_3  0.1987 0.7818 -0.0530      #Jnn
+                                    |         |     l_carpal_proximal_phalanx_3                        #Bnn
+                                    |         |       [l_metacarpophalangeal_3 to l_carpal_proximal_interphalangeal_3] 
+                                    |         |     l_carpal_proximal_interphalangeal_3  0.2013 0.7273 -0.0503  #Jnn
+                                    |         |       l_carpal_middle_phalanx_3                                  #Bnn
+                                    |         |         [l_carpal_proximal_interphalangeal_3 to l_carpal_distal_interphalangeal_3]
+                                    |         |       l_carpal_distal_interphalangeal_3  0.2013 0.7273 -0.0503  #Jnn
+                                    |         |         l_carpal_distal_phalanx_3                                #Bnn
+                                    |         |           [l_carpal_distal_interphalangeal_3 to l_carpal_distal_phalanx_3_tip]
+                                    |         |             (l_dactylion  0.2056 0.6743 -0.0482)                  #S57
+                                    |         |             (l_carpal_distal_phalanx_3_tip  0.2080 0.6731 -0.0491) #S103
+                                    |         l_midcarpal_4_5  x y z                                  #Jnn
+                                    |           l_hamate                                               #Bnn
+                                    |             [l_midcarpal_4_5 to l_carpometacarpal_4]
+                                    |             [l_midcarpal_4_5 to l_carpometacarpal_5]
+                                    |           l_carpometacarpal_4  0.1956 0.8019 -0.0794            #Jnn
+                                    |           | l_metacarpal_4                                       #Bnn
+                                    |           |   [l_carpometacarpal_4 to l_metacarpophalangeal_4]
+                                    |           | l_metacarpophalangeal_4  0.1956 0.7815 -0.0794      #Jnn
+                                    |           |   l_carpal_proximal_phalanx_4                        #Bnn
+                                    |           |     [l_metacarpophalangeal_4 to l_carpal_proximal_interphalangeal_4]
+                                    |           |   l_carpal_proximal_interphalangeal_4  0.1973 0.7287 -0.0777 #Jnn
+                                    |           |     l_carpal_middle_phalanx_4                                 #Bnn
+                                    |           |       [l_carpal_proximal_interphalangeal_4 to l_carpal_distal_interphalangeal_4]
+                                    |           |     l_carpal_distal_interphalangeal_4  0.1983 0.7045 -0.0767 #Jnn
+                                    |           |       l_carpal_distal_phalanx_4                               #Bnn
+                                    |           |         [l_carpal_distal_interphalangeal_4 to l_carpal_distal_phalanx_4_tip]
+                                    |           |           (l_carpal_distal_phalanx_4_tip  0.2035 0.6750 -0.0756)  #S104
+                                    |           l_carpometacarpal_5  0.1925 0.8066 -0.1036            #Jnn
+                                    |             l_metacarpal_5                                       #Bnn
+                                    |               [l_carpometacarpal_5 to l_metacarpophalangeal_5]
+                                    |                 (l_metacarpal_phalanx_5  0.1929 0.7860 -0.1122)   #S77
+                                    |             l_metacarpophalangeal_5  0.1925 0.7866 -0.1036      #Jnn
+                                    |               l_carpal_proximal_phalanx_5                        #Bnn
+                                    |                 [l_metacarpophalangeal_5 to l_carpal_proximal_interphalangeal_5]
+                                    |               l_carpal_proximal_interphalangeal_5  0.1938 0.7452 -0.1024  #Jnn
+                                    |                 l_carpal_middle_phalanx_5                                  #Bnn
+                                    |                   [l_carpal_proximal_interphalangeal_5 to l_carpal_distal_interphalangeal_5]
+                                    |                 l_carpal_distal_interphalangeal_5  0.1948 0.7277 -0.1017  #Jnn
+                                    |                   l_carpal_distal_phalanx_5                                #Bnn  
+                                    |                     [l_carpal_distal_interphalangeal_5 to l_carpal_distal_phalanx_5_tip]
+                                    |                       (l_carpal_distal_phalanx_5_tip  0.2014 0.7009 -0.1012) #S105
+                                    r_sternoclavicular  -0.0694 1.4600 -0.0330                        #Jnn
+                                      r_clavicle                                                       #Bnn
+                                        [r_sternoclavicular to r_acromioclavicular]
+                                          (r_clavicle  -0.0115 1.4943 0.0400)                           #S19
+                                      r_acromioclavicular  -0.0836 1.4281 -0.0401                     #Jnn
+                                        r_scapula                                                      #Bnn
+                                          [r_acromioclavicular to r_shoulder]
+                                            (r_acromion  -0.1905 1.4791 -0.0431)                        #S20
+                                            (r_axilla_proximal  -0.1626 1.4072 -0.0031)                 #S21
+                                            (r_axilla_distal  -0.1603 1.4098 -0.0826)                   #S22
+                                            (r_axilla_posterior_folds  x y z                            #S23
+                                        r_shoulder  -0.1907 1.4407 -0.0325                            #Jnn
+                                          r_upperarm                                                   #Bnn
+                                            [r_shoulder to r_elbow]
+                                              (r_humeral_lateral_epicondyles  -0.2224 1.1517 -0.1033)   #S66
+                                              (r_humeral_medial_epicondyles  -0.1680 1.1298 -0.1062)    #S67
+                                              (r_radiale  -0.2130 1.1305 -0.1091)                       #S72
+                                              (r_bideltoid  x y z)                                      #S97   
+                                          r_elbow  -0.1949 1.1388 -0.0620                             #Jnn
+                                            r_forearm                                                  #Bnn
+                                              [r_elbow to r_radiocarpal]
+                                                (r_radial_styloid  -0.1884 0.8676 -0.0360)              #S74
+                                                (r_olecranon  -0.1907 1.1405 -0.1065)                   #S68
+                                            r_radiocarpal  -0.1959 0.8694 -0.0521                     #Jnn
+                                              r_carpal                                                 #Bnn
+                                                [r_radiocarpal to r_midcarpal_1]
+                                                [r_radiocarpal to r_midcarpal_2]
+                                                [r_radiocarpal to r_midcarpal_3] 
+                                                [r_radiocarpal to r_midcarpal_4_5]
+                                                  (r_ulnar_styloid  -0.2117 0.8562 -0.0584)             #S73
+                                              r_midcarpal_1  x y z                                    #Jnn
+                                              | r_trapezium                                            #Bnn
+                                              |   [r_midcarpal_1 to r_carpometacarpal_1] 
+                                              | r_carpometacarpal_1  -0.1899 0.8502 -0.0473           #Jnn
+                                              |   r_metacarpal_1                                       #Bnn
+                                              |     [r_carpometacarpal_1 to r_metacarpophalangeal_1]
+                                              |       (r_metacarpal_phalanx_2  -0.1977 0.8169 -0.0177)  #S78
+                                              |   r_metacarpophalangeal_1  -0.1874 0.8256 0.0306      #Jnn
+                                              |     r_carpal_proximal_phalanx_1                        #Bnn
+                                              |       [r_metacarpophalangeal_1 to r_carpal_interphalangeal_1]
+                                              |     r_carpal_interphalangeal_1  -0.1864 0.8190 0.0506 #Jnn
+                                              |       r_carpal_distal_phalanx_1                        #Bnn
+                                              |         [r_carpal_interphalangeal_1 to r_carpal_distal_phalanx_1_distal_tip]
+                                              |           (r_carpal_distal_phalanx_1_tip  -0.1869 0.8090 0.0820)    #S106
+                                              r_midcarpal_2  x y z                                    #Jnn
+                                              | r_trapezoid                                            #Bnn
+                                              |   [r_midcarpal_2 to r_carpometacarpal_2]
+                                              | r_carpometacarpal_2  -0.1961 0.7846 -0.0218           #Jnn
+                                              |   r_metacarpal_2                                       #Bnn
+                                              |     [r_carpometacarpal_2 to r_metacarpophalangeal_2]
+                                              |   r_metacarpophalangeal_2  -0.1954 0.7393 -0.0185     #Jnn
+                                              |     r_carpal_proximal_phalanx_2                        #Bnn
+                                              |       [r_metacarpophalangeal_2 to r_carpal_proximal_interphalangeal_2]
+                                              |     r_carpal_proximal_interphalangeal_2  -0.1954 0.7393 -0.0185     #Jnn
+                                              |       r_carpal_middle_phalanx_2                                      #Bnn
+                                              |         [r_carpal_proximal_interphalangeal_2 to r_carpal_distal_interphalangeal_2]
+                                              |       r_carpal_distal_interphalangeal_2  -0.1945 0.7169 -0.0173     #Jnn
+                                              |         r_carpal_distal_phalanx_2                                    #Bnn
+                                              |           [r_carpal_distal_interphalangeal_2 to r_carpal_distal_phalanx_2_tip]
+                                              |             (r_carpal_distal_phalanx_2_tip  -0.1980 0.6883 -0.0180)   #S107
+                                              r_midcarpal_3  x y z                                    #Jnn
+                                              | r_capitate                                             #Bnn
+                                              |   [r_midcarpal_3 to r_carpometacarpal_3]
+                                              | r_carpometacarpal_3  -0.1972 0.8060 -0.0468           #Jnn
+                                              |   r_metacarpal_3                                       #Bnn
+                                              |     [r_carpometacarpal_3 to r_metacarpophalangeal_3]
+                                              |       (l_metacarpal_phalanx_3)  x y z                   #S79
+                                              |   r_metacarpophalangeal_3  -0.1972 0.7849 -0.0468     #Jnn
+                                              |     r_carpal_proximal_phalanx_3                        #Bnn
+                                              |       [r_metacarpophalangeal_3 to r_carpal_proximal_interphalangeal_3]
+                                              |     r_carpal_proximal_interphalangeal_3 -0.1950 0.7304 -0.0441   #Jnn
+                                              |       r_carpal_middle_phalanx_3                                   #Bnn
+                                              |         [r_carpal_proximal_interphalangeal_3 to r_carpal_distal_interphalangeal_3]
+                                              |       r_carpal_distal_interphalangeal_3  -0.1939 0.7042 -0.0432  #Jnn
+                                              |         r_carpal_distal_phalanx_3                                 #Bnn
+                                              |           [r_carpal_distal_interphalangeal_3 to r_carpal_distal_phalanx_3_tip]
+                                              |             (r_carpal_distal_phalanx_3_tip  -0.1969 0.6758 -0.0427) #S108
+                                              |             (r_dactylion  -0.1941 0.6772 -0.0423)                   #S61
+                                              r_midcarpal_4_5  x y z                                  #Jnn
+                                                r_hamate                                               #Bnn
+                                                  [r_midcarpal_4_5 to r_carpometacarpal_4]
+                                                  [r_midcarpal_4_5 to r_carpometacarpal_5]
+                                                r_carpometacarpal_4  -0.1951 0.8049 -0.0732           #Jnn
+                                                | r_metacarpal_4                                       #Bnn
+                                                |   [r_carpometacarpal_4 to r_metacarpophalangeal_4]
+                                                | r_metacarpophalangeal_4  -0.1951 0.7845 -0.0732     #Jnn
+                                                |   r_carpal_proximal_phalanx_4                        #Bnn
+                                                |     [r_metacarpophalangeal_4 to r_carpal_proximal_interphalangeal_4]
+                                                |   r_carpal_proximal_interphalangeal_4  -0.1920 0.7318 -0.0716   #Jnn
+                                                |     r_carpal_middle_phalanx_4                                    #Bnn
+                                                |       [r_carpal_proximal_interphalangeal_4 to r_carpal_distal_interphalangeal_4]
+                                                |     r_carpal_distal_interphalangeal_4  -0.1908 0.7077 -0.0706   #Jnn
+                                                |       r_carpal_distal_phalanx_4                                  #Bnn
+                                                |         [r_carpal_distal_interphalangeal_4 to r_carpal_distal_phalanx_4_tip]
+                                                |           (r_carpal_distal_phalanx_4_tip  -0.1934 0.6778 -0.0693) #S109
+                                                r_carpometacarpal_5  -0.1926 0.8096 -0.0975           #Jnn
+                                                  r_metacarpal_5                                       #Bnn
+                                                    [r_metacarpal_5 to r_metacarpophalangeal_5]
+                                                      (r_metacarpal_phalanx_5  -0.1929 0.7890 -0.1064)  #S80
+                                                  r_metacarpophalangeal_5  -0.1926 0.7896 -0.0975     #Jnn
+                                                    r_carpal_proximal_phalanx_5                        #Bnn
+                                                      [r_metacarpophalangeal_5 to r_carpal_proximal_interphalangeal_5]
+                                                    r_carpal_proximal_interphalangeal_5  -0.1902 0.7483 -0.0963    #Jnn
+                                                      r_carpal_middle_phalanx_5                                     #Bnn
+                                                        [r_carpal_proximal_interphalangeal_5 to r_carpal_distal_interphalangeal_5]
+                                                      r_carpal_distal_interphalangeal_5  -0.1908 0.7540 -0.0960    #Jnn
+                                                        r_carpal_distal_phalanx_5                                   #Bnn
+                                                          [r_carpal_distal_interphalangeal_5 to r_carpal_distal_phalanx_5_tip]
+                                                            (r_carpal_distal_phalanx_5_tip  -0.1938 0.7035 -0.0949)  #S110
+
+
+Basic "Complete" set of Joint, Segment, Site hierarchy with joint and site locations for V2 LOA-4
+from 
+https://www.web3d.org/documents/specifications/19774/V2.0/
+Architecture/concepts.html#BasicSetJointHierarchy4 
+4.9.6.4 LOA‑4 hierarchy 
+
+(about 94 unknown x y z)
+All new V2 joints and Sites
+more check with v2 Annex B site list
+more compare with Annex A 
+ v1 existing but renamed joint and site locations 
+and produce 
+ v2 renamed and new joint and site locations  
+check #numbering with schema
+ 
+-----------------------------------------
+ISO/IEC 19774-1:2019 HAnim architecture
+https://www.web3d.org/documents/specifications/19774/V2.0/index.html
+-----------------------------------------
+error in 4.9.6.4 LOA‑4 hierarchy
+  | |     | l_cuneonavicular_2 : l_cuneiform_2
+  | |     | | l_tarsometatarsal_2 : l_metatarsal_2
+  | |     | |   # : l_tarsal_proximal_phalanx_2
+  | |     | |     l_tarsal_proximal_interphalangeal_2 : l_tarsal_middle_phalanx_2
+  | |     | |       l_tarsal_distal_interphalangeal_2 : l_tarsal_distal_phalanx_2
+error in line with "# : "
+replace that entire line with:
+  | |     | |   l_metatarsophalangeal_2 : l_tarsal_proximal_phalanx_2
+to result in: 
+  | |     | l_cuneonavicular_2 : l_cuneiform_2
+  | |     | | l_tarsometatarsal_2 : l_metatarsal_2
+  | |     | |   l_metatarsophalangeal_2 : l_tarsal_proximal_phalanx_2
+  | |     | |     l_tarsal_proximal_interphalangeal_2 : l_tarsal_middle_phalanx_2
+  | |     | |       l_tarsal_distal_interphalangeal_2 : l_tarsal_distal_phalanx_2
+----------------------------------------------------------------------------
+
